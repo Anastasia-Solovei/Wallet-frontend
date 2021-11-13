@@ -1,8 +1,7 @@
 import './App.css';
-// import DiagramTab from './components/DiagramTab';
 
 function App() {
-  return <div className="App">{/* <DiagramTab /> */}</div>;
+  return <div className="App"></div>;
 }
 
 export default App;
