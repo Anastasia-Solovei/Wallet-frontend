@@ -10,8 +10,8 @@
 @media screen and (min-width: 768px) {
   .logInPage {
     background-color: #e7eaf2;
-    background-image: url('../../images/LogInPage/ellipse1.png'),
-      url('../../images/LogInPage/ellipse2.png');
+    background-image: url('../../images/LogInPage/ellipse_purple.png'),
+      url('../../images/LogInPage/ellipse_pinc.png');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
     padding: 60px 114px 196px 114px;
@@ -84,7 +84,7 @@
     margin-right: 0;
     width: 260px;
     height: 250px;
-    background-image: url('../../images/LogInPage/logInPageImgTablet.png');
+    background-image: url('../../images/LogInPage/log_in_img_tablet.png');
     background-repeat: no-repeat;
     background-position: left top;
   }
@@ -92,7 +92,7 @@
 
 @media screen and (min-width: 1280px) {
   .img {
-    background-image: url('../../images/LogInPage/logInPageImg.png');
+    background-image: url('../../images/LogInPage/log_in_img.png');
     background-position: top center;
     width: 435px;
     height: 419px;
