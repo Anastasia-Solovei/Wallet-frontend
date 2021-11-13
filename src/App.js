@@ -11,9 +11,7 @@ function App() {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
 
-  return <div className="App">Hello worlod!</div>;
+  return <div className="App"></div>;
 }
 
-
 export default App;
-
