@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Anastasia-Solovei.github.io/wallet-frontend",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",

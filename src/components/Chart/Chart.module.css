@@ -1,4 +1,23 @@
-.doughnut canvas {
+.doughnut {
   width: 280px;
   height: 280px;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .doughnut {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.balance {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: bold;
 }

@@ -1,0 +1,63 @@
+.container {
+  padding: 20px;
+  width: 280px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 350px;
+  }
+}
+
+.titles {
+  padding: 16px 20px 15px;
+  background: #bdb8b8;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleItem {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: bold;
+  list-style-type: none;
+}
+.item {
+  display: flex;
+  padding: 15px 20px;
+  border-bottom: 1px solid #dcdcdf;
+  font-size: 16px;
+  line-height: 1.125;
+}
+.colorCategory {
+  margin-right: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+}
+.category {
+}
+.value {
+  align-items: flex-end;
+}
+.expenses {
+  line-height: 1.5;
+  margin-left: auto;
+}
+
+.total {
+  display: flex;
+  padding: 15px 20px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+.totalExpenses {
+  margin-left: auto;
+  color: #ff6596;
+}
+.totalIncomes {
+  margin-left: auto;
+  color: #24cca7;
+}
