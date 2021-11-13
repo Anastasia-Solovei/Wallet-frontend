@@ -1,10 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import '../../stylesheet/vars.css';
 
 .logInPage {
-  background-color: #ffffff;
+  background-color: var(--light-bcg-color);
   height: 100vh;
 }
 @media screen and (min-width: 768px) {
@@ -37,7 +34,7 @@
   .pageHeading {
     display: block;
     margin-right: auto;
-    font-family: 'Poppins';
+    font-family: var(--logo__font-family);
     font-size: 30px;
     line-height: 45px;
     margin-left: 40px;
