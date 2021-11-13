@@ -22,6 +22,8 @@ export const backgroundColors = [
   '#00AD84',
 ];
 
-// DATA - ЭТО ВРЕМЕННЫЙ МАССИВ
+// expensis - ВРЕМЕННЫЙ МАССИВ
 
-export const expensis = [12, 19, 3, 5, 8, 3, 5, 5, 6];
+export const expenses = [
+  1250.0, 1900.0, 300.0, 555.0, 888.0, 350.0, 587.0, 599.0, 687.05,
+];

@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import './App.css';
-
 import * as authOperations from './redux/auth/authOperations';
 import Chart from './components/Chart/Chart';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,4 +14,6 @@ function App() {
   return <div className="App">Hello worlod!</div>;
 }
 
+
 export default App;
+
