@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import {
-  registerRequest,
-  registerSuccess,
-  registerError,
+  registrationRequest,
+  registrationSuccess,
+  registrationError,
   logoutRequest,
   logoutSuccess,
   logoutError,
@@ -18,20 +18,20 @@ import {
 const initialUserState = { name: null, email: null };
 
 const user = createReducer(initialUserState, {
-  [registerSuccess]: (_, { payload }) => payload.token,
+  [registrationSuccess]: (_, { payload }) => payload.token,
   [loginSuccess]: (_, { payload }) => payload.token,
   [getCurrentUserSuccess]: (_, { payload }) => payload,
   [logoutSuccess]: () => initialUserState,
 });
 
 const token = createReducer(null, {
-  [registerSuccess]: (_, { payload }) => payload.token,
+  [registrationSuccess]: (_, { payload }) => payload.token,
   [loginSuccess]: (_, { payload }) => payload.token,
   [logoutSuccess]: () => null,
 });
 
 const error = createReducer(null, {
-  [registerError]: (_, { payload }) => payload,
+  [registrationError]: (_, { payload }) => payload,
   [loginError]: (_, { payload }) => payload,
   [logoutError]: (_, { payload }) => payload,
   [getCurrentUserError]: (_, { payload }) => payload,
@@ -39,9 +39,9 @@ const error = createReducer(null, {
 });
 
 const loading = createReducer(false, {
-  [registerRequest]: () => true,
-  [registerSuccess]: () => false,
-  [registerError]: () => false,
+  [registrationRequest]: () => true,
+  [registrationSuccess]: () => false,
+  [registrationError]: () => false,
   [loginRequest]: () => true,
   [loginSuccess]: () => false,
   [loginError]: () => false,
@@ -50,9 +50,17 @@ const loading = createReducer(false, {
   [logoutError]: () => false,
 });
 
+const isAuth = createReducer(false, {
+  [loginSuccess]: () => true,
+  [logoutError]: () => false,
+  [getCurrentUserSuccess]: () => true,
+  [getCurrentUserError]: () => false,
+});
+
 export default combineReducers({
   user,
   token,
+  isAuth,
   error,
   loading,
 });
