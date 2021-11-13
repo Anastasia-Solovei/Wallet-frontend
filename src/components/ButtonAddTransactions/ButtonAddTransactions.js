@@ -10,8 +10,8 @@ const ButtonAddTransactions = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M10 0V20" stroke="white" stroke-width="2" />
-        <path d="M0 10L20 10" stroke="white" stroke-width="2" />
+        <path d="M10 0V20" stroke="white" strokeWidth="2" />
+        <path d="M0 10L20 10" stroke="white" strokeWidth="2" />
       </svg>
     </button>
   );
