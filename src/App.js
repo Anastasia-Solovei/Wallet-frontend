@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Chart from './components/Chart/Chart';
 import * as authOperations from './redux/auth/authOperations';
+import Chart from './components/Chart/Chart';
 import './App.css';
 
 function App() {

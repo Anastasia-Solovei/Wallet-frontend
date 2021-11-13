@@ -11,5 +11,5 @@ export const addTransactionRequest = createAction('transaction / addRequest');
 export const addTransactionSuccess = createAction('transaction / addSuccess');
 export const addTransactionError = createAction('transaction / addError');
 
-const changeFilter = createAction('transaction/changeFilter');
-const clearError = createAction('transaction/clearError');
+export const changeFilter = createAction('transaction/changeFilter');
+export const clearError = createAction('transaction/clearError');
