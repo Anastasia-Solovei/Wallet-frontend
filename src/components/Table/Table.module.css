@@ -1,9 +1,17 @@
 .container {
-  padding: 20px;
-  width: 280px;
+  padding-top: 20px;
+  /* width: 280px; */
+}
+@media screen and (max-width: 479px) {
+  .container {
+    width: calc(280px + (350 - 280) * ((100vw - 320px) / (480 - 320)));
+  }
+  .item {
+    line-height: calc(1.12 + (1.5 - 1.12) * ((100vw - 320px) / (480 - 320)));
+  }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .container {
     width: 350px;
   }
@@ -11,7 +19,7 @@
 
 .titles {
   padding: 16px 20px 15px;
-  background: #bdb8b8;
+  background: #ffffff;
   border-radius: 30px;
   display: flex;
   justify-content: space-between;
@@ -28,8 +36,9 @@
   padding: 15px 20px;
   border-bottom: 1px solid #dcdcdf;
   font-size: 16px;
-  line-height: 1.125;
+  line-height: 1.15;
 }
+
 .colorCategory {
   margin-right: 16px;
   width: 24px;
