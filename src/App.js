@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as authOperations from './redux/auth/authOperations';
 import ButtonAddTransactions from './components/ButtonAddTransactions';
 import Chart from './components/Chart/Chart';
+import Navigation from './components/Navigation/Navigation';
 import './App.css';
 
 function App() {
@@ -16,9 +17,9 @@ function App() {
     <div className="App">
       Hello world!
       <ButtonAddTransactions />
+      <Navigation />
     </div>
   );
-
 }
 
 export default App;
