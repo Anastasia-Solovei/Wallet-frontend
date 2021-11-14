@@ -17,11 +17,9 @@ function App() {
     <div className="App">
       Hello world!
       <ButtonAddTransactions />
-    <Navigation />
+      <Navigation />
     </div>
   );
-
 }
 
 export default App;
-

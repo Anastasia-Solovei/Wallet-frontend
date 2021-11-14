@@ -11,8 +11,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import authReducer from './auth/authReducer/';
-import transactionReducer from './transactions/reducer';
+import authReducer from './auth/authReducer';
+import transactionReducer from './transactions/transactionReducer';
 
 const persistConfig = {
   key: 'auth',

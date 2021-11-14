@@ -1,15 +1,15 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import Balance from '../Balance/Balance';
 import styles from './Chart.module.css';
-import { categories, backgroundColors, expensis } from '../../assets/variables';
+import { backgroundColors, expenses } from '../../assets/variables';
 
-console.log(backgroundColors);
+const balance = 100500;
 
 const data = {
-  labels: categories,
   datasets: [
     {
-      data: expensis,
+      data: expenses,
       backgroundColor: backgroundColors,
       borderWidth: 0,
     },
@@ -18,8 +18,12 @@ const data = {
 
 const DoughnutChart = () => (
   <>
-    <div className="header">{/* <div className="links"></div> */}</div>
-    <Doughnut data={data} height={270} width={270} />
+    <div className={styles.doughnut}>
+      <div className={styles.balance}>
+        ₴<Balance />
+      </div>
+      <Doughnut data={data} />
+    </div>
   </>
 );
 
