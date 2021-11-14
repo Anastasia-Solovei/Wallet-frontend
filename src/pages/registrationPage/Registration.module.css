@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.registrationPage {
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .registrationPage {
+    background-color: #e7eaf2;
+    background-image: url('../../images/registrationPage/ellipse1.png'),
+      url('../../images/registrationPage/ellipse2.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+    padding: 60px 114px 48px 114px;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .registrationPage {
+    display: flex;
+    justify-content: flex-end;
+    padding: 52px 77px 0px;
+  }
+}
+
+.img {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .img {
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+  }
+}
+
+.frameimg {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .frameimg {
+    display: inline-block;
+    margin-right: 0;
+    width: 248px;
+    height: 250px;
+    background-image: url('../../images/registrationPage/Frametabl.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .frameimg {
+    background-image: url('../../images/registrationPage/frame.png');
+    background-position: top center;
+    width: 452px;
+    height: 413px;
+    margin-bottom: 17px;
+  }
+}
+
+.title {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    display: block;
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+    margin-left: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    text-align: center;
+    margin-left: auto;
+  }
+}
+
+.formBlock {
+  display: inline-block;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .formBlock {
+    width: 540px;
+    height: 616px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .formBlock {
+    margin: 0px;
+    z-index: 22;
+  }
+}
+
+.rightContainer {
+  display: none;
+  margin: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .rightContainer {
+    display: block;
+    width: 56.25%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+  }
+}
