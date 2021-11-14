@@ -16,13 +16,12 @@ import { financeReducer } from './finance';
 import { transactionsReducer } from './transactions';
 import { globalReducer } from './global';
 
-const middleware = [
-  ...getDefaultMiddleware({
+const middleware = getDefaultMiddleware =>
+  getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }),
-];
+  });
 
 const PersistConfig = {
   key: 'auth',
