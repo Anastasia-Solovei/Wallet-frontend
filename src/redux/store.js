@@ -11,10 +11,19 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import authReducer from './auth/authReducer';
-import transactionReducer from './transactions/transactionReducer';
+import { sessionReducer } from './session';
+import { financeReducer } from './finance';
+import { transactionsReducer } from './transactions';
+import { globalReducer } from './global';
 
-const persistConfig = {
+const middleware = getDefaultMiddleware =>
+  getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  });
+
+const PersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
@@ -22,14 +31,13 @@ const persistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
-    transaction: transactionReducer,
+    auth: persistReducer(PersistConfig, sessionReducer),
+    finance: financeReducer,
+    transactions: transactionsReducer,
+    global: globalReducer,
   },
-  middleware: getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);
