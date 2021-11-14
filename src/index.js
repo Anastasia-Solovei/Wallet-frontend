@@ -15,24 +15,24 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="home" element={<Home />} />
-        <Route path="statistics" element={<Statistics />} />
-        <Route path="currency" element={<Currency />} />
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: '1rem' }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />
-      </Route>
-    </Routes>
-  </BrowserRouter>
- </PersistGate>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route path="home" element={<Home />} />
+              <Route path="statistics" element={<Statistics />} />
+              <Route path="currency" element={<Currency />} />
+              <Route
+                path="*"
+                element={
+                  <main style={{ padding: '1rem' }}>
+                    <p>There's nothing here!</p>
+                  </main>
+                }
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

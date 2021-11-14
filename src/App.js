@@ -9,9 +9,9 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(authOperations.getCurrentUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(authOperations.getCurrentUser());
+  // }, [dispatch]);
 
   return (
     <div className="App">
