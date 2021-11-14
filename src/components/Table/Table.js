@@ -22,16 +22,18 @@ const Table = () => {
                 style={{ backgroundColor: `${backgroundColors[i]}` }}
               ></div>
               {category}
-              <div className={styles.expenses}>{expenses[i]}</div>
+              <div className={styles.expenses}>{expenses[i].toFixed(2)}</div>
             </li>
           );
         })}
       </div>
       <div className={styles.total}>
-        Expenses<span className={styles.totalExpenses}>{totalExpenses}</span>
+        Expenses
+        <span className={styles.totalExpenses}>{totalExpenses.toFixed(2)}</span>
       </div>
       <div className={styles.total}>
-        Income<span className={styles.totalIncomes}>{totalIncomes}</span>
+        Income
+        <span className={styles.totalIncomes}>{totalIncomes.toFixed(2)}</span>
       </div>
     </div>
   );
