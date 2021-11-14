@@ -1,10 +1,17 @@
 .doughnut {
-  width: 280px;
-  height: 280px;
   position: relative;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 479px) {
+  .doughnut {
+    width: calc(280px + (320 - 280) * ((100vw - 320px) / (480 - 320)));
+    height: calc(280px + (320 - 280) * ((100vw - 320px) / (480 - 320)));
+  }
+}
+
+@media screen and (min-width: 480px) {
   .doughnut {
     width: 320px;
     height: 320px;

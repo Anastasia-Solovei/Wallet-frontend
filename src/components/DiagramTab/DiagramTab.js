@@ -7,6 +7,7 @@ const DiagramTab = () => {
   return (
     <div className={styles.container}>
       <div className={styles.chart}>
+        <p className={styles.title}>Statistics</p>
         <Chart />
       </div>
       <div className={styles.table}>
