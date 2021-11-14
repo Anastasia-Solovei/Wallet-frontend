@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      Hello world! <DiagramTab />
+      Hello world! 
       <ButtonAddTransactions />
     </div>
   );

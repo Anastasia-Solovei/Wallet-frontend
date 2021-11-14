@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from '../Chart';
 import Table from '../Table';
+// import InputDate from '../InputDate';
 import styles from './DiagramTab.module.css';
 
 const DiagramTab = () => {
@@ -11,6 +12,7 @@ const DiagramTab = () => {
         <Chart />
       </div>
       <div className={styles.table}>
+        {/* <InputDate /> */}
         <Table />
       </div>
     </div>

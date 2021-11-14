@@ -4,6 +4,6 @@ import React from 'react';
 const Balance = () => {
   //   const totalBalance = useSelector(state => state.finance.totalBalance);
   const totalBalance = 100501;
-  return totalBalance;
+  return totalBalance.toFixed(2);
 };
 export default Balance;
