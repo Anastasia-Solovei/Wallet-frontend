@@ -1,7 +1,8 @@
-import Navigation from './components/Navigation/Navigation';
+import './App.css';
+import Chart from './components/Chart/Chart';
 
-// import Chart from './components/Chart/Chart';
-
-export default function App() {
-  return <Navigation />;
+function App() {
+  return <div className="App"></div>;
 }
+
+export default App;
