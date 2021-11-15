@@ -5,7 +5,7 @@ import { sessionOperations } from './redux/session';
 
 import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/registrationPage/RegistrationPage';
-// import DashboardPage from './pages/DashboardPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 import Chart from './components/Chart/Chart';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
@@ -38,6 +38,7 @@ function App() {
           exact
           redirectTo={path.logInPage}
         >
+          <DashboardPage />
           <Chart />
         </ProtectedRoute>
       </Switch>
