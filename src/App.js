@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import * as authOperations from './redux/auth/authOperations';
+import { authOperations } from './redux/session';
 
 import LogInPage from './pages/LogInPage/LogInPage';
-import RegistrationPage from './pages/Registration';
-import DashboardPage from './pages/DashboardPage';
+import RegistrationPage from './pages/registrationPage/RegistrationPage';
+// import DashboardPage from './pages/DashboardPage';
 import Chart from './components/Chart/Chart';
-import PrivateRoute from './components/PrivateRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
 
 import ButtonAddTransactions from './components/ButtonAddTransactions';
@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authOperations.getCurrentUser());
+    dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
@@ -33,16 +33,16 @@ function App() {
           <LogInPage />
         </Route>
 
-        <PrivateRoute
+        <ProtectedRoute
           path={path.dashbordPage}
           exact
           redirectTo={path.logInPage}
         >
-          <DashboardPage />
-        </PrivateRoute>
+          <Chart />
+        </ProtectedRoute>
       </Switch>
     </>
   );
-}    
+}
 
 export default App;
