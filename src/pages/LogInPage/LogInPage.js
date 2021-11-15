@@ -1,7 +1,7 @@
 import React from 'react';
 
 import s from './LogInPage.module.css';
-//import LogInForm from '../../components/LogInForm';
+import LogInForm from '../../components/LogInForm/LogInForm';
 
 const LogInPage = () => {
   return (
@@ -12,7 +12,9 @@ const LogInPage = () => {
           <div className={s.img}></div>
           <h1 className={s.pageHeading}>Finance App</h1>
         </div>
-        <div className={s.logInFormUnderlay}></div>
+        <div className={s.logInFormUnderlay}>
+          <LogInForm />
+        </div>
       </div>
     </>
   );
