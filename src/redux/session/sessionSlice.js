@@ -15,7 +15,6 @@ const sessionSlice = createSlice({
       state.global.isLoading = true;
     },
     [sessionOperations.register.fulfilled](state, action) {
-      console.log(state);
       state.user = action.payload.user;
       state.session.token = action.payload.token;
       state.session.isAuth = true;
@@ -53,7 +52,6 @@ const sessionSlice = createSlice({
       state.global.isLoading = true;
     },
     [sessionOperations.fetchCurrentUser.fulfilled](state, action) {
-      console.log(state);
       state.session.user = action.payload;
       state.session.isAuth = true;
       state.global.isLoading = false;

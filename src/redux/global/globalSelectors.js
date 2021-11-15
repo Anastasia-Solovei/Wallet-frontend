@@ -6,7 +6,7 @@ const getIsTransactionModalOpen = state =>
 const getIsExitModalOpen = state => state.transactions.isExitModalOpen;
 
 const getIsLoading = state => state.global.isLoading;
-console.log(getIsLoading());
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getIsTransactionModalOpen,
