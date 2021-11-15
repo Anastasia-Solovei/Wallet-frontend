@@ -1,23 +1,11 @@
 import { createReducer, combineReducers } from '@reduxjs/toolkit';
-import {
-  fetchBalanceRequest,
-  fetchBalanceSuccess,
-  fetchBalanceError,
-} from './financeActions';
-
-import actions from '../session';
+import { fetchBalanceSuccess, fetchBalanceError } from './financeActions';
 
 const INITIAL_BALANCE = 0;
 
 const totalBalance = createReducer(INITIAL_BALANCE, {
   [fetchBalanceSuccess]: (_, { payload }) => payload,
-  [actions.logOutSuccess]: () => INITIAL_BALANCE,
+  [fetchBalanceError]: () => INITIAL_BALANCE,
 });
 
-const loading = createReducer(false, {
-  [fetchBalanceRequest]: () => true,
-  [fetchBalanceSuccess]: () => false,
-  [fetchBalanceError]: () => false,
-});
-
-export default combineReducers({ totalBalance, loading });
+export default combineReducers({ totalBalance });

@@ -7,6 +7,12 @@ import {
   closeModalLogOut,
 } from './globalActions';
 
+import {
+  fetchBalanceRequest,
+  fetchBalanceSuccess,
+  fetchBalanceError,
+} from '../finance/financeActions';
+
 const isTransactionModalOpen = createReducer(false, {
   [openModalAddTransaction]: () => true,
   [closeModalAddTransaction]: () => false,
@@ -17,7 +23,14 @@ const isExitModalOpen = createReducer(false, {
   [closeModalLogOut]: () => false,
 });
 
+const isLoading = createReducer(false, {
+  [fetchBalanceRequest]: () => true,
+  [fetchBalanceSuccess]: () => false,
+  [fetchBalanceError]: () => false,
+});
+
 export default combineReducers({
   isTransactionModalOpen,
   isExitModalOpen,
+  isLoading,
 });
