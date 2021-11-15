@@ -1,9 +1,12 @@
 @import '../../stylesheet/vars.css';
 
 .logInPage {
+  padding: 110px 20px;
   background-color: var(--light-bcg-color);
   height: 100vh;
+  text-align: center;
 }
+
 @media screen and (min-width: 768px) {
   .logInPage {
     background-color: #e7eaf2;
