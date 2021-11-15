@@ -56,3 +56,5 @@ export const years = [
 export const expenses = [
   1250.0, 1900.0, 300.0, 555.0, 888.0, 350.0, 587.0, 599.0, 687.05,
 ];
+
+export const currencies = ['USD', 'EUR', 'RUR'];
