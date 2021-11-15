@@ -9,6 +9,9 @@ import {
   deleteTransRequest,
   deleteTransSuccess,
   deleteTransError,
+  getTransByDateRequest,
+  getTransByDateSuccess,
+  getTransByDateError,
 } from './transactionsActions';
 
 axios.defaults.baseURL = '/';
@@ -40,5 +43,17 @@ export const deleteTransaction = transactionId => async dispatch => {
     dispatch(deleteTransSuccess(transactionId));
   } catch (error) {
     dispatch(deleteTransError(error.message));
+  }
+};
+
+export const getTransactionsByDate = (month, year) => async dispatch => {
+  dispatch(getTransByDateRequest());
+  try {
+    const { data } = await axios.get(
+      `/transactions/statistics?month=${month}&year=${year}`,
+    );
+    dispatch(getTransByDateSuccess(data));
+  } catch (error) {
+    dispatch(getTransByDateError(error.message));
   }
 };
