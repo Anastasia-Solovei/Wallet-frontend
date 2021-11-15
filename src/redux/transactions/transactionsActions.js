@@ -1,40 +1,26 @@
 import { createAction } from '@reduxjs/toolkit';
 import types from './transactionsActionTypes';
 
-export const fetchTransactionsRequest = createAction(
-  types.TRANSACTIONS_FETCH_REQUEST,
-);
-export const fetchTransactionsSuccess = createAction(
-  types.TRANSACTIONS_FETCH_SUCCESS,
-);
-export const fetchTransactionsError = createAction(
-  types.TRANSACTIONS_FETCH_ERROR,
-);
+export const fetchTransRequest = createAction(types.TRANSACTIONS_FETCH_REQUEST);
+export const fetchTransSuccess = createAction(types.TRANSACTIONS_FETCH_SUCCESS);
+export const fetchTransError = createAction(types.TRANSACTIONS_FETCH_ERROR);
 
-export const addTransactionRequest = createAction(
-  types.TRANSACTIONS_ADD_REQUEST,
-);
-export const addTransactionSuccess = createAction(
-  types.TRANSACTIONS_ADD_SUCCESS,
-);
-export const addTransactionError = createAction(types.TRANSACTIONS_ADD_ERROR);
+export const addTransRequest = createAction(types.TRANSACTIONS_ADD_REQUEST);
+export const addTransSuccess = createAction(types.TRANSACTIONS_ADD_SUCCESS);
+export const addTransError = createAction(types.TRANSACTIONS_ADD_ERROR);
 
-export const deleteTransactionRequest = createAction(
+export const deleteTransRequest = createAction(
   types.TRANSACTIONS_DELETE_REQUEST,
 );
-export const deleteTransactionSuccess = createAction(
+export const deleteTransSuccess = createAction(
   types.TRANSACTIONS_DELETE_SUCCESS,
 );
-export const deleteTransactionError = createAction(
-  types.TRANSACTIONS_DELETE_ERROR,
-);
+export const deleteTransError = createAction(types.TRANSACTIONS_DELETE_ERROR);
 
-export const filterTransactionRequest = createAction(
+export const filterTransRequest = createAction(
   'transaction/filterTransRequest',
 );
-export const filterTransactionSuccess = createAction(
+export const filterTransSuccess = createAction(
   'transaction/filterTransSuccess',
 );
-export const filterTransactionError = createAction(
-  'transaction/filterTransError',
-);
+export const filterTransError = createAction('transaction/filterTransError');

@@ -1,10 +1,15 @@
-import { createSelector } from '@reduxjs/toolkit';
+// import { createSelector } from '@reduxjs/toolkit';
 
-const isTransactionModalOpen = state =>
+const getIsTransactionModalOpen = state =>
   state.transactions.isTransactionModalOpen;
-const isExitModalOpen = state => state.transactions.isExitModalOpen;
 
+const getIsExitModalOpen = state => state.transactions.isExitModalOpen;
+
+const getIsLoading = state => state.global.isLoading;
+console.log(getIsLoading());
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  isTransactionModalOpen,
-  isExitModalOpen,
+  getIsTransactionModalOpen,
+  getIsExitModalOpen,
+  getIsLoading,
 };
