@@ -12,9 +12,9 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { sessionReducer } from './session';
-import { financeReducer } from './finance';
-import { transactionsReducer } from './transactions';
-import { globalReducer } from './global';
+import financeReducer from './finance/financeReducer';
+import transactionsReducer from './transactions/transactionsReducer';
+import globalReducer from './global/globalReducer';
 
 const middleware = getDefaultMiddleware =>
   getDefaultMiddleware({
@@ -24,14 +24,14 @@ const middleware = getDefaultMiddleware =>
   });
 
 const PersistConfig = {
-  key: 'auth',
+  key: 'session',
   storage,
   whitelist: ['token'],
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(PersistConfig, sessionReducer),
+    session: persistReducer(PersistConfig, sessionReducer),
     finance: financeReducer,
     transactions: transactionsReducer,
     global: globalReducer,

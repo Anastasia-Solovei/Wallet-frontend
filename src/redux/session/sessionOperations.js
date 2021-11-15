@@ -8,7 +8,6 @@ import {
 import axios from 'axios';
 axios.defaults.baseURL = '/';
 
-
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -76,4 +75,5 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { register, logIn, logOut, fetchCurrentUser };
