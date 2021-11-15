@@ -4,12 +4,12 @@ import { Switch, Route } from 'react-router-dom';
 import { sessionOperations } from './redux/session';
 
 import LogInPage from './pages/LogInPage/LogInPage';
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import RegistrationPage from './pages/registrationPage/RegistrationPage';
 // import DashboardPage from './pages/DashboardPage';
 import Chart from './components/Chart/Chart';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
-
+import Header from './components/Header/Header';
 import ButtonAddTransactions from './components/ButtonAddTransactions';
 import DiagramTab from './components/DiagramTab';
 
@@ -24,6 +24,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <Switch>
         <Route path={path.registrationPage}>
           <RegistrationPage />
