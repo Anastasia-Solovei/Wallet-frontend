@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import { authOperations } from './redux/session';
+import { sessionOperations } from './redux/session';
 
 import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/registrationPage/RegistrationPage';
@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());
+    dispatch(sessionOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
