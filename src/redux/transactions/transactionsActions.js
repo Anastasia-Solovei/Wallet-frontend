@@ -24,3 +24,15 @@ export const filterTransSuccess = createAction(
   'transaction/filterTransSuccess',
 );
 export const filterTransError = createAction('transaction/filterTransError');
+
+export const getTransByDateRequest = createAction(
+  'transaction/getTransactionsByDateRequest',
+);
+
+export const getTransByDateSuccess = createAction(
+  'transaction/getTransactionsByDateSuccess',
+);
+
+export const getTransByDateError = createAction(
+  'transaction/getTransactionsByDateError',
+);

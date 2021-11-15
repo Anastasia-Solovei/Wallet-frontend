@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { categories, backgroundColors, expenses } from '../../assets/variables';
+import {
+  expensesСategories,
+  expensesСategoryColors,
+  expenses,
+} from '../../assets/constants';
 
 import styles from './Table.module.css';
 
@@ -14,12 +18,12 @@ const Table = () => {
         <li className={styles.titleItem}>Total</li>
       </ul>
       <div>
-        {categories.map((category, i) => {
+        {expensesСategories.map((category, i) => {
           return (
             <li className={styles.item} key={i}>
               <div
                 className={styles.colorCategory}
-                style={{ backgroundColor: `${backgroundColors[i]}` }}
+                style={{ backgroundColor: `${expensesСategoryColors[i]}` }}
               ></div>
               {category}
               <div className={styles.expenses}>{expenses[i].toFixed(2)}</div>

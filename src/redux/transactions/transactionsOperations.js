@@ -1,44 +1,59 @@
 import axios from 'axios';
 import {
-  fetchTransactionsRequest,
-  fetchTransactionsSuccess,
-  fetchTransactionsError,
-  addTransactionRequest,
-  addTransactionSuccess,
-  addTransactionError,
-  deleteTransactionRequest,
-  deleteTransactionSuccess,
-  deleteTransactionError,
+  fetchTransRequest,
+  fetchTransSuccess,
+  fetchTransError,
+  addTransRequest,
+  addTransSuccess,
+  addTransError,
+  deleteTransRequest,
+  deleteTransSuccess,
+  deleteTransError,
+  getTransByDateRequest,
+  getTransByDateSuccess,
+  getTransByDateError,
 } from './transactionsActions';
 
 axios.defaults.baseURL = '/';
 
 export const fetchTransactions = () => async dispatch => {
-  dispatch(fetchTransactionsRequest());
+  dispatch(fetchTransRequest());
   try {
     const { data } = await axios.get('/transactions');
-    dispatch(fetchTransactionsSuccess(data));
+    dispatch(fetchTransSuccess(data));
   } catch (error) {
-    dispatch(fetchTransactionsError(error.message));
+    dispatch(fetchTransError(error.message));
   }
 };
 
 export const addTransactions = transaction => async dispatch => {
-  dispatch(addTransactionRequest());
+  dispatch(addTransRequest());
   try {
     const { data } = await axios.post('/transactions', transaction);
-    dispatch(addTransactionSuccess(data));
+    dispatch(addTransSuccess(data));
   } catch (error) {
-    dispatch(addTransactionError(error.message));
+    dispatch(addTransError(error.message));
   }
 };
 
 export const deleteTransaction = transactionId => async dispatch => {
-  dispatch(deleteTransactionRequest());
+  dispatch(deleteTransRequest());
   try {
     await axios.delete(`/transactions/${transactionId}`);
-    dispatch(deleteTransactionSuccess(transactionId));
+    dispatch(deleteTransSuccess(transactionId));
   } catch (error) {
-    dispatch(deleteTransactionError(error.message));
+    dispatch(deleteTransError(error.message));
+  }
+};
+
+export const getTransactionsByDate = (month, year) => async dispatch => {
+  dispatch(getTransByDateRequest());
+  try {
+    const { data } = await axios.get(
+      `/transactions/statistics?month=${month}&year=${year}`,
+    );
+    dispatch(getTransByDateSuccess(data));
+  } catch (error) {
+    dispatch(getTransByDateError(error.message));
   }
 };

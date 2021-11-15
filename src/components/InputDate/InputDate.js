@@ -1,47 +1,55 @@
-// import { useState } from 'react';
-// import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
+import { useState, useEffect } from 'react';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { getTransactionsByDate } from '../../redux/transactions/transactionsOperations';
+import { months, years } from '../../assets/constants';
+import styles from './InputDate.module.css';
+import { useDispatch } from 'react-redux';
 
-// export default function BasicSelect() {
-//   const [age, setAge] = useState('');
+export default function InputDate() {
+  const dispatch = useDispatch();
 
-//   const handleChange = event => {
-//     setAge(event.target.value);
-//   };
+  const [month, setMonth] = useState(new Date().getMonth());
+  const [year, setYear] = useState(new Date().getFullYear());
 
-//   return (
-//     <div>
-//       <FormControl fullWidth>
-//         <InputLabel id="demo-simple-select-label">Age</InputLabel>
-//         <Select
-//           labelId="demo-simple-select-label"
-//           id="demo-simple-select"
-//           value={age}
-//           label="Age"
-//           onChange={handleChange}
-//         >
-//           <MenuItem value={10}>Ten</MenuItem>
-//           <MenuItem value={20}>Twenty</MenuItem>
-//           <MenuItem value={30}>Thirty</MenuItem>
-//         </Select>
-//       </FormControl>
-//       <FormControl fullWidth>
-//         <InputLabel id="demo-simple-select-label">Age</InputLabel>
-//         <Select
-//           labelId="demo-simple-select-label"
-//           id="demo-simple-select"
-//           value={age}
-//           label="Age"
-//           onChange={handleChange}
-//         >
-//           <MenuItem value={10}>Ten</MenuItem>
-//           <MenuItem value={20}>Twenty</MenuItem>
-//           <MenuItem value={30}>Thirty</MenuItem>
-//         </Select>
-//       </FormControl>
-//     </div>
-//   );
-// }
+  const handleChangeMonth = event => {
+    setMonth(event.target.value);
+  };
+  const handleChangeYear = event => {
+    setYear(event.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(getTransactionsByDate(month + 1, year));
+  }, [dispatch, month, year]);
+
+  return (
+    <div className={styles.container}>
+      <FormControl sx={{ m: 1 }}>
+        <Select
+          className={styles.selectDate}
+          value={month}
+          onChange={handleChangeMonth}
+        >
+          {months.map((month, index) => {
+            return <MenuItem value={index}>{month}</MenuItem>;
+          })}
+        </Select>
+      </FormControl>
+      <FormControl sx={{ m: 1 }}>
+        <Select
+          className={styles.selectDate}
+          value={year}
+          onChange={handleChangeYear}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+          {years.map(year => {
+            return <MenuItem value={year}>{year}</MenuItem>;
+          })}
+        </Select>
+      </FormControl>
+    </div>
+  );
+}

@@ -13,6 +13,9 @@ import {
   filterTransRequest,
   filterTransSuccess,
   filterTransError,
+  getTransByDateRequest,
+  getTransByDateSuccess,
+  getTransByDateError,
 } from './transactionsActions';
 
 const result = createReducer([], {
@@ -39,6 +42,9 @@ const loading = createReducer(false, {
   [filterTransRequest]: () => true,
   [filterTransSuccess]: () => false,
   [filterTransError]: () => false,
+  [getTransByDateRequest]: () => true,
+  [getTransByDateSuccess]: () => false,
+  [getTransByDateError]: () => false,
 });
 
 const error = createReducer(null, {
@@ -50,6 +56,15 @@ const error = createReducer(null, {
   [addTransRequest]: () => null,
   [deleteTransRequest]: () => null,
   [filterTransRequest]: () => null,
+  [getTransByDateError]:
+    () =>
+    (_, { payload }) =>
+      payload,
+  [getTransByDateRequest]: () => null,
+});
+
+const categories = createReducer('', {
+  [getTransByDateSuccess]: (_, { payload }) => payload.data,
 });
 
 export default combineReducers({
@@ -57,4 +72,5 @@ export default combineReducers({
   filter,
   loading,
   error,
+  categories,
 });

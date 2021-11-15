@@ -2,15 +2,13 @@ import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Balance from '../Balance/Balance';
 import styles from './Chart.module.css';
-import { backgroundColors, expenses } from '../../assets/variables';
-
-const balance = 100500;
+import { expensesСategoryColors, expenses } from '../../assets/constants';
 
 const data = {
   datasets: [
     {
       data: expenses,
-      backgroundColor: backgroundColors,
+      backgroundColor: expensesСategoryColors,
       borderWidth: 0,
     },
   ],
