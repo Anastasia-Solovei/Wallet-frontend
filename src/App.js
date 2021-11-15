@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { sessionOperations } from './redux/session';
 
 import LogInPage from './pages/LogInPage/LogInPage';
-import RegistrationPage from './pages/registrationPage/RegistrationPage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 // import DashboardPage from './pages/DashboardPage';
 import Chart from './components/Chart/Chart';
 import ProtectedRoute from './components/ProtectedRoute';
