@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
+import { useState, useEffect } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { getTransactionsByDate } from '../../redux/transactions/transactionsOperations';
 import { months, years } from '../../assets/constants';
 import styles from './InputDate.module.css';
+import { useDispatch } from 'react-redux';
 
 export default function InputDate() {
+  const dispatch = useDispatch();
+
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
 
@@ -17,6 +19,10 @@ export default function InputDate() {
   const handleChangeYear = event => {
     setYear(event.target.value);
   };
+
+  useEffect(() => {
+    dispatch(getTransactionsByDate(month + 1, year));
+  }, [dispatch, month, year]);
 
   return (
     <div className={styles.container}>

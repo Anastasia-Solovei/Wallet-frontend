@@ -24,7 +24,6 @@ function App() {
 
   return (
     <>
-      <DiagramTab />
       <Switch>
         <Route path={path.registrationPage}>
           <RegistrationPage />
