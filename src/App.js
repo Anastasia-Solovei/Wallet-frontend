@@ -12,8 +12,9 @@ import DashboardPage from './pages/DashboardPage/DashboardPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
 
-import ButtonAddTransactions from './components/ButtonAddTransactions';
-import DiagramTab from './components/DiagramTab';
+import Navigation from './components/Navigation/Navigation';
+// import ButtonAddTransactions from './components/ButtonAddTransactions';
+// import DiagramTab from './components/DiagramTab';
 
 import './App.css';
 
