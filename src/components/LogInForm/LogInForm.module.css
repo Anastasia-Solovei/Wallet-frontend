@@ -6,9 +6,53 @@
   margin-bottom: 20px;
 }
 
-.inputEmail,
-.inputLock {
+.titleArea {
   position: relative;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .titleArea {
+    margin-top: 36px;
+  }
+}
+.title {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-style: normal;
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
+
+.walletIcon {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  fill: currentColor;
+}
+
+@media screen and (min-width: 768px) {
+  .walletIcon {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 170px;
+    transform: translateY(-50%);
+  }
+}
+
+.inputArea {
+  position: relative;
+}
+
+.input {
   width: 280px;
   height: 50px;
   font-size: 18px;
@@ -20,37 +64,13 @@
   margin-bottom: 40px;
 }
 
-.inputEmail:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  width: 20px;
-  background: url('../../images/LogInPage/icon_email.svg');
-  fill: currentColor;
-}
-
-.inputLock:before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  transform: translateY(-50%);
-  width: 20px;
-  background: url('../../images/LogInPage/icon_lock.svg') center / contain
-    no-repeat;
-}
-
 @media screen and (min-width: 768px) {
-  .inputEmail,
-  .inputLock {
+  .input {
     width: 409.5px;
   }
 }
 
-.inputEmail::placeholder,
-.inputLock::placeholder {
+.input::placeholder {
   color: #bdbdbd;
   font-size: 18px;
   font-family: 'Circe', sans-serif;
@@ -59,12 +79,27 @@
   margin-left: 60px;
 }
 
-.inputEmail:hover,
-.inputEmail:focus,
-.inputLock:hover,
-.inputLock:focus {
+.input:hover,
+.input:focus {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+}
+
+.icon {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 15px;
+  transform: translateY(-15%);
+  fill: currentColor;
+}
+
+@media screen and (min-width: 768px) {
+  .icon {
+    top: 15%;
+    left: 80px;
+    transform: translateY(-15%);
+  }
 }
 
 .link {
