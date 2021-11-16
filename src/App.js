@@ -12,7 +12,6 @@ import DashboardPage from './pages/DashboardPage/DashboardPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
 
-import Navigation from './components/Navigation/Navigation';
 // import ButtonAddTransactions from './components/ButtonAddTransactions';
 // import DiagramTab from './components/DiagramTab';
 
@@ -43,6 +42,10 @@ function App() {
         >
           <DashboardPage />
           {/* <Chart /> */}
+        </ProtectedRoute>
+
+        <ProtectedRoute path={path.statistic} exact redirectTo={path.logInPage}>
+          <DashboardPage />
         </ProtectedRoute>
       </Switch>
     </>

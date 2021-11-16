@@ -9,8 +9,8 @@
 @media screen and (min-width: 768px) {
   .registrationPage {
     background-color: #e7eaf2;
-    background-image: url('../../images/registrationPage/ellipse1.png'),
-      url('../../images/registrationPage/ellipse2.png');
+    background-image: url('../../images/RegistrationPage/ellipse1.png'),
+      url('../../images/RegistrationPage/ellipse2.png');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
     padding: 60px 114px 48px 114px;
@@ -56,7 +56,7 @@
     margin-right: 0;
     width: 248px;
     height: 250px;
-    background-image: url('../../images/registrationPage/Frametabl.png');
+    background-image: url('../../images/RegistrationPage/Frametabl.png');
     background-repeat: no-repeat;
     background-position: left top;
   }
@@ -64,7 +64,7 @@
 
 @media screen and (min-width: 1280px) {
   .frameimg {
-    background-image: url('../../images/registrationPage/frame.png');
+    background-image: url('../../images/RegistrationPage/frame.png');
     background-position: top center;
     width: 452px;
     height: 413px;
