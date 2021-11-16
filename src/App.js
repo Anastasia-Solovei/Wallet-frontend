@@ -10,8 +10,9 @@ import Chart from './components/Chart/Chart';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
 
-import ButtonAddTransactions from './components/ButtonAddTransactions';
-import DiagramTab from './components/DiagramTab';
+import Navigation from './components/Navigation/Navigation';
+// import ButtonAddTransactions from './components/ButtonAddTransactions';
+// import DiagramTab from './components/DiagramTab';
 
 import './App.css';
 
@@ -38,6 +39,7 @@ function App() {
           exact
           redirectTo={path.logInPage}
         >
+          <Navigation />
           <Chart />
         </ProtectedRoute>
       </Switch>

@@ -2,7 +2,7 @@
   "name": "wallet-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Anastasia-Solovei.github.io/wallet-frontend",
+  "homepage": "/home",
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
@@ -22,6 +22,7 @@
     "react-datetime": "^3.1.1",
     "react-dom": "^17.0.2",
     "react-loader-spinner": "^4.0.0",
+    "react-media": "^1.10.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
