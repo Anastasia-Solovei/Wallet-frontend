@@ -1,8 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import '../../stylesheet/vars.css';
+
 .registrationPage {
+  background-color: var(--light-bcg-color);
   height: 100vh;
 }
 
@@ -12,7 +11,7 @@
     background-image: url('../../images/registrationPage/ellipse1.png'),
       url('../../images/registrationPage/ellipse2.png');
     background-repeat: no-repeat, no-repeat;
-    background-position: left bottom, right top;
+    background-position: left bottom, right -185px top;
     padding: 60px 114px 48px 114px;
     height: 100vh;
   }
@@ -22,7 +21,8 @@
   .registrationPage {
     display: flex;
     justify-content: flex-end;
-    padding: 52px 77px 0px;
+    background-position: left bottom, right top;
+    padding: 52px 66px 0px;
   }
 }
 
@@ -35,6 +35,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    /* margin-bottom: 50px; */
   }
 }
 
@@ -54,7 +55,7 @@
   .frameimg {
     display: inline-block;
     margin-right: 0;
-    width: 248px;
+    width: 274px;
     height: 250px;
     background-image: url('../../images/registrationPage/Frametabl.png');
     background-repeat: no-repeat;
@@ -66,9 +67,9 @@
   .frameimg {
     background-image: url('../../images/registrationPage/frame.png');
     background-position: top center;
-    width: 452px;
-    height: 413px;
-    margin-bottom: 17px;
+    width: 452.1px;
+    height: 412.6px;
+    margin-bottom: 31.9px;
   }
 }
 
@@ -80,6 +81,7 @@
   .title {
     display: block;
     margin-right: auto;
+    font-family: var(--logo__font-family);
     font-weight: 400;
     font-size: 30px;
     line-height: 45px;
@@ -91,6 +93,7 @@
   .title {
     text-align: center;
     margin-left: auto;
+    width: 187px;
   }
 }
 
@@ -99,6 +102,9 @@
   background-color: #ffffff;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px 36px 20px 36px;
+  width: 320px;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -108,8 +114,9 @@
     border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
-    align-items: center;
-    margin-top: 50px;
+    padding: 0;
+    /* align-items: center;
+    margin-top: 50px; */
   }
 }
 
