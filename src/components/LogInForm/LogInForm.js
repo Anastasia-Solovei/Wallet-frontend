@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
+import * as yup from 'yup';
 
 import s from './LogInForm.module.css';
 import sprite from '../../images/svg_sprite.svg';
@@ -8,20 +9,22 @@ import sprite from '../../images/svg_sprite.svg';
 import Button from '../Button/Button';
 
 const LogInForm = () => {
+  const validationSchema = yup.object().shape({
+    email: yup
+      .string('Enter your email')
+      .email('Enter a valid email')
+      .required('Email is required'),
+    password: yup
+      .string('Enter your password')
+      .min(6, 'Password should be minimum 6 characters')
+      .max(12, 'Password should be maximum 12 characters')
+      .required('Password is required'),
+  });
+
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
-      validate={values => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
+      validate={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
@@ -29,16 +32,7 @@ const LogInForm = () => {
         }, 400);
       }}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        /* and other goodies */
-      }) => (
+      {({ isSubmitting }) => (
         <form className={s.form}>
           <div className={s.titleArea}>
             <h2 className={s.title}>Wallet</h2>
