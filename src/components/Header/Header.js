@@ -1,8 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { sessionSelectors } from '../../redux/session';
+import { setExitModalOpen } from '../../redux/global/globalOperations';
 import sprite from '../../images/svg_sprite.svg';
 import style from './Header.module.css';
 
+function useTableScreen() {
+  const [tableScreen, setTabletScreen] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setTabletScreen(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [tableScreen]);
+
+  return Number(tableScreen);
+}
+
 const Header = () => {
+  const name = useSelector(sessionSelectors.getUsername);
+  const dispatch = useDispatch();
+  const tableScreen = useTableScreen();
+
   return (
     <header>
       <div className={style.header__inner}>
@@ -13,15 +35,18 @@ const Header = () => {
           <span className={style.logoName}>Wallet</span>
         </div>
         <div className={style.headerExit}>
-          <span className={style.userName}>Name</span>
-
-          {/* <span>|</span> */}
-          <button className={style.headerLogout}>
+          <span className={style.userName}>{name}</span>
+          {Number(tableScreen) >= 768 && <span>|</span>}
+          <button
+            className={style.headerLogout}
+            onClick={e => dispatch(setExitModalOpen())}
+          >
             <svg className={style.headerIconExit} width="18px" height="18px">
               <use href={sprite + '#icon-exit'}></use>
             </svg>
-
-            {/* <span className={style.headerExit}>Exit</span> */}
+            {Number(tableScreen) >= 768 && (
+              <span className={style.headerExit}>Exit</span>
+            )}
           </button>
         </div>
       </div>

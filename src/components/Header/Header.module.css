@@ -23,9 +23,10 @@
 
 .logoName {
   font-family: 'Poppins';
+  font-style: normal;
   color: #000000;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .userName {
@@ -37,10 +38,28 @@
   color: #bdbdbd;
 }
 
+@media screen and (min-width: 768px) {
+  .userName {
+    margin-right: 14.5px;
+  }
+}
+
 .headerLogout {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.headerExit {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #bdbdbd;
   margin-left: 10px;
 }
