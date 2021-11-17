@@ -39,7 +39,7 @@ const Header = () => {
           {Number(tableScreen) >= 768 && <span>|</span>}
           <button
             className={style.headerLogout}
-            onClick={e => dispatch(setExitModalOpen())}
+            // onClick={e => dispatch(setExitModalOpen())}
           >
             <svg className={style.headerIconExit} width="18px" height="18px">
               <use href={sprite + '#icon-exit'}></use>
