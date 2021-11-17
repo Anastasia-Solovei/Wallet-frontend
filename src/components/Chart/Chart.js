@@ -1,6 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
-import Balance from '../Balance/Balance';
+import StatsBalance from '../StatsBalance';
 import styles from './Chart.module.css';
 import { expensesСategoryColors, expenses } from '../../assets/constants';
 
@@ -18,7 +18,7 @@ const DoughnutChart = () => (
   <>
     <div className={styles.doughnut}>
       <div className={styles.balance}>
-        ₴<Balance />
+        ₴<StatsBalance />
       </div>
       <Doughnut data={data} />
     </div>
