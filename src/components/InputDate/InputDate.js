@@ -46,7 +46,11 @@ export default function InputDate() {
           inputProps={{ 'aria-label': 'Without label' }}
         >
           {years.map(year => {
-            return <MenuItem value={year}>{year}</MenuItem>;
+            return (
+              <MenuItem value={year} className={styles.menuItem}>
+                {year}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
