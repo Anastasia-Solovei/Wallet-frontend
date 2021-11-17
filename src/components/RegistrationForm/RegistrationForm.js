@@ -2,51 +2,48 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import s from './RegistrationForm.module.css';
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
+import sprite from '../../images/svg_sprite.svg';
 
-// import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-// import { } from '@mui/icons-material';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import EmailIcon from '@mui/icons-material/Email';
-import LockIcon from '@mui/icons-material/Lock';
-import { red } from '@mui/material/colors';
-// import InputAdornment from '@mui/material/InputAdornment';
-
-export default function RegistrationFprm() {
+export default function RegistrationForm() {
   const validationSchema = yup.object().shape({
     email: yup
       .string()
       .typeError('Должна быть строка !')
-      .required('Это поле обязательно'),
+      .required('Enter your Email'),
+    // .matches('!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i'),
 
     name: yup
       .string()
       .typeError('Должна быть строка !')
-      .required('Это поле обязательно'),
+      .required('Enter your name'),
     password: yup
       .string()
       .typeError('Должна быть строка !')
-      .required('Это поле обязательно'),
+      .required('Enter your password')
+      .min(6, 'Your password must be longer than 6 characters.')
+      .max(12, 'Your password must be no longer than 12 characters.'),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref('password')], 'Пароли не совпадают !')
-      .required('Это поле обязательно'),
+      .oneOf([yup.ref('password')], 'Passwords must match')
+      .required('Enter your password'),
   });
+
+  console.log(validationSchema);
 
   const buttonS = {
     marginBottom: 20,
   };
-  const buttonL = {
-    backgroundColor: 'transparent',
-    color: '#4A56E2',
-    border: '1px solid #4A56E2',
-  };
 
   return (
-    <div className="App">
+    <div className={s.formContainer}>
+      <div className={s.titleWallet}>
+        <svg className={s.walletIcon} width="30px" height="30px">
+          <use href={sprite + '#icon-wallet'}></use>
+        </svg>
+        <h2 className={s.title}>Wallet</h2>
+      </div>
       <Formik
         initialValues={{
           email: '',
@@ -68,106 +65,124 @@ export default function RegistrationFprm() {
           dirty,
           isValid,
         }) => (
-          <div className={s.formContainer}>
-            <div>
-              <FormControl variant="standard" className={s.form}>
-                <InputLabel htmlFor="email" className={s.label}>
-                  <EmailIcon className={s.icon} color="disabled" />
-                  E-mail
-                </InputLabel>
-                <Input
-                  autoComplete={'off'}
-                  id="email"
+          <form className={s.form}>
+            <label>
+              <div className={s.inputBase}>
+                <input
+                  className={
+                    touched.email && errors.email ? s.inputError : s.input
+                  }
+                  placeholder={
+                    touched.email && errors.email ? errors.email : 'E-mail'
+                  }
+                  name="email"
                   type="email"
+                  autoComplete="off"
                   value={values.email}
                   onChange={handleChange}
-                  className={s.input}
+                  onBlur={handleBlur}
                 />
-              </FormControl>
-            </div>
+                <svg className={s.iconForm} width="24px" height="24px">
+                  <use
+                    className={s.iconUse}
+                    href={sprite + '#icon-email'}
+                  ></use>
+                </svg>
+              </div>
+            </label>
 
-            <div>
-              <FormControl className={s.form} variant="standard">
-                <InputLabel htmlFor={'password'} className={s.label}>
-                  <LockIcon className={s.icon} color="disabled" />
-                  Password
-                </InputLabel>
-                <Input
-                  autoComplete={'off'}
-                  type={'password'}
-                  name={'password'}
+            <label>
+              <div className={s.inputBase}>
+                <input
+                  className={
+                    touched.password && errors.password ? s.inputError : s.input
+                  }
+                  placeholder={
+                    touched.password && errors.password
+                      ? errors.password
+                      : 'Password'
+                  }
+                  name="password"
+                  type="passwoed"
+                  autoComplete="off"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
-                  className={s.input}
                 />
-              </FormControl>
-            </div>
+                <svg className={s.iconForm} width="24px" height="24px">
+                  <use
+                    className={s.iconUse}
+                    href={sprite + '#icon-password'}
+                  ></use>
+                </svg>
+              </div>
+            </label>
 
-            {touched.password && errors.password && (
-              <p style={{ color: 'red' }}>{errors.password}</p>
-            )}
-
-            <div>
-              <FormControl className={s.form} variant="standard">
-                <InputLabel htmlFor={'confirmPassword'} className={s.label}>
-                  <LockIcon className={s.icon} color="disabled" /> Confirm
-                  Password
-                </InputLabel>
-                <Input
+            <label>
+              <div className={s.inputBase}>
+                <input
+                  className={
+                    touched.confirmPassword && errors.confirmPassword
+                      ? s.inputError
+                      : s.input
+                  }
+                  placeholder={
+                    touched.confirmPassword && errors.confirmPassword
+                      ? errors.confirmPassword
+                      : 'Set password'
+                  }
                   autoComplete={'off'}
                   type={'password'}
                   name={'confirmPassword'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.confirmPassword}
-                  className={s.input}
                 />
-              </FormControl>
-            </div>
+                <svg className={s.iconForm} width="24px" height="24px">
+                  <use
+                    className={s.iconUse}
+                    href={sprite + '#icon-password'}
+                  ></use>
+                </svg>
+                <div className={s.blockCheck}></div>
+              </div>
+            </label>
 
-            {touched.confirmPassword && errors.confirmPassword && (
-              <p style={{ color: 'red' }}>{errors.confirmPassword}</p>
-            )}
-
-            <div>
-              <FormControl className={s.form} variant="standard">
-                <InputLabel htmlFor={'name'} className={s.label}>
-                  <AccountBoxIcon className={s.iconName} color="disabled" />
-                  Name
-                </InputLabel>
-                <Input
+            <label>
+              <div className={s.inputBase}>
+                <input
+                  id="name"
+                  className={
+                    touched.name && errors.name ? s.inputErrorName : s.inputName
+                  }
+                  placeholder={
+                    touched.name && errors.name ? errors.name : 'Name'
+                  }
                   autoComplete={'off'}
                   type={'text'}
                   name={'name'}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
-                  className={s.input}
                 />
-              </FormControl>
-            </div>
-
-            {touched.name && errors.name && (
-              <p style={{ color: 'red' }}>{errors.name}</p>
-            )}
+                <svg className={s.iconForm} width="24px" height="24px">
+                  <use className={s.iconUse} href={sprite + '#icon-name'}></use>
+                </svg>
+              </div>
+            </label>
 
             <Button
-              children={'Sign up'}
+              children={'SING UP'}
               type={'submit'}
               onClick={handleSubmit}
               disabled={!isValid && !dirty}
               style={buttonS}
             />
 
-            <Button
-              children={'Log in'}
-              type={'submit'}
-              onClick={handleSubmit}
-              disabled={!isValid && !dirty}
-              style={buttonL}
-            />
-          </div>
+            <Link to="/login" className={s.link}>
+              LOG IN
+            </Link>
+          </form>
         )}
       </Formik>
     </div>
