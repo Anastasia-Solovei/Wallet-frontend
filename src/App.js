@@ -42,7 +42,6 @@ function App() {
           redirectTo={path.logInPage}
         >
           <DashboardPage />
-          {/* <Chart /> */}
         </ProtectedRoute>
       </Switch>
     </>
