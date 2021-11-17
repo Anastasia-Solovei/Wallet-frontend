@@ -31,7 +31,7 @@ const register = createAsyncThunk(
   },
 );
 
-const logIn = createAsyncThunk(
+export const logIn = createAsyncThunk(
   usersLogInAction,
   async (credentials, { rejectWithValue }) => {
     try {
