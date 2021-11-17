@@ -19,7 +19,7 @@ const Dashboard = () => {
 
         <Route path={path.statistic}>
           <Navigation />
-          <Chart />
+          <DiagramTab />
         </Route>
       </Switch>
     </>
