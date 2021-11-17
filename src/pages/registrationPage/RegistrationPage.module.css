@@ -3,17 +3,21 @@
 .registrationPage {
   background-color: var(--light-bcg-color);
   height: 100vh;
+  padding: 36px 20px;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   .registrationPage {
-    background-color: #e7eaf2;
+    background-color: var(--main-bcg-color);
     background-image: url('../../images/registrationPage/ellipse1.png'),
       url('../../images/registrationPage/ellipse2.png');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right -185px top;
     padding: 60px 114px 48px 114px;
-    height: 100vh;
+    /* height: 100vh; */
+    min-width: var(--tablet-bp);
+    min-height: 1024px;
   }
 }
 
@@ -21,8 +25,9 @@
   .registrationPage {
     display: flex;
     justify-content: flex-end;
-    background-position: left bottom, right top;
-    padding: 52px 66px 0px;
+    padding: 52px 85px 0px 66px;
+    min-width: var(--desktop-bp);
+    min-height: 720px;
   }
 }
 
@@ -35,7 +40,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* margin-bottom: 50px; */
+    margin-bottom: 50px;
   }
 }
 
@@ -44,6 +49,7 @@
     flex-direction: column;
     justify-content: center;
     margin-right: auto;
+    margin-bottom: 0px;
   }
 }
 
@@ -79,11 +85,11 @@
 
 @media screen and (min-width: 768px) {
   .title {
-    display: block;
+    display: inline-block;
     margin-right: auto;
     font-family: var(--logo__font-family);
     font-weight: 400;
-    font-size: 30px;
+    font-size: var(--font-size__logo);
     line-height: 45px;
     margin-left: 40px;
   }
@@ -99,12 +105,9 @@
 
 .formBlock {
   display: inline-block;
-  background-color: #ffffff;
+  background-color: var(--light-svg-color);
   margin-left: auto;
   margin-right: auto;
-  padding: 20px 36px 20px 36px;
-  width: 320px;
-  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -115,6 +118,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0;
+    padding: 40px 65px 60px 65.5px;
     /* align-items: center;
     margin-top: 50px; */
   }
