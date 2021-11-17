@@ -41,7 +41,6 @@ function App() {
           redirectTo={path.logInPage}
         >
           <DashboardPage />
-          {/* <Chart /> */}
         </ProtectedRoute>
 
         <ProtectedRoute path={path.statistic} exact redirectTo={path.logInPage}>
