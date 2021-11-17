@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import Media from 'react-media';
 import { NavLink } from 'react-router-dom';
+import path from '../../routes_path';
+
 import styles from './Navigation.module.css';
 import homeAvatar from './img/home.svg';
 import statisticsAvatar from './img/statistics.svg';
@@ -11,8 +13,9 @@ export default function Navigation() {
     <Media
       queries={{
         small: '(max-width: 480px)',
-        medium: '(min-width: 481px) and (max-width: 720px)',
-        large: '(min-width: 721px)',
+        medium: '(min-width: 481px)',
+        // and(max-width: 768px) ',
+        // large: '(min-width: 769px)',
       }}
     >
       {matches => (
@@ -25,10 +28,10 @@ export default function Navigation() {
             <div>
               <nav className={styles.imgsmallnav}>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? styles.activelink : styles.link
-                  }
-                  to="/home"
+                  className={styles.link}
+                  activeClassName={styles.activelink}
+                  exact
+                  to={path.dashboardPage}
                 >
                   <img
                     // className={styles.linkimgsmall}
@@ -38,10 +41,10 @@ export default function Navigation() {
                   ></img>
                 </NavLink>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? styles.activelink : styles.link
-                  }
-                  to="/statistics"
+                  className={styles.link}
+                  activeClassName={styles.activelink}
+                  exact
+                  to={path.statistic}
                 >
                   <img
                     // className={styles.linkimgsmall}
@@ -51,9 +54,9 @@ export default function Navigation() {
                   ></img>
                 </NavLink>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? styles.activelink : styles.link
-                  }
+                  className={styles.link}
+                  activeClassName={styles.activelink}
+                  exact
                   to="/currency"
                 >
                   <img
@@ -75,10 +78,10 @@ export default function Navigation() {
             <div>
               <nav>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? styles.activelink : styles.link
-                  }
-                  to="/home"
+                  className={styles.link}
+                  activeClassName={styles.activelink}
+                  exact
+                  to={path.dashboardPage}
                 >
                   <div>
                     <img
@@ -90,10 +93,10 @@ export default function Navigation() {
                   </div>
                 </NavLink>
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? styles.activelink : styles.link
-                  }
-                  to="/statistics"
+                  className={styles.link}
+                  activeClassName={styles.activelink}
+                  exact
+                  to={path.statistic}
                 >
                   <img
                     src={statisticsAvatar}
@@ -110,7 +113,7 @@ export default function Navigation() {
                       Верстка для ПК 
               ==============================*/}
 
-          {matches.large && (
+          {/* {matches.large && (
             <div>
               <nav>
                 <NavLink
@@ -132,7 +135,7 @@ export default function Navigation() {
                   className={({ isActive }) =>
                     isActive ? styles.activelink : styles.link
                   }
-                  to="/statistics"
+                  to="/diagram"
                 >
                   <img
                     src={statisticsAvatar}
@@ -143,7 +146,7 @@ export default function Navigation() {
                 </NavLink>
               </nav>
             </div>
-          )}
+          )} */}
         </Fragment>
       )}
     </Media>
