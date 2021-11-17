@@ -2,16 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { sessionOperations } from './redux/session';
+import ProtectedRoute from './components/ProtectedRoute';
+import path from './routes_path';
 
 import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
-// import DashboardPage from './pages/DashboardPage';
-import Chart from './components/Chart/Chart';
-import ProtectedRoute from './components/ProtectedRoute';
-import path from './routes_path';
-import ButtonAddTransactions from './components/ButtonAddTransactions';
-import DiagramTab from './components/DiagramTab';
-
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 import './App.css';
 
 function App() {
@@ -33,11 +29,11 @@ function App() {
         </Route>
 
         <ProtectedRoute
-          path={path.dashbordPage}
+          path={path.dashboardPage}
           exact
           redirectTo={path.logInPage}
         >
-          <Chart />
+          <DashboardPage />
         </ProtectedRoute>
       </Switch>
     </>

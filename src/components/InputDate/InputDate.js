@@ -26,7 +26,7 @@ export default function InputDate() {
 
   return (
     <div className={styles.container}>
-      <FormControl sx={{ m: 1 }}>
+      <FormControl sx={{ m: 1 }} className={styles.formControl}>
         <Select
           className={styles.selectDate}
           value={month}
@@ -37,7 +37,7 @@ export default function InputDate() {
           })}
         </Select>
       </FormControl>
-      <FormControl sx={{ m: 1 }}>
+      <FormControl sx={{ m: 1 }} className={styles.formControl}>
         <Select
           className={styles.selectDate}
           value={year}

@@ -1,7 +1,7 @@
 const path = {
   registrationPage: '/register',
   logInPage: '/login',
-  dashbordPage: '/home',
+  dashboardPage: '/home',
   statistic: '/diagram',
 };
 

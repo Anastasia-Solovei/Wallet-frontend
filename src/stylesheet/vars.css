@@ -16,6 +16,9 @@
   --secondary-text-color: #bdbdbd;
   --light-text-color: #ffffff;
   --accent-text-color: #4a56e2;
+  --amount-incomes-text-color: #ff6596;
+  --amount-expenses-text-color: #24CCA7;
+
 
   /* button colors */
   --btn-color: #ffffff;
@@ -26,6 +29,9 @@
   --light-svg-color: #ffffff;
   --exit-svg-color: #bdbdbd;
   --accent-svg-color: #4a56e2;
+
+  /* color line HomeTab */
+  --line-home-table-color:#DCDCDF;
 
   /* typography */
   --font-size__logo: 30px;

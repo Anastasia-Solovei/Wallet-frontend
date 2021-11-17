@@ -1,13 +1,32 @@
 .container {
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.formDate {
+
+.formControl {
+  margin: 0;
 }
+
 .selectDate {
-  width: 280px;
+  margin: 0;
   border-radius: 30px !important;
   margin: 0px;
-  padding-top: 15px;
+  padding-top: 12px;
   padding-right: 20px;
-  padding-left: 20px;
+  font-family: var(--main__font-family);
+}
+
+@media screen and (max-width: 479px) {
+  .formControl {
+    width: calc(280px + (350 - 280) * ((100vw - 320px) / (480 - 320)));
+  }
+}
+@media screen and (min-width: 768px) {
+  .formControl {
+    width: 166px;
+  }
+  .container {
+    flex-direction: row;
+  }
 }
