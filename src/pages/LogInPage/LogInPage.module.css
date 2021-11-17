@@ -11,7 +11,7 @@
   .logInPage {
     background-color: #e7eaf2;
     background-image: url('../../images/LogInPage/ellipse_purple.png'),
-      url('../../images/LogInPage/ellipse_pink.png');
+      url('../../images/LogInPage/ellipse_pink_tablet.png');
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
     padding: 60px 114px 196px 114px;
@@ -23,7 +23,8 @@
   .logInPage {
     display: flex;
     justify-content: flex-end;
-
+    background-image: url('../../images/LogInPage/ellipse_purple.png'),
+      url('../../images/LogInPage/ellipse_pink.png');
     padding: 136px 76px 0px;
   }
 }
