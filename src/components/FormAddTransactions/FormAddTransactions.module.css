@@ -1,0 +1,42 @@
+.input {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.unionRadio {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.unionInput {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.button {
+  display: block;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: Circe;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.add {
+  composes: button;
+  margin-bottom: 20px;
+  background-color: #24cca7;
+  border-style: none;
+}
+.cancel {
+  composes: button;
+  color: #4a56e2;
+  border: 1px solid #4a56e2;
+}
