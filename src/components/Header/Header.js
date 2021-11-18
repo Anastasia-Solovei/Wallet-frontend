@@ -27,28 +27,26 @@ const Header = () => {
 
   return (
     <header className={style.header}>
-      <div className={style.header__inner}>
-        <div className={style.headerLogo}>
-          <svg className={style.headerIconLogo} width="30px" height="30px">
-            <use href={sprite + '#icon-wallet'}></use>
+      <div className={style.headerLogo}>
+        <svg className={style.headerIconLogo} width="30px" height="30px">
+          <use href={sprite + '#icon-wallet'}></use>
+        </svg>
+        <span className={style.logoName}>Wallet</span>
+      </div>
+      <div className={style.headerExit}>
+        <span className={style.userName}>{name}</span>
+        {Number(tableScreen) >= 768 && <span>|</span>}
+        <button
+          className={style.headerLogout}
+          // onClick={e => dispatch(setExitModalOpen())}
+        >
+          <svg className={style.headerIconExit} width="18px" height="18px">
+            <use href={sprite + '#icon-exit'}></use>
           </svg>
-          <span className={style.logoName}>Wallet</span>
-        </div>
-        <div className={style.headerExit}>
-          <span className={style.userName}>{name}</span>
-          {Number(tableScreen) >= 768 && <span>|</span>}
-          <button
-            className={style.headerLogout}
-            // onClick={e => dispatch(setExitModalOpen())}
-          >
-            <svg className={style.headerIconExit} width="18px" height="18px">
-              <use href={sprite + '#icon-exit'}></use>
-            </svg>
-            {Number(tableScreen) >= 768 && (
-              <span className={style.headerExit}>Exit</span>
-            )}
-          </button>
-        </div>
+          {Number(tableScreen) >= 768 && (
+            <span className={style.headerExit}>Exit</span>
+          )}
+        </button>
       </div>
     </header>
   );
