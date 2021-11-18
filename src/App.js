@@ -6,7 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
 
 import LogInPage from './pages/LogInPage/LogInPage';
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import RegistrationPage from './pages/registrationPage/RegistrationPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import './App.css';
 
