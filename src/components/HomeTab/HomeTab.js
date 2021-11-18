@@ -30,7 +30,7 @@ const HomeTab = () => {
     );
 
   return (
-    <table {...getTableProps()}>
+    <table className={styles.table} {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
           <tr
