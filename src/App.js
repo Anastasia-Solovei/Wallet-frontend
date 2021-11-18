@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { sessionOperations } from './redux/session';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
-import Container from './components/Container/Container';
+
 import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
@@ -19,25 +19,23 @@ function App() {
 
   return (
     <>
-      <Container>
-        <Switch>
-          <Route path={path.registrationPage}>
-            <RegistrationPage />
-          </Route>
+      <Switch>
+        <Route path={path.registrationPage}>
+          <RegistrationPage />
+        </Route>
 
-          <Route path={path.logInPage}>
-            <LogInPage />
-          </Route>
+        <Route path={path.logInPage}>
+          <LogInPage />
+        </Route>
 
-          <ProtectedRoute
-            path={path.dashboardPage}
-            exact
-            redirectTo={path.logInPage}
-          >
-            <DashboardPage />
-          </ProtectedRoute>
-        </Switch>
-      </Container>
+        <ProtectedRoute
+          path={path.dashboardPage}
+          exact
+          redirectTo={path.logInPage}
+        >
+          <DashboardPage />
+        </ProtectedRoute>
+      </Switch>
     </>
   );
 }

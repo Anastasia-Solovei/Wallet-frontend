@@ -3,7 +3,7 @@ import Chart from '../../components/Chart';
 import { Switch, Route } from 'react-router-dom';
 import path from '../../routes_path';
 import Header from '../../components/Header/Header';
-
+import Container from '../../components/Container/Container';
 import s from './DashboardPage.module.css';
 import Navigation from '../../components/Navigation/Navigation';
 import CurrencyTable from '../../components/Currency';
@@ -15,14 +15,18 @@ const Dashboard = () => {
       <Switch>
         <Route path={path.dashboardPage}>
           <Header />
-          <Navigation />
-          <CurrencyTable />
+          <Container>
+            <Navigation />
+            <CurrencyTable />
+          </Container>
         </Route>
 
         <Route path={path.statistic}>
           <Header />
-          <Navigation />
-          <DiagramTab />
+          <Container>
+            <Navigation />
+            <DiagramTab />
+          </Container>
         </Route>
       </Switch>
     </>
