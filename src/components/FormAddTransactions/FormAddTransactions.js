@@ -1,16 +1,20 @@
-import { useState } from 'react';
-// import { toast } from 'react-toastify';
+import React, { useState } from 'react';
+// import { Formik } from 'formik';
+// import * as yup from 'yup';
+import { toast } from 'react-toastify';
 // import { v4 as uuidv4 } from 'uuid';
+import 'react-datetime/css/react-datetime.css';
+import Datetime from 'react-datetime';
 import { useDispatch } from 'react-redux';
 import { transactionsOperations } from '../../redux/transactions';
 import s from './FormAddTransactions.module.css';
 
 const dateValue =
-  new Date().getFullYear() +
-  '-' +
+  new Date().getDate() +
+  '.' +
   (new Date().getMonth() + 1) +
-  '-' +
-  new Date().getDate();
+  '.' +
+  new Date().getFullYear();
 
 export default function FormAddTransactions({ onClose }) {
   const dispatch = useDispatch();
@@ -18,7 +22,7 @@ export default function FormAddTransactions({ onClose }) {
   const [category, setCategory] = useState('main');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState(dateValue);
-  const [comment, setComment] = useState('');
+  const [comments, setComment] = useState('');
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -36,7 +40,7 @@ export default function FormAddTransactions({ onClose }) {
       case 'date':
         setDate(value);
         break;
-      case 'comment':
+      case 'comments':
         setComment(value);
         break;
 
@@ -49,8 +53,8 @@ export default function FormAddTransactions({ onClose }) {
     event.preventDefault();
 
     if (amount === '') {
-      return alert('Enter the transaction amount!');
-      // return toast.info('Enter the transaction amount!');
+      // return alert('Enter the transaction amount!');
+      return toast.info('Enter the transaction amount!');
     }
 
     dispatch(
@@ -60,10 +64,11 @@ export default function FormAddTransactions({ onClose }) {
         category,
         amount,
         date,
-        comment,
+        comments,
       }),
     );
     reset();
+    onClose();
   };
 
   const reset = () => {
@@ -123,19 +128,28 @@ export default function FormAddTransactions({ onClose }) {
             value={amount}
             onChange={handleChange}
           ></input>
-          <input
+          {/* Проблема! Не срабатывает handleChange на <Datetime/> */}
+          <Datetime
+            dateFormat="DD.MM.YYYY"
+            timeFormat={false}
+            inputValue={date}
+            initialValue={dateValue}
+            name="date"
+            // onChange={handleChange}
+          />
+          {/* <input
             type="date"
             name="date"
             value={date}
             onChange={handleChange}
-          ></input>
+          ></input> */}
         </div>
         <input
           className={s.input}
           type="text"
-          name="comment"
+          name="comments"
           placeholder="Comment"
-          value={comment}
+          value={comments}
           onChange={handleChange}
         ></input>
       </div>
