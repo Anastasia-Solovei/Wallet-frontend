@@ -1,12 +1,7 @@
 import s from './ButtonAddTransactions.module.css';
-import { createPortal } from 'react-dom';
-
-const buttonAddTransactionsRoot = document.querySelector(
-  '#button-add-transactions-root',
-);
 
 const ButtonAddTransactions = ({ onClick }) => {
-  return createPortal(
+  return (
     <button type="button" className={s.button} onClick={() => onClick()}>
       <svg
         width="20"
@@ -18,8 +13,7 @@ const ButtonAddTransactions = ({ onClick }) => {
         <path d="M10 0V20" stroke="white" strokeWidth="2" />
         <path d="M0 10L20 10" stroke="white" strokeWidth="2" />
       </svg>
-    </button>,
-    buttonAddTransactionsRoot,
+    </button>
   );
 };
 

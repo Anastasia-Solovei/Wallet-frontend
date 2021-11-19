@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import { toast } from 'react-toastify';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { transactionsOperations } from '../../redux/transactions';
 import s from './FormAddTransactions.module.css';
@@ -14,9 +14,9 @@ const dateValue =
 
 export default function FormAddTransactions({ onClose }) {
   const dispatch = useDispatch();
-  const [transactionType, setTransactionType] = useState('expenses');
+  const [type, setType] = useState('expenses');
   const [category, setCategory] = useState('main');
-  const [sum, setSum] = useState('');
+  const [amount, setAmount] = useState('');
   const [date, setDate] = useState(dateValue);
   const [comment, setComment] = useState('');
 
@@ -25,13 +25,13 @@ export default function FormAddTransactions({ onClose }) {
 
     switch (name) {
       case 'transaction':
-        setTransactionType(value);
+        setType(value);
         break;
       case 'category':
         setCategory(value);
         break;
-      case 'sum':
-        setSum(Number(value));
+      case 'amount':
+        setAmount(Number(value));
         break;
       case 'date':
         setDate(value);
@@ -48,17 +48,17 @@ export default function FormAddTransactions({ onClose }) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    if (sum === '') {
+    if (amount === '') {
       return alert('Enter the transaction amount!');
       // return toast.info('Enter the transaction amount!');
     }
 
     dispatch(
-      transactionsOperations.addTransaction({
-        id: uuidv4(),
-        transactionType,
+      transactionsOperations.addTransactions({
+        //   id: uuidv4(),
+        type,
         category,
-        sum,
+        amount,
         date,
         comment,
       }),
@@ -67,9 +67,9 @@ export default function FormAddTransactions({ onClose }) {
   };
 
   const reset = () => {
-    setTransactionType('expenses');
+    setType('expenses');
     setCategory('main');
-    setSum('');
+    setAmount('');
     setDate(dateValue);
     setComment('');
   };
@@ -82,7 +82,7 @@ export default function FormAddTransactions({ onClose }) {
             type="radio"
             name="transaction"
             value="income"
-            checked={transactionType === 'income'}
+            checked={type === 'income'}
             onChange={handleChange}
           />
           Income
@@ -92,7 +92,7 @@ export default function FormAddTransactions({ onClose }) {
             type="radio"
             name="transaction"
             value="expenses"
-            checked={transactionType === 'expenses'}
+            checked={type === 'expenses'}
             onChange={handleChange}
           />
           Expenses
@@ -118,9 +118,9 @@ export default function FormAddTransactions({ onClose }) {
         <div className={s.unionInput}>
           <input
             type="text"
-            name="sum"
+            name="amount"
             placeholder="0.00"
-            value={sum}
+            value={amount}
             onChange={handleChange}
           ></input>
           <input
