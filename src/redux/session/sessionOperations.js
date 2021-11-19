@@ -4,7 +4,11 @@ import {
   usersLogInAction,
   usersLogOutAction,
   usersFetchCurrentUserAction,
+  userslogOutSuccess,
+  userslogOutError,
 } from './sessionActions';
+
+import {closeModalLogOut} from '../global/globalActions'
 import axios from 'axios';
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
@@ -45,17 +49,31 @@ export const logIn = createAsyncThunk(
   },
 );
 
-const logOut = createAsyncThunk(
-  usersLogOutAction,
-  async (_, { rejectWithValue }) => {
-    try {
-      await axios.post(`/users/logout`);
-      token.unset();
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  },
-);
+// export const logOut = createAsyncThunk(
+//   usersLogOutAction,
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       await axios.post(`/users/logout`);
+//       token.unset();
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   },
+// );
+
+export const logOut = () => async dispatch => {
+  dispatch(usersLogOutAction());
+
+  try {
+    await axios.post('/users/logout');
+
+    token.unset();
+    dispatch(userslogOutSuccess());
+    dispatch(closeModalLogOut());
+  } catch (error) {
+    dispatch(userslogOutError());
+  }
+};
 
 const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
