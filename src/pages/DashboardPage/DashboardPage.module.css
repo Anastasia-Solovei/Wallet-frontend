@@ -1,0 +1,29 @@
+.bcg {
+  backdrop-filter: blur(50px);
+  background-image: url('../../images/Dashboard/Ellipse1.png'),
+    url('../../images/Dashboard/Ellipse2.png');
+  background-repeat: no-repeat;
+  background-position: left bottom, right top;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0 40px;
+}
+
+.navigation {
+  /* padding: 40px 0 30px 0; */
+}
+
+.balance {
+  padding-bottom: 30px;
+}
+
+.navigation_mobile {
+  padding: 13px 0 13px;
+}
+
+.balance_mobile {
+  margin-bottom: 30px;
+}

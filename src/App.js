@@ -29,7 +29,7 @@ function App() {
         </Route>
 
         <ProtectedRoute
-          path={[path.dashboardPage, path.statistic]}
+          path={[path.dashboardPage, path.statistic, path.currency]}
           exact
           redirectTo={path.logInPage}
         >
