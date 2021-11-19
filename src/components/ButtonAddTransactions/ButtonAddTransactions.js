@@ -1,8 +1,8 @@
 import s from './ButtonAddTransactions.module.css';
 
-const ButtonAddTransactions = () => {
+const ButtonAddTransactions = ({ onClick }) => {
   return (
-    <button type="button" className={s.button}>
+    <button type="button" className={s.button} onClick={() => onClick()}>
       <svg
         width="20"
         height="20"

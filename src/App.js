@@ -34,7 +34,7 @@ function App() {
         </Route>
 
         <ProtectedRoute
-          path={path.dashboardPage}
+          path={[path.dashboardPage, path.statistic]}
           exact
           redirectTo={path.logInPage}
         >

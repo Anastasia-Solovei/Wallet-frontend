@@ -1,0 +1,20 @@
+.button {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  background-color: #ffffff;
+  border-style: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    display: inline-flex;
+  }
+}

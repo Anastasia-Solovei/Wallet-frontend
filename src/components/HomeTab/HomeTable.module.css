@@ -92,13 +92,12 @@
   text-align: right;
 }
 
-.tdIncomes{
+.tdIncomes {
   color: var(--amount-expenses-text-color);
   font-weight: 700;
 }
 
 .tdExpenses {
-  color:var(--amount-incomes-text-color);
+  color: var(--amount-incomes-text-color);
   font-weight: 700;
 }
-

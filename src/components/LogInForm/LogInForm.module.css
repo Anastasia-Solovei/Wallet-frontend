@@ -58,9 +58,10 @@
   font-size: 18px;
   padding: 10px 20px 10px 60px;
   border: none;
+  outline: none;
   border-bottom: 1px solid #bdbdbd;
   background-color: #ffffff;
-  outline: none;
+
   margin-bottom: 40px;
 }
 
@@ -70,6 +71,22 @@
   }
 }
 
+.inputError {
+  width: 280px;
+  height: 32px;
+  font-size: 18px;
+  padding: 10px 20px 10px 60px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f80000;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .inputError {
+    width: 409.5px;
+  }
+}
 .input::placeholder {
   color: #bdbdbd;
   font-size: 18px;
@@ -78,7 +95,10 @@
   line-height: 1.5;
   margin-left: 60px;
 }
-
+.inputError::placeholder {
+  color: #bdbdbd;
+  cursor: pointer;
+}
 .input:hover,
 .input:focus {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
