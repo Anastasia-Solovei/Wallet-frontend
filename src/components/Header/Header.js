@@ -26,8 +26,8 @@ const Header = () => {
   const tableScreen = useTableScreen();
 
   return (
-    <header>
-      <div className={style.header__inner}>
+    <header className={style.header}>
+      <div className={style.header__container}>
         <div className={style.headerLogo}>
           <svg className={style.headerIconLogo} width="30px" height="30px">
             <use href={sprite + '#icon-wallet'}></use>
