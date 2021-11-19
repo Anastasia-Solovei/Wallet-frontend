@@ -1,8 +1,8 @@
-import styles from './CurrencyTab.module.css';
 import React, { useEffect, useState } from 'react';
 import currencyApi from '../../services/currencyApi';
 // import { Loader } from '../Loader';
 import { currencies } from '../../assets/constants';
+import styles from './CurrencyTab.module.css';
 
 export default function CurrencyTable() {
   const [currency, setCurrency] = useState([]);
@@ -37,9 +37,9 @@ export default function CurrencyTable() {
         <table>
           <thead>
             <tr>
-              <td>Валюта</td>
-              <td>Продажа</td>
-              <td>Покупка</td>
+              <td>Currency</td>
+              <td>Sell</td>
+              <td>Buy</td>
             </tr>
           </thead>
           <tbody>

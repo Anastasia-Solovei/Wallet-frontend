@@ -3,6 +3,7 @@ const path = {
   logInPage: '/login',
   dashboardPage: '/home',
   statistic: '/diagram',
+  currency: '/currency',
 };
 
 export default path;

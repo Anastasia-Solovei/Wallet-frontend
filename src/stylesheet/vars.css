@@ -16,8 +16,10 @@
   --secondary-text-color: #bdbdbd;
   --light-text-color: #ffffff;
   --accent-text-color: #4a56e2;
+
   --amount-incomes-text-color: #24CCA7;
   --amount-expenses-text-color: #ff6596;
+  --balance-title-text-color: #a6a6a6;
 
 
   /* button colors */
@@ -31,7 +33,7 @@
   --accent-svg-color: #4a56e2;
 
   /* color line HomeTab */
-  --line-home-table-color:#DCDCDF;
+  --line-home-table-color: #dcdcdf;
 
   /* typography */
   --font-size__logo: 30px;
@@ -41,6 +43,8 @@
   --font-size__accent: 18px;
   --font-size__balance: 30px;
   --font-size__logo: 30px;
+  --font-size__balance_title: 12px;
+  --font-size__balance_amount: 30px;
   --font-size__modal_accent: 30px;
   --font-size__modal_accent_mob: 30px;
   --font-size__modal_main: 18px;

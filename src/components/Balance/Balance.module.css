@@ -1,0 +1,22 @@
+.balance {
+  width: 280px;
+  height: 80px;
+  border-radius: 30px;
+  color: var(--main-text-color);
+  background-color: var(--light-bcg-color);
+}
+
+.title {
+  padding: 6px 40px;
+  text-transform: uppercase;
+  color: var(--balance-title-text-color);
+  font-size: var(--font-size__balance_title);
+  font-family: var(--main__font-family);
+}
+
+.totalBalance {
+  padding: 10px 40px;
+  color: var(--main-text-color);
+  font-size: var(--font-size__balance_amount);
+  font-family: var(--logo__font-family);
+}
