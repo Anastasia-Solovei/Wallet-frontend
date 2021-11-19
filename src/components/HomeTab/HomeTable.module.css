@@ -1,22 +1,30 @@
 @import '../../stylesheet/vars.css';
 
 
-.table {
+@media screen and (min-width: 1280px) {
+  .wrapTable {
+    width: 700px;
+    margin: auto;
+  }
+}
+
+.wrapTable{
+  width: 688px;
   margin: auto;
+}
+
+.table {  
   table-layout: fixed;
-  padding: 20px;
-  border-collapse: collapse;
-  width: 700px;
-  padding: 15px 20px;
+  width: 100%;
   font-family: var(--main__font-family);
   font-weight: 400;
   font-size: var(--font-size__main);
   line-height: 1.5;
-  background-color: transparent;
+  border-collapse: collapse;
+  background-color: transparent; 
 }
 
-
-.table th {
+.table th{
   padding-top: 15px;
   padding-bottom: 16px;
   text-align: center;
@@ -26,45 +34,62 @@
 }
 
 .table th:first-child {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 10px;
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
+}
+
+.table th:nth-child(2),
+.table th:nth-child(5) {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table th:nth-child(3),
+.table th:nth-child(4) {
+ text-align: left;
+ padding-left: 10px;
+ padding-right: 10px;
 }
 
 .table th:last-child {
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
-}
-
-.table td {
-  padding: 8px;
-  line-height: 1.2;
-}
-
-.table tr:not(:last-child) {
-  border-bottom: 1px solid var(--line-home-table-color);
-}
-
-.table tr:nth-child(even) {
-  /* background-color: #f2f2f2; */
+  padding-left: 10px;
+  padding-right: 20px;
+  text-align: right;
 }
 
 .table tr:hover {
   background-color: #ddd;
 }
 
-.table td:first-child {
-  padding: 8px 8px 8px 30px;
+.table .tr:not(:last-child) { 
+  border-bottom: 1px solid var(--line-home-table-color);
 }
 
-.table td:nth-last-child(-n + 2) {
-
-  text-align: right;
-  padding-right: 20px;
+.tr td:first-child {
+  padding: 15px 10px 15px 20px;
+  text-align: left;
 }
 
-.table td:nth-child(2) {
+.tr td:nth-child(2),
+.tr td:nth-child(5) {
+  padding: 15px 10px 15px 10px;
   text-align: center;
-  padding-right: 20px;
+}
+
+.tr td:nth-child(3),
+.tr td:nth-child(4) {
+  padding: 0 10px 0 10px;
+  text-align: left;
+}
+
+.tr td:nth-child(6){
+  padding: 15px 20px 15px 10px;
+  text-align: right;
 }
 
 .tdIncomes {
