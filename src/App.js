@@ -15,7 +15,7 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
-  console.log(isLoading);
+  // console.log(isLoading);
 
   useEffect(() => {
     dispatch(sessionOperations.fetchCurrentUser());

@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import sessionOperations from './sessionOperations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: '', email: '', password: '' },
   token: null,
-  isAuth: true,
+  isAuth: false,
   error: null,
 };
 
@@ -13,17 +13,17 @@ const sessionSlice = createSlice({
   initialState,
   extraReducers: {
     [sessionOperations.register.pending](state) {
-      state.global.isLoading = true;
+      // state.global.isLoading = true;
     },
     [sessionOperations.register.fulfilled](state, action) {
-      state.session.user = action.payload.user;
-      state.session.token = action.payload.token;
-      state.session.isAuth = true;
-      state.global.isLoading = false;
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isAuth = true;
+      // state.global.isLoading = false;
     },
     [sessionOperations.register.rejected](state, action) {
-      state.global.isLoading = false;
-      // state.session.error = action.payload.error;
+      // state.global.isLoading = false;
+      state.error = action.payload;
     },
     [sessionOperations.logIn.pending](state) {
       state.global.isLoading = true;
