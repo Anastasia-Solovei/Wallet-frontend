@@ -14,7 +14,7 @@ import {
   getTransByDateError,
 } from './transactionsActions';
 
-axios.defaults.baseURL = '/';
+axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
 export const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());

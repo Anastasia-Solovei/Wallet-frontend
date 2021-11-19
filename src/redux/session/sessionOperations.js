@@ -6,7 +6,7 @@ import {
   usersFetchCurrentUserAction,
 } from './sessionActions';
 import axios from 'axios';
-axios.defaults.baseURL = '/';
+axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
 const token = {
   set(token) {
