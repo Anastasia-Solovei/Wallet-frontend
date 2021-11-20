@@ -29,7 +29,7 @@ export const fetchTransactions = () => async dispatch => {
 export const addTransactions = transaction => async dispatch => {
   dispatch(addTransRequest());
   try {
-    const { data } = await axios.post('/transactions', transaction);
+    const { data } = await axios.post('/transactions/new', transaction);
     dispatch(addTransSuccess(data));
   } catch (error) {
     dispatch(addTransError(error.message));
