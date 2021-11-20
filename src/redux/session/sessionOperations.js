@@ -16,6 +16,12 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+// const registerNewUser = async credentials => {
+//   return axios.post('/users/signup', credentials).then(({ data }) => {
+//     token.set(data.token);
+//     return data;
+//   });
+// };
 
 const register = createAsyncThunk(
   usersSignUpAction,
@@ -23,9 +29,12 @@ const register = createAsyncThunk(
     try {
       const { data } = await axios.post(`/users/signup`, credentials);
       token.set(data.emailVerificationToken);
-      console.log('data', data);
-      // console.log('emailVerificationToken', emailVerificationToken);
-      // console.log('token', token);
+      //       return await registerNewUser(credentials);
+      //     } catch (error) {
+      //       console.log(error);
+      //     }
+      //   },
+      // );
 
       return data;
     } catch (error) {

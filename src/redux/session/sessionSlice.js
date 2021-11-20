@@ -14,10 +14,10 @@ const sessionSlice = createSlice({
   initialState,
   extraReducers: {
     [sessionOperations.register.fulfilled](state, action) {
-      // state.token = action.payload.emailVerificationToken;
+      state.token = action.payload.emailVerificationToken;
       state.user = action.payload.user;
 
-      //  state.token = action.payload.token;
+      // state.token = action.payload.token;
 
       state.isAuth = true;
     },

@@ -7,6 +7,7 @@ import authOperations from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
 import s from './RegistrationForm.module.css';
 import Button from '../Button/Button';
+import Containrt from '../Container/Container'
 
 const RegistrationForm = () => {
   const button = {
