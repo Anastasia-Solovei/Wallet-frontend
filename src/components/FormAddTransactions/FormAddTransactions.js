@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-// import { Formik } from 'formik';
-// import * as yup from 'yup';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 import { toast } from 'react-toastify';
-// import { v4 as uuidv4 } from 'uuid';
 import 'react-datetime/css/react-datetime.css';
 import Datetime from 'react-datetime';
 import { useDispatch } from 'react-redux';
 import { transactionsOperations } from '../../redux/transactions';
+import sprite from '../../images/svg_sprite.svg';
 import s from './FormAddTransactions.module.css';
 
-const dateValue =
-  new Date().getDate() +
-  '.' +
-  (new Date().getMonth() + 1) +
-  '.' +
-  new Date().getFullYear();
+const dayValue = new Date().getDate();
+const monthValue = new Date().getMonth() + 1;
+const yearValue = new Date().getYear() + 1900;
+const dateValue = dayValue + '.' + monthValue + '.' + yearValue;
 
 export default function FormAddTransactions({ onClose }) {
   const dispatch = useDispatch();
@@ -22,7 +20,10 @@ export default function FormAddTransactions({ onClose }) {
   const [category, setCategory] = useState('main');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState(dateValue);
-  const [comments, setComment] = useState('');
+  const [day, setDay] = useState(dayValue);
+  const [month, setMonth] = useState(monthValue);
+  const [year, setYear] = useState(yearValue);
+  const [comment, setComment] = useState('');
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -37,10 +38,7 @@ export default function FormAddTransactions({ onClose }) {
       case 'amount':
         setAmount(Number(value));
         break;
-      case 'date':
-        setDate(value);
-        break;
-      case 'comments':
+      case 'comment':
         setComment(value);
         break;
 
@@ -49,22 +47,39 @@ export default function FormAddTransactions({ onClose }) {
     }
   };
 
+  const handleDateChange = date => {
+    const chooseDate =
+      date._d.getDate() +
+      '.' +
+      (date._d.getMonth() + 1) +
+      '.' +
+      date._d.getFullYear();
+    setDate(chooseDate);
+    const day = date._d.getDate();
+    setDay(day);
+    const month = date._d.getMonth() + 1;
+    setMonth(month);
+    const year = date._d.getYear() + 1900;
+    setYear(year);
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
 
     if (amount === '') {
-      // return alert('Enter the transaction amount!');
       return toast.info('Enter the transaction amount!');
     }
 
     dispatch(
       transactionsOperations.addTransactions({
-        //   id: uuidv4(),
         type,
         category,
         amount,
         date,
-        comments,
+        day,
+        month,
+        year,
+        comment,
       }),
     );
     reset();
@@ -76,6 +91,9 @@ export default function FormAddTransactions({ onClose }) {
     setCategory('main');
     setAmount('');
     setDate(dateValue);
+    setDay(dayValue);
+    setMonth(monthValue);
+    setYear(yearValue);
     setComment('');
   };
 
@@ -128,28 +146,33 @@ export default function FormAddTransactions({ onClose }) {
             value={amount}
             onChange={handleChange}
           ></input>
-          {/* Проблема! Не срабатывает handleChange на <Datetime/> */}
-          <Datetime
-            dateFormat="DD.MM.YYYY"
-            timeFormat={false}
-            inputValue={date}
-            initialValue={dateValue}
-            name="date"
-            // onChange={handleChange}
-          />
-          {/* <input
-            type="date"
-            name="date"
-            value={date}
-            onChange={handleChange}
-          ></input> */}
+          <div className={s.date}>
+            <Datetime
+              dateFormat="DD.MM.YYYY"
+              timeFormat={false}
+              closeOnSelect={true}
+              value={date}
+              name="date"
+              onChange={handleDateChange}
+              isValidDate={current => {
+                let today = new Date();
+                return current.isBefore(today);
+              }}
+              inputProps={{
+                style: {},
+              }}
+            />
+            <svg className={s.img}>
+              <use href={sprite + '#icon-calendar'}></use>
+            </svg>
+          </div>
         </div>
         <input
           className={s.input}
           type="text"
-          name="comments"
+          name="comment"
           placeholder="Comment"
-          value={comments}
+          value={comment}
           onChange={handleChange}
         ></input>
       </div>
