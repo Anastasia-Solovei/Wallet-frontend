@@ -10,4 +10,6 @@ export default {
   TRANSACTIONS_DELETE_REQUEST: 'transactions/deleteTransactionsRequest',
   TRANSACTIONS_DELETE_SUCCESS: 'transactions/deleteTransactionsSuccess',
   TRANSACTIONS_DELETE_ERROR: 'transactions/deleteTransactionsError',
+
+  TRANSACTIONS_BY_DATE_ERROR: 'transaction/getTransByDateError',
 };

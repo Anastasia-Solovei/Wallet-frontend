@@ -6,6 +6,7 @@ import { getTransactionsByDate } from '../../redux/transactions/transactionsOper
 import { months, years } from '../../assets/constants';
 import styles from './InputDate.module.css';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function InputDate() {
   const dispatch = useDispatch();
@@ -33,7 +34,11 @@ export default function InputDate() {
           onChange={handleChangeMonth}
         >
           {months.map((month, index) => {
-            return <MenuItem value={index}>{month}</MenuItem>;
+            return (
+              <MenuItem value={index} key={uuidv4()}>
+                {month}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
@@ -47,7 +52,7 @@ export default function InputDate() {
         >
           {years.map(year => {
             return (
-              <MenuItem value={year} className={styles.menuItem}>
+              <MenuItem value={year} className={styles.menuItem} key={uuidv4()}>
                 {year}
               </MenuItem>
             );
