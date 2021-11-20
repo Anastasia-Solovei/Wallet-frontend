@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import { sessionOperations } from './redux/session';
+import {fetchCurrentUser} from './redux/session/sessionOperations';
 import { getIsLoading } from './redux/global/globalSelectors';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
@@ -18,7 +18,7 @@ function App() {
   console.log(isLoading);
 
   useEffect(() => {
-    dispatch(sessionOperations.fetchCurrentUser());
+    dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (

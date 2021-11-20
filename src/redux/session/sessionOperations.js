@@ -4,7 +4,11 @@ import {
   usersLogInAction,
   usersLogOutAction,
   usersFetchCurrentUserAction,
+  userslogOutSuccess,
+  userslogOutError,
 } from './sessionActions';
+
+import {closeModalLogOut} from '../global/globalActions'
 import axios from 'axios';
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
@@ -17,7 +21,7 @@ const token = {
   },
 };
 
-const register = createAsyncThunk(
+export const register = createAsyncThunk(
   usersSignUpAction,
   async (credentials, { rejectWithValue }) => {
     try {
@@ -45,7 +49,7 @@ export const logIn = createAsyncThunk(
   },
 );
 
-const logOut = createAsyncThunk(
+export const logOut = createAsyncThunk(
   usersLogOutAction,
   async (_, { rejectWithValue }) => {
     try {
@@ -57,7 +61,21 @@ const logOut = createAsyncThunk(
   },
 );
 
-const fetchCurrentUser = createAsyncThunk(
+// export const logOut = () => async dispatch => {
+//   dispatch(usersLogOutAction());
+
+//   try {
+//     await axios.post('/users/logout');
+
+//     token.unset();
+//     dispatch(userslogOutSuccess());
+//     dispatch(closeModalLogOut());
+//   } catch (error) {
+//     dispatch(userslogOutError());
+//   }
+// };
+
+export const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -75,5 +93,3 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default { register, logIn, logOut, fetchCurrentUser };
