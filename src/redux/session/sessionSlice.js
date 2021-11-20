@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import sessionOperations from './sessionOperations';
+import * as sessionOperations from './sessionOperations';
 
 const initialState = {
   user: { name: null, email: null },

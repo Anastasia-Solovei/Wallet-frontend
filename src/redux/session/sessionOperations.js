@@ -21,7 +21,7 @@ const token = {
   },
 };
 
-const register = createAsyncThunk(
+export const register = createAsyncThunk(
   usersSignUpAction,
   async (credentials, { rejectWithValue }) => {
     try {
@@ -75,7 +75,7 @@ export const logOut = createAsyncThunk(
 //   }
 // };
 
-const fetchCurrentUser = createAsyncThunk(
+export const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -93,5 +93,3 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default { register, logIn, logOut, fetchCurrentUser };
