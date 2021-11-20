@@ -1,4 +1,5 @@
 .currency {
+  position: relative;
   width: 280px;
   height: 174px;
   border-radius: 30px;
@@ -63,8 +64,9 @@
 }
 
 .loader {
-  position: fixed;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translate(-50% -50%);
-  align-items: center;
+  transform: translate(-50%, 50%);
+  width: 100%;
 }
