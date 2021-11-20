@@ -13,6 +13,8 @@ import {
   fetchBalanceError,
 } from '../finance/financeActions';
 
+import * as sessionOperations from '../session/sessionOperations'
+
 const isTransactionModalOpen = createReducer(false, {
   [openModalAddTransaction]: () => true,
   [closeModalAddTransaction]: () => false,
@@ -21,6 +23,7 @@ const isTransactionModalOpen = createReducer(false, {
 const isExitModalOpen = createReducer(false, {
   [openModalLogOut]: () => true,
   [closeModalLogOut]: () => false,
+  [sessionOperations.logOut.rejected]: () => false,
 });
 
 const isLoading = createReducer(false, {

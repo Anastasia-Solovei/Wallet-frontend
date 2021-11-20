@@ -49,31 +49,31 @@ export const logIn = createAsyncThunk(
   },
 );
 
-// export const logOut = createAsyncThunk(
-//   usersLogOutAction,
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       await axios.post(`/users/logout`);
-//       token.unset();
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   },
-// );
+export const logOut = createAsyncThunk(
+  usersLogOutAction,
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.post(`/users/logout`);
+      token.unset();
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
 
-export const logOut = () => async dispatch => {
-  dispatch(usersLogOutAction());
+// export const logOut = () => async dispatch => {
+//   dispatch(usersLogOutAction());
 
-  try {
-    await axios.post('/users/logout');
+//   try {
+//     await axios.post('/users/logout');
 
-    token.unset();
-    dispatch(userslogOutSuccess());
-    dispatch(closeModalLogOut());
-  } catch (error) {
-    dispatch(userslogOutError());
-  }
-};
+//     token.unset();
+//     dispatch(userslogOutSuccess());
+//     dispatch(closeModalLogOut());
+//   } catch (error) {
+//     dispatch(userslogOutError());
+//   }
+// };
 
 const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
