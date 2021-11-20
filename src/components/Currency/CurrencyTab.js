@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import currencyApi from '../../services/currencyApi';
-// import { Loader } from '../Loader';
+import Loader from '../Loader';
 import { currencies } from '../../assets/constants';
 import styles from './CurrencyTab.module.css';
 
@@ -31,8 +31,9 @@ export default function CurrencyTable() {
   return (
     <div className={styles.currency}>
       {currency.length === 0 ? (
-        // <Loader />
-        <p>Loading...</p>
+        <div className={styles.loader}>
+          <Loader color="#ffffff" />
+        </div>
       ) : (
         <table>
           <thead>

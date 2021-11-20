@@ -4,6 +4,7 @@
   padding-right: 20px;
 
   width: 320px;
+  min-height: calc(100vh - 104.5px);
 }
 
 @media (max-width: 480px) {

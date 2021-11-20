@@ -2,9 +2,9 @@
 
 @media screen and (max-width: 320px) {
   .container {
-    width: 320px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 280px;
+    margin: 0;
+    padding: 0;
   }
 
   .mobileTab {
@@ -13,29 +13,28 @@
 }
 
 .container {
-  margin: 0 auto;
-  padding: 0 20px;
+  margin: 0;
+  padding: 0;
 }
 
-.wrapperTabIncomes{
+.wrapperTabIncomes {
   border-left: solid 5px var(--amount-incomes-text-color);
 }
 
-.wrapperTabExpenses{
+.wrapperTabExpenses {
   border-left: solid 5px var(--amount-expenses-text-color);
-
 }
 
 .wrapperTabIncomes,
-.wrapperTabExpenses{
-  border-radius: 10px; 
+.wrapperTabExpenses {
+  border-radius: 10px;
   margin: 0 0 10px;
 }
 
 .mobileTab {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-} 
+}
 
 .mobileTab {
   width: 100%;
@@ -55,7 +54,6 @@
   text-align: left;
   font-weight: 700;
   font-size: var(--font-size__accent);
-  
 }
 
 .wrapperTabIncomes tr:not(:last-child),
@@ -79,8 +77,3 @@
   color: var(--amount-incomes-text-color);
   font-weight: 700;
 }
-
-
-
-
-
