@@ -34,5 +34,5 @@ export const getTransByDateSuccess = createAction(
 );
 
 export const getTransByDateError = createAction(
-  'transaction/getTransactionsByDateError',
+  types.TRANSACTIONS_BY_DATE_ERROR,
 );
