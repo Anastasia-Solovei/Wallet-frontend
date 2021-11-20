@@ -1,5 +1,12 @@
 @import '../../stylesheet/vars.css';
 
+.formContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
 .titleWallet {
   display: flex;
   align-items: center;
@@ -94,10 +101,10 @@
   height: 34px;
   border: none;
   outline: none;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #f80000;
   font-size: var(--font-size__form);
   line-height: 1.5px;
-  padding: 0px 5px 10px 54.5px;
+  padding: 0px 5px 0px 54.5px;
   margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
@@ -110,10 +117,10 @@
   height: 34px;
   border: none;
   outline: none;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #f80000;
   font-size: var(--font-size__form);
   line-height: 1.5px;
-  padding: 0px 5px 10px 54.5px;
+  padding: 0px 5px 0px 54.5px;
   margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
@@ -168,4 +175,17 @@
     width: 300px;
     padding: 13px 65px;
   }
+}
+.button {
+  margin-bottom: 20px;
+}
+.error {
+  color: #ff6596;
+  position: absolute;
+  display: block;
+  align-items: center;
+
+  top: -30%;
+  left: 30%;
+  text-align: center;
 }

@@ -22,7 +22,10 @@ const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/users/signup`, credentials);
-      token.set(data.token);
+      token.set(data.emailVerificationToken);
+      console.log('data', data);
+      // console.log('emailVerificationToken', emailVerificationToken);
+      // console.log('token', token);
 
       return data;
     } catch (error) {
