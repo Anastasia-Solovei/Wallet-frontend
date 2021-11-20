@@ -21,3 +21,15 @@
   font-family: var(--logo__font-family);
   font-weight: bold;
 }
+
+@media (min-width: 768px) {
+  .balance {
+    width: 334px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .balance {
+    width: 350px;
+  }
+} ;
