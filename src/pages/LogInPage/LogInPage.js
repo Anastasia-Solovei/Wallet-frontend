@@ -1,9 +1,17 @@
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import sessionSelectors from '../../redux/session/sessionSelectors';
 import s from './LogInPage.module.css';
 import LogInForm from '../../components/LogInForm/LogInForm';
 
 const LogInPage = () => {
+  const isAuth = useSelector(sessionSelectors.getIsAuth);
+
+  if (isAuth) {
+    return <Redirect to="/home" />;
+  }
+
   return (
     <>
       <div className={s.logInPageBlur}></div>

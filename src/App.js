@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
+
   // console.log(isLoading);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
         <Route path={path.registrationPage}>
           <RegistrationPage />
         </Route>
+
         <Route path={path.logInPage}>
           <LogInPage />
         </Route>
