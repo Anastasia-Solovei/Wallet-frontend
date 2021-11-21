@@ -1,9 +1,8 @@
 import React, { useState, Fragment } from 'react';
-import Chart from '../../components/Chart';
 import { Switch, Route } from 'react-router-dom';
 import Media from 'react-media';
 import path from '../../routes_path';
-
+import Chart from '../../components/Chart';
 import Header from '../../components/Header/Header';
 import Container from '../../components/Container/Container';
 import Balance from '../../components/Balance/Balance';
@@ -18,13 +17,6 @@ import ModalAddTransaction from '../../components/ModalAddTransaction';
 import styles from './DashboardPage.module.css';
 
 const Dashboard = () => {
-  const [isModalAddTransactionOpen, setIsModalAddTransactionOpen] =
-    useState(false);
-
-  const toggleModal = () => {
-    setIsModalAddTransactionOpen(!isModalAddTransactionOpen);
-  };
-
   return (
     <>
       <Media
@@ -64,10 +56,8 @@ const Dashboard = () => {
                         </Route>
                       </Switch>
                     </div>
-                    <ButtonAddTransactions onClick={toggleModal} />
-                    {isModalAddTransactionOpen && (
-                      <ModalAddTransaction onClose={toggleModal} />
-                    )}
+                    <ButtonAddTransactions />
+                    <ModalAddTransaction />
                   </Container>
                 </div>
               </div>
@@ -98,10 +88,8 @@ const Dashboard = () => {
                       </Switch>
                     </div>
                   </Container>
-                  <ButtonAddTransactions onClick={toggleModal} />
-                  {isModalAddTransactionOpen && (
-                    <ModalAddTransaction onClose={toggleModal} />
-                  )}
+                  <ButtonAddTransactions />
+                  <ModalAddTransaction />
                 </div>
               </div>
             )}
@@ -117,10 +105,8 @@ const Dashboard = () => {
                     <Route path={path.dashboardPage}>
                       <div className={styles.balance_mobile}>
                         <Balance />
-                        <ButtonAddTransactions onClick={toggleModal} />
-                        {isModalAddTransactionOpen && (
-                          <ModalAddTransaction onClose={toggleModal} />
-                        )}
+                        <ButtonAddTransactions />
+                        <ModalAddTransaction />
                       </div>
                       <HomeTabMobile />
                     </Route>
