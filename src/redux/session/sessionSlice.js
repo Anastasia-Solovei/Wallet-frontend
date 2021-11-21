@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import sessionOperations from './sessionOperations';
+import * as sessionOperations from './sessionOperations';
 
 const initialState = {
   user: { name: null, email: null },
   token: null,
   isAuth: false,
   error: null,
-  // emailVerificationToken: null,
 };
 
 const sessionSlice = createSlice({
@@ -16,9 +15,6 @@ const sessionSlice = createSlice({
     [sessionOperations.register.fulfilled](state, action) {
       state.token = action.payload.emailVerificationToken;
       state.user = action.payload.user;
-
-      // state.token = action.payload.token;
-
       state.isAuth = true;
     },
     [sessionOperations.register.rejected](state, action) {

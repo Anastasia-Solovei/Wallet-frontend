@@ -6,6 +6,7 @@ import {
   usersFetchCurrentUserAction,
 } from './sessionActions';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
 const token = {
@@ -16,28 +17,31 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
-// const registerNewUser = async credentials => {
-//   return axios.post('/users/signup', credentials).then(({ data }) => {
-//     token.set(data.token);
-//     return data;
-//   });
-// };
 
-const register = createAsyncThunk(
+export const register = createAsyncThunk(
   usersSignUpAction,
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/users/signup`, credentials);
       token.set(data.emailVerificationToken);
-      //       return await registerNewUser(credentials);
-      //     } catch (error) {
-      //       console.log(error);
-      //     }
-      //   },
-      // );
 
+      toast(
+        'Registration was successful. Go to your email to confirm registration!',
+        { theme: 'colored', type: 'success' },
+      );
       return data;
     } catch (error) {
+      console.log('error', error.message);
+
+      if (error.message === 'Request failed with status code 409') {
+        toast.error('Email is already in use. Login please!', {
+          theme: 'colored',
+        });
+      } else {
+        toast.error('Something is wrong. Try again later', {
+          theme: 'colored',
+        });
+      }
       return rejectWithValue(error.message);
     }
   },
@@ -57,7 +61,7 @@ export const logIn = createAsyncThunk(
   },
 );
 
-const logOut = createAsyncThunk(
+export const logOut = createAsyncThunk(
   usersLogOutAction,
   async (_, { rejectWithValue }) => {
     try {
@@ -69,7 +73,7 @@ const logOut = createAsyncThunk(
   },
 );
 
-const fetchCurrentUser = createAsyncThunk(
+export const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
@@ -87,6 +91,6 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
-// const authOperations = { register, logIn, logOut, fetchCurrentUser };
+//  const authOperations = { register, logIn, logOut, fetchCurrentUser };
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { register, logIn, logOut, fetchCurrentUser };
+// export default { register, logIn, logOut, fetchCurrentUser };

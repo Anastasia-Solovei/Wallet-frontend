@@ -3,11 +3,11 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import authOperations from '../../redux/session/sessionOperations';
+import * as sessionOperations from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
 import s from './RegistrationForm.module.css';
 import Button from '../Button/Button';
-import Containrt from '../Container/Container'
+import Container from '../Container/Container';
 
 const RegistrationForm = () => {
   const button = {
@@ -44,7 +44,7 @@ const RegistrationForm = () => {
       let password = values.password;
       let email = values.email;
 
-      dispatch(authOperations.register({ name, password, email }));
+      dispatch(sessionOperations.register({ name, password, email }));
     },
   });
 
