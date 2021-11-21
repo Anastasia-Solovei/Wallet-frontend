@@ -11,15 +11,19 @@ import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
-  console.log(isLoading);
+  // console.log(isLoading);
+
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
+
 
   return (
     <>
@@ -41,6 +45,7 @@ function App() {
           <DashboardPage />
         </ProtectedRoute>
       </Switch>
+      <ToastContainer position="top-right" autoClose={4000} closeOnClick />
     </>
   );
 }

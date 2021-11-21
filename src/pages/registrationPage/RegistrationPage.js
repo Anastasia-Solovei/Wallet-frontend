@@ -1,6 +1,6 @@
 import React from 'react';
-
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import Container from '../../components/Container/Container';
 import s from './RegistrationPage.module.css';
 
 const RegistrationPage = () => {

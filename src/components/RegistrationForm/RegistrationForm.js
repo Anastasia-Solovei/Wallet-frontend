@@ -1,40 +1,52 @@
 import React from 'react';
-import { Formik } from 'formik';
-import * as yup from 'yup';
-import s from './RegistrationForm.module.css';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
+import { useDispatch } from 'react-redux';
+import * as sessionOperations from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
+import s from './RegistrationForm.module.css';
+import Button from '../Button/Button';
+import Container from '../Container/Container';
 
-export default function RegistrationForm() {
-  const validationSchema = yup.object().shape({
-    email: yup
-      .string()
-      .typeError('Должна быть строка !')
-      .required('Enter your Email'),
-    // .matches('!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i'),
-
-    name: yup
-      .string()
-      .typeError('Должна быть строка !')
-      .required('Enter your name'),
-    password: yup
-      .string()
-      .typeError('Должна быть строка !')
-      .required('Enter your password')
-      .min(6, 'Your password must be longer than 6 characters.')
-      .max(12, 'Your password must be no longer than 12 characters.'),
-    confirmPassword: yup
-      .string()
-      .oneOf([yup.ref('password')], 'Passwords must match')
-      .required('Enter your password'),
-  });
-
-  console.log(validationSchema);
-
-  const buttonS = {
+const RegistrationForm = () => {
+  const button = {
     marginBottom: 20,
   };
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+      name: '',
+      confirmPassword: '',
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string()
+        .typeError('Должна быть строка !')
+        .email('Enter a valid email')
+        .required('Enter your Email'),
+      name: Yup.string()
+        .typeError('Должна быть строка !')
+        .required('Enter your name'),
+      password: Yup.string()
+        .typeError('Должна быть строка !')
+        .required('Enter your password')
+        .min(6, 'Your password must be longer than 6 characters.')
+        .max(12, 'Your password must be no longer than 12 characters.'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password')], 'Passwords must match')
+        .required('Enter your password'),
+    }),
+    onSubmit: values => {
+      let name = values.name;
+      let password = values.password;
+      let email = values.email;
+
+      dispatch(sessionOperations.register({ name, password, email }));
+    },
+  });
 
   return (
     <div className={s.formContainer}>
@@ -44,147 +56,115 @@ export default function RegistrationForm() {
         </svg>
         <h2 className={s.title}>Wallet</h2>
       </div>
-      <Formik
-        initialValues={{
-          email: '',
-          name: '',
-          password: '',
-          confirmPassword: '',
-        }}
-        validationSchema={validationSchema}
-        validateOnBlur
-        onSubmit={values => console.log(values)}
-      >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          dirty,
-          isValid,
-        }) => (
-          <form className={s.form}>
-            <label>
-              <div className={s.inputBase}>
-                <input
-                  className={
-                    touched.email && errors.email ? s.inputError : s.input
-                  }
-                  placeholder={
-                    touched.email && errors.email ? errors.email : 'E-mail'
-                  }
-                  name="email"
-                  type="email"
-                  autoComplete="off"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                <svg className={s.iconForm} width="24px" height="24px">
-                  <use
-                    className={s.iconUse}
-                    href={sprite + '#icon-email'}
-                  ></use>
-                </svg>
-              </div>
-            </label>
-
-            <label>
-              <div className={s.inputBase}>
-                <input
-                  className={
-                    touched.password && errors.password ? s.inputError : s.input
-                  }
-                  placeholder={
-                    touched.password && errors.password
-                      ? errors.password
-                      : 'Password'
-                  }
-                  name="password"
-                  type="passwoed"
-                  autoComplete="off"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                />
-                <svg className={s.iconForm} width="24px" height="24px">
-                  <use
-                    className={s.iconUse}
-                    href={sprite + '#icon-password'}
-                  ></use>
-                </svg>
-              </div>
-            </label>
-
-            <label>
-              <div className={s.inputBase}>
-                <input
-                  className={
-                    touched.confirmPassword && errors.confirmPassword
-                      ? s.inputError
-                      : s.input
-                  }
-                  placeholder={
-                    touched.confirmPassword && errors.confirmPassword
-                      ? errors.confirmPassword
-                      : 'Set password'
-                  }
-                  autoComplete={'off'}
-                  type={'password'}
-                  name={'confirmPassword'}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.confirmPassword}
-                />
-                <svg className={s.iconForm} width="24px" height="24px">
-                  <use
-                    className={s.iconUse}
-                    href={sprite + '#icon-password'}
-                  ></use>
-                </svg>
-                <div className={s.blockCheck}></div>
-              </div>
-            </label>
-
-            <label>
-              <div className={s.inputBase}>
-                <input
-                  id="name"
-                  className={
-                    touched.name && errors.name ? s.inputErrorName : s.inputName
-                  }
-                  placeholder={
-                    touched.name && errors.name ? errors.name : 'Name'
-                  }
-                  autoComplete={'off'}
-                  type={'text'}
-                  name={'name'}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.name}
-                />
-                <svg className={s.iconForm} width="24px" height="24px">
-                  <use className={s.iconUse} href={sprite + '#icon-name'}></use>
-                </svg>
-              </div>
-            </label>
-
-            <Button
-              children={'SING UP'}
-              type={'submit'}
-              onClick={handleSubmit}
-              disabled={!isValid && !dirty}
-              style={buttonS}
+      <form onSubmit={formik.handleSubmit} className={s.form}>
+        <div className={s.inputBase}>
+          {formik.touched.email && formik.errors.email ? (
+            <div className={s.error}>{formik.errors.email}</div>
+          ) : null}
+          <label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="off"
+              placeholder="E-mail"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className={
+                formik.touched.email && formik.errors.email
+                  ? s.inputError
+                  : s.input
+              }
             />
+          </label>
 
-            <Link to="/login" className={s.link}>
-              LOG IN
-            </Link>
-          </form>
-        )}
-      </Formik>
+          <svg className={s.iconForm} width="24px" height="24px">
+            <use href={sprite + '#icon-email'}></use>
+          </svg>
+        </div>
+
+        <div className={s.inputBase}>
+          <label></label>
+          {formik.touched.password && formik.errors.password ? (
+            <div className={s.error}>{formik.errors.password}</div>
+          ) : null}
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="off"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+            className={
+              formik.touched.password && formik.errors.password
+                ? s.inputError
+                : s.input
+            }
+            placeholder="Password"
+          />
+          <svg className={s.iconForm} width="24px" height="24px">
+            <use className={s.iconUse} href={sprite + '#icon-password'}></use>
+          </svg>
+        </div>
+
+        <div className={s.inputBase}>
+          <label></label>
+          {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+            <div className={s.error}>{formik.errors.confirmPassword}</div>
+          ) : null}
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            autoComplete="off"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.confirmPassword}
+            className={
+              formik.touched.confirmPassword && formik.errors.confirmPassword
+                ? s.inputError
+                : s.input
+            }
+            placeholder="Set password"
+          />
+          <svg className={s.iconForm} width="24px" height="24px">
+            <use className={s.iconUse} href={sprite + '#icon-password'}></use>
+          </svg>
+        </div>
+
+        <div className={s.inputBase}>
+          <label></label>
+          {formik.touched.name && formik.errors.name ? (
+            <div className={s.error}>{formik.errors.name}</div>
+          ) : null}
+          <input
+            id="name"
+            name="name"
+            type="name"
+            autoComplete="off"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            className={
+              formik.touched.name && formik.errors.name
+                ? s.inputErrorName
+                : s.inputName
+            }
+            value={formik.values.name}
+            placeholder="name"
+          />
+          <svg className={s.iconForm} width="24px" height="24px">
+            <use className={s.iconUse} href={sprite + '#icon-name'}></use>
+          </svg>
+        </div>
+        <Button type="submit" children={'SING UP'} style={button}></Button>
+        <Link to="/login" className={s.link}>
+          LOG IN
+        </Link>
+      </form>
     </div>
   );
-}
+};
+
+export default RegistrationForm;

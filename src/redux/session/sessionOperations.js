@@ -10,6 +10,7 @@ import {
 
 import { closeModalLogOut } from '../global/globalActions';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
 const token = {
@@ -28,8 +29,23 @@ export const register = createAsyncThunk(
       const { data } = await axios.post(`/users/signup`, credentials);
       token.set(data.emailVerificationToken);
 
+      toast(
+        'Registration was successful. Go to your email to confirm registration!',
+        { theme: 'colored', type: 'success' },
+      );
       return data;
     } catch (error) {
+      console.log('error', error.message);
+
+      if (error.message === 'Request failed with status code 409') {
+        toast.error('Email is already in use. Login please!', {
+          theme: 'colored',
+        });
+      } else {
+        toast.error('Something is wrong. Try again later', {
+          theme: 'colored',
+        });
+      }
       return rejectWithValue(error.message);
     }
   },
@@ -61,20 +77,6 @@ export const logOut = createAsyncThunk(
   },
 );
 
-// export const logOut = () => async dispatch => {
-//   dispatch(usersLogOutAction());
-
-//   try {
-//     await axios.post('/users/logout');
-
-//     token.unset();
-//     dispatch(userslogOutSuccess());
-//     dispatch(closeModalLogOut());
-//   } catch (error) {
-//     dispatch(userslogOutError());
-//   }
-// };
-
 export const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
   async (_, thunkAPI) => {
@@ -92,3 +94,4 @@ export const fetchCurrentUser = createAsyncThunk(
     } catch (error) {}
   },
 );
+

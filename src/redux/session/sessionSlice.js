@@ -4,7 +4,7 @@ import * as sessionOperations from './sessionOperations';
 const initialState = {
   user: { name: null, email: null },
   token: null,
-  isAuth: true,
+  isAuth: false,
   error: null,
 };
 
@@ -14,9 +14,12 @@ const sessionSlice = createSlice({
   extraReducers: {
     [sessionOperations.register.pending](state) {},
     [sessionOperations.register.fulfilled](state, action) {
-      state.user = action.payload.user;
       state.token = action.payload.emailVerificationToken;
-      // state.isAuth = true;
+      state.user = action.payload.user;
+    },
+    [sessionOperations.register.rejected](state, action) {
+      state.error = action.payload;
+      state.token = null;
     },
     [sessionOperations.register.rejected](state, action) {},
     [sessionOperations.logIn.pending](state) {},

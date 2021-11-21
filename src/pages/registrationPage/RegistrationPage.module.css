@@ -25,6 +25,7 @@
   .registrationPage {
     display: flex;
     justify-content: flex-end;
+    background-position: left bottom, right top;
     padding: 52px 85px 0px 66px;
     min-width: var(--desktop-bp);
     min-height: 720px;

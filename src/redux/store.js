@@ -16,12 +16,20 @@ import financeReducer from './finance/financeReducer';
 import transactionsReducer from './transactions/transactionsReducer';
 import globalReducer from './global/globalReducer';
 
-const middleware = getDefaultMiddleware =>
-  getDefaultMiddleware({
+// const middleware = getDefaultMiddleware =>
+//   getDefaultMiddleware({
+//     serializableCheck: {
+//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//     },
+//   });
+
+const middleware = [
+  ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  });
+  }),
+];
 
 const PersistConfig = {
   key: 'session',
