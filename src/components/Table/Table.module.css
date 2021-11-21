@@ -26,6 +26,7 @@
 }
 
 .titleItem {
+  font-family: var(--main__font-family);
   font-size: 18px;
   line-height: 1.5;
   font-weight: bold;
@@ -35,6 +36,7 @@
   display: flex;
   padding: 14px 20px;
   border-bottom: 1px solid #dcdcdf;
+  font-family: var(--main__font-family);
   font-size: 16px;
   line-height: 1.15;
 }

@@ -6,7 +6,7 @@
 }
 
 .formControl {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .selectDate {
@@ -17,7 +17,7 @@
   padding-top: 12px;
   padding-right: 20px;
   padding-bottom: 14px;
-  font-family: var(--main__font-family);
+  font-family: var(--main__font-family) !important;
   font-size: var(--font-size__main);
   line-height: 1.5;
   border: 1px solid #000000;
