@@ -56,10 +56,7 @@ const error = createReducer(null, {
   [addTransRequest]: () => null,
   [deleteTransRequest]: () => null,
   [filterTransRequest]: () => null,
-  [getTransByDateError]:
-    () =>
-    (_, { payload }) =>
-      payload,
+  [getTransByDateError]: (_, { payload }) => payload,
   [getTransByDateRequest]: () => null,
 });
 

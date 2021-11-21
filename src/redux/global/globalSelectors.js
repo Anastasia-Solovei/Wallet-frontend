@@ -1,9 +1,9 @@
 // import { createSelector } from '@reduxjs/toolkit';
 
 export const getIsTransactionModalOpen = state =>
-  state.transactions.isTransactionModalOpen;
+  state.global.isTransactionModalOpen;
 
-export const getIsExitModalOpen = state => state.transactions.isExitModalOpen;
+export const getIsExitModalOpen = state => state.global.isExitModalOpen;
 
 export const getIsLoading = state => state.global.isLoading;
 

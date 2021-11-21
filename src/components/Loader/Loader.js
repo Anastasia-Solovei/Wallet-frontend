@@ -3,12 +3,12 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 import styles from './Loader.module.css';
 
-const LoaderSpinner = () => {
+const LoaderSpinner = ({ color = '#3f51b5' }) => {
   return (
     <div className={styles.container}>
       <Loader
         type="ThreeDots"
-        color="#3f51b5"
+        color={color}
         height={100}
         width={100}
         timeout={3000}

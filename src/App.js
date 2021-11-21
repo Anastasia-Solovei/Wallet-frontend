@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import { sessionOperations } from './redux/session';
+import {fetchCurrentUser} from './redux/session/sessionOperations';
 import { getIsLoading } from './redux/global/globalSelectors';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
@@ -19,9 +19,11 @@ function App() {
   const isLoading = useSelector(getIsLoading);
   // console.log(isLoading);
 
-  // useEffect(() => {
-  //   dispatch(sessionOperations.fetchCurrentUser());
-  // }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
 
   return (
     <>
@@ -36,7 +38,7 @@ function App() {
         </Route>
 
         <ProtectedRoute
-          path={[path.dashboardPage, path.statistic]}
+          path={[path.dashboardPage, path.statistic, path.currency]}
           exact
           redirectTo={path.logInPage}
         >

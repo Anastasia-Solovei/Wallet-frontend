@@ -12,28 +12,34 @@ const sessionSlice = createSlice({
   name: 'session',
   initialState,
   extraReducers: {
+    [sessionOperations.register.pending](state) {},
     [sessionOperations.register.fulfilled](state, action) {
       state.token = action.payload.emailVerificationToken;
       state.user = action.payload.user;
-      state.isAuth = true;
     },
     [sessionOperations.register.rejected](state, action) {
       state.error = action.payload;
-      state.isAuth = false;
       state.token = null;
     },
+    [sessionOperations.register.rejected](state, action) {},
+    [sessionOperations.logIn.pending](state) {},
     [sessionOperations.logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isAuth = true;
     },
-
+    [sessionOperations.logIn.rejected](state) {},
+    [sessionOperations.logOut.pending](state) {},
     [sessionOperations.logOut.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isAuth = false;
       state.error = null;
     },
+    [sessionOperations.logOut.rejected](state, action) {
+      state.error = action.payload.message;
+    },
+    [sessionOperations.fetchCurrentUser.pending](state) {},
     [sessionOperations.fetchCurrentUser.fulfilled](state, action) {
       state.user = action.payload;
       state.isAuth = true;

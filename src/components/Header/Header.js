@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { sessionSelectors } from '../../redux/session';
-import { setExitModalOpen } from '../../redux/global/globalOperations';
+import { openModalLogOut } from '../../redux/global/globalActions';
 import sprite from '../../images/svg_sprite.svg';
 import style from './Header.module.css';
+import ModalLogout from '../ModalLogout/ModalLogout';
 
 function useTableScreen() {
   const [tableScreen, setTabletScreen] = useState(window.innerWidth);
@@ -39,7 +40,7 @@ const Header = () => {
           {Number(tableScreen) >= 768 && <span>|</span>}
           <button
             className={style.headerLogout}
-            // onClick={e => dispatch(setExitModalOpen())}
+            onClick={() => dispatch(openModalLogOut())}
           >
             <svg className={style.headerIconExit} width="18px" height="18px">
               <use href={sprite + '#icon-exit'}></use>
@@ -49,6 +50,7 @@ const Header = () => {
             )}
           </button>
         </div>
+        <ModalLogout />
       </div>
     </header>
   );

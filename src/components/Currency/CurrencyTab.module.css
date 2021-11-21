@@ -1,4 +1,5 @@
 .currency {
+  position: relative;
   width: 280px;
   height: 174px;
   border-radius: 30px;
@@ -60,4 +61,12 @@
   .currency td {
     padding-top: 23px;
   }
+}
+
+.loader {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  transform: translate(-50%);
+  width: 100%;
 }

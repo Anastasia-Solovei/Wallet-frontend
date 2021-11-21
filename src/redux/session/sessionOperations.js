@@ -4,7 +4,11 @@ import {
   usersLogInAction,
   usersLogOutAction,
   usersFetchCurrentUserAction,
+  userslogOutSuccess,
+  userslogOutError,
 } from './sessionActions';
+
+import { closeModalLogOut } from '../global/globalActions';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
@@ -91,6 +95,3 @@ export const fetchCurrentUser = createAsyncThunk(
   },
 );
 
-//  const authOperations = { register, logIn, logOut, fetchCurrentUser };
-// eslint-disable-next-line import/no-anonymous-default-export
-// export default { register, logIn, logOut, fetchCurrentUser };

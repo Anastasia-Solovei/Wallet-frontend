@@ -5,5 +5,5 @@ export const closeModalAddTransaction = createAction(
   'closeModalAddTransaction',
 );
 
-export const openModalLogOut = createAction('openModalLogOut ');
-export const closeModalLogOut = createAction('closeModalLogOut');
+export const openModalLogOut = createAction('global/openModalLogOut ');
+export const closeModalLogOut = createAction('global/closeModalLogOut');
