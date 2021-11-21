@@ -27,6 +27,8 @@ function App() {
     <>
       {isLoading && <Loader />}
       <Switch>
+        <Route exact path="/" redirectTo={path.dashboardPage} />
+
         <Route path={path.registrationPage}>
           <RegistrationPage />
         </Route>
