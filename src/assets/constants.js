@@ -57,4 +57,17 @@ export const expenses = [
   1250.0, 1900.0, 300.0, 555.0, 888.0, 350.0, 587.0, 599.0, 687.05,
 ];
 
+export const dataFromBackend = {
+  main: 1500,
+  food: 350,
+  car: 2000,
+  me: 888,
+  children: 4000,
+  house: 0,
+  education: 2000,
+  leisure: 3000,
+  other: 50,
+  incomes: 13500,
+};
+
 export const currencies = ['USD', 'EUR', 'RUR'];

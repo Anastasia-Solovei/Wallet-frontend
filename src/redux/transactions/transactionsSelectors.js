@@ -12,3 +12,6 @@ export const getVisibleTransactions = createSelector(
     return transactions.filter(({ data }) => data.includes(filter));
   },
 );
+
+export const getTransactionsByCategories = state =>
+  state.transactions.categories;
