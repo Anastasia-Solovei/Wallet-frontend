@@ -1,8 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { openModalAddTransaction } from '../../redux/global/globalActions';
 import s from './ButtonAddTransactions.module.css';
 
-const ButtonAddTransactions = ({ onClick }) => {
+const ButtonAddTransactions = () => {
+  const dispatch = useDispatch();
   return (
-    <button type="button" className={s.button} onClick={() => onClick()}>
+    <button
+      type="button"
+      className={s.button}
+      onClick={() => dispatch(openModalAddTransaction())}
+    >
       <svg
         width="20"
         height="20"

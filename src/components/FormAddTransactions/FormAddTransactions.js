@@ -90,8 +90,6 @@ export default function FormAddTransactions({ onClose }) {
     },
   });
 
-  console.log(formik.values.date);
-
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className={s.unionRadio}>
