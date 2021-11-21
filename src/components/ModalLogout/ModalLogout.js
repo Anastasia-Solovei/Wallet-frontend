@@ -13,10 +13,11 @@ export default function ModalLogout() {
   const dispatch = useDispatch();
 
   const isLogoutModalOpen = useSelector(getIsExitModalOpen);
-console.log(isLogoutModalOpen);
-console.log(getIsExitModalOpen);
+  console.log(isLogoutModalOpen);
+  console.log(getIsExitModalOpen);
   const onModalLogout = useCallback(() => {
     dispatch(logOut());
+    dispatch(closeModalLogOut());
   }, [dispatch]);
 
   return (
@@ -25,7 +26,7 @@ console.log(getIsExitModalOpen);
         <Modal closeModal={() => dispatch(closeModalLogOut())}>
           <p>Are you sure you want to exit?</p>
           <div>
-            <button onClick={onModalLogout}>Yes</button>
+            <button onClick={() => onModalLogout()}>Yes</button>
             <button onClick={() => dispatch(closeModalLogOut())}>No</button>
           </div>
         </Modal>
