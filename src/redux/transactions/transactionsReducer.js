@@ -61,7 +61,7 @@ const error = createReducer(null, {
 });
 
 const categories = createReducer('', {
-  [getTransByDateSuccess]: (_, { payload }) => payload.data,
+  [getTransByDateSuccess]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
