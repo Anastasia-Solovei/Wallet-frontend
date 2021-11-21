@@ -4,7 +4,7 @@ import styles from './Balance.module.css';
 
 const Balance = () => {
   //   const totalBalance = useSelector(state => state.finance.totalBalance);
-  const totalBalance = 100501;
+  const totalBalance = 24000;
   return (
     <div className={styles.balance}>
       <h3 className={styles.title}>your balance</h3>

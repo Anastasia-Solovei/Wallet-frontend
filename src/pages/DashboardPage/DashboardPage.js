@@ -12,6 +12,7 @@ import MobileNavigation from '../../components/MobileNavigation/MobileNavigation
 import CurrencyTable from '../../components/Currency';
 import DiagramTab from '../../components/DiagramTab';
 import HomeTab from '../../components/HomeTab/HomeTab';
+import HomeTabMobile from '../../components/HomeTabMobile';
 import ButtonAddTransactions from '../../components/ButtonAddTransactions';
 import ModalAddTransaction from '../../components/ModalAddTransaction';
 import styles from './DashboardPage.module.css';
@@ -37,68 +38,72 @@ const Dashboard = () => {
           <Fragment>
             {matches.desktop && (
               <div className={styles.bcg}>
-                <Header />
-                <Container>
-                  <div className={styles.dashboard}>
-                    <div>
-                      <div className={styles.navigation}>
-                        <Navigation />
-                      </div>
-                      <div className={styles.balance}>
-                        <Balance />
-                      </div>
+                <div className={styles.blur}>
+                  <Header />
+                  <Container>
+                    <div className={styles.dashboard}>
                       <div>
-                        <CurrencyTable />
+                        <div className={styles.navigation}>
+                          <Navigation />
+                        </div>
+                        <div className={styles.balance}>
+                          <Balance />
+                        </div>
+                        <div>
+                          <CurrencyTable />
+                        </div>
                       </div>
+
+                      <Switch>
+                        <Route path={path.dashboardPage}>
+                          <HomeTab />
+                        </Route>
+
+                        <Route path={path.statistic}>
+                          <DiagramTab />
+                        </Route>
+                      </Switch>
                     </div>
-
-                    <Switch>
-                      <Route path={path.dashboardPage}>
-                        <HomeTab />
-                      </Route>
-
-                      <Route path={path.statistic}>
-                        <DiagramTab />
-                      </Route>
-                    </Switch>
-                  </div>
-                </Container>
-                <ButtonAddTransactions onClick={toggleModal} />
-                {isModalAddTransactionOpen && (
-                  <ModalAddTransaction onClose={toggleModal} />
-                )}
+                    <ButtonAddTransactions onClick={toggleModal} />
+                    {isModalAddTransactionOpen && (
+                      <ModalAddTransaction onClose={toggleModal} />
+                    )}
+                  </Container>
+                </div>
               </div>
             )}
 
             {matches.tablet && (
-              <>
-                <Header />
-                <Container>
-                  <div>
-                    <div className={styles.dashboard}>
-                      <div>
-                        <Navigation />
-                        <Balance />
+              <div className={styles.bcg_tablet}>
+                <div className={styles.blur}>
+                  <Header />
+                  <Container>
+                    <div>
+                      <div className={styles.dashboard_tablet}>
+                        <div>
+                          <Navigation />
+                          <Balance />
+                        </div>
+                        <CurrencyTable />
                       </div>
-                      <CurrencyTable />
+
+                      <Switch>
+                        <Route path={path.dashboardPage}>
+                          <HomeTab />
+                        </Route>
+
+                        <Route path={path.statistic}>
+                          <DiagramTab />
+                        </Route>
+                      </Switch>
                     </div>
-
-                    <Switch>
-                      <Route path={path.dashboardPage}>
-                        <HomeTab />
-                      </Route>
-
-                      <Route path={path.statistic}>
-                        <DiagramTab />
-                      </Route>
-                    </Switch>
-                  </div>
-                </Container>
-                <ButtonAddTransactions onClick={toggleModal} />
-                {isModalAddTransactionOpen && (
-                  <ModalAddTransaction onClose={toggleModal} />
-                )}
-              </>
+                  </Container>
+                  <ButtonAddTransactions onClick={toggleModal} />
+                  {isModalAddTransactionOpen && (
+                    <ModalAddTransaction onClose={toggleModal} />
+                  )}
+                </div>
+              </div>
             )}
 
             {matches.mobile && (
@@ -112,14 +117,20 @@ const Dashboard = () => {
                     <Route path={path.dashboardPage}>
                       <div className={styles.balance_mobile}>
                         <Balance />
+                        <ButtonAddTransactions onClick={toggleModal} />
+                        {isModalAddTransactionOpen && (
+                          <ModalAddTransaction onClose={toggleModal} />
+                        )}
                       </div>
-                      <HomeTab />
+                      <HomeTabMobile />
                     </Route>
                     <Route path={path.statistic}>
                       <DiagramTab />
                     </Route>
                     <Route path={path.currency}>
-                      <CurrencyTable />
+                      <div className={styles.currency_mobile}>
+                        <CurrencyTable />
+                      </div>
                     </Route>
                   </Switch>
                 </Container>
