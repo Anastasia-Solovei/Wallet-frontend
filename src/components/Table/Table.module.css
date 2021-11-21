@@ -1,5 +1,5 @@
 .container {
-  padding-top: 6px;
+  padding-top: 20px;
   align-items: center;
 }
 @media screen and (max-width: 479px) {
