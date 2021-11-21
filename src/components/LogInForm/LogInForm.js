@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { logIn } from '../../redux/session/sessionOperations';
 import { Link } from 'react-router-dom';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 import s from './LogInForm.module.css';
@@ -14,13 +14,13 @@ import Button from '../Button/Button';
 
 const LogInForm = () => {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  //const [email, setEmail] = useState('');
+  //const [password, setPassword] = useState('');
 
-  const formSubmit = e => {
+  const handleSubmit = ({ email, password }) => {
     dispatch(logIn({ email, password }));
-    setEmail('');
-    setPassword('');
+    //setEmail('');
+    //setPassword('');
   };
 
   const validationSchema = Yup.object().shape({
@@ -36,21 +36,26 @@ const LogInForm = () => {
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
+      validateOnBlur
       validationSchema={validationSchema}
-      onSubmit={formSubmit}
+      onSubmit={handleSubmit}
     >
       {({
-        isLoading,
         isSubmitting,
         handleChange,
         handleBlur,
         handleSubmit,
+        handleReset,
+        formSubmit,
         touched,
         errors,
+        isValid,
+        dirty,
+        values,
 
         /* and other goodies */
       }) => (
-        <form className={s.form} onSubmit={handleSubmit}>
+        <Form className={s.form} onReset={handleReset}>
           <div className={s.titleArea}>
             <h2 className={s.title}>Wallet</h2>
 
@@ -58,12 +63,12 @@ const LogInForm = () => {
               <use href={sprite + '#icon-wallet'}></use>
             </svg>
           </div>
-
           <div className={s.inputArea}>
             <FormInput
               name="email"
               type="email"
               placeholder="E-mail"
+              value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
               className={touched.email && errors.email ? s.inputError : s.input}
@@ -72,12 +77,12 @@ const LogInForm = () => {
               <use href={sprite + '#icon-email'}></use>
             </svg>
           </div>
-
           <div className={s.inputArea}>
             <FormInput
               name="password"
               type="password"
               placeholder="Password"
+              value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
               className={
@@ -93,7 +98,7 @@ const LogInForm = () => {
           <Link to="/register" className={s.link}>
             Registration
           </Link>
-        </form>
+        </Form>
       )}
     </Formik>
   );
