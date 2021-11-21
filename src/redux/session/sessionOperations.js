@@ -8,7 +8,7 @@ import {
   userslogOutError,
 } from './sessionActions';
 
-import {closeModalLogOut} from '../global/globalActions'
+import { closeModalLogOut } from '../global/globalActions';
 import axios from 'axios';
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 
@@ -26,7 +26,7 @@ export const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/users/signup`, credentials);
-      token.set(data.token);
+      token.set(data.emailVerificationToken);
 
       return data;
     } catch (error) {
@@ -92,4 +92,3 @@ export const fetchCurrentUser = createAsyncThunk(
     } catch (error) {}
   },
 );
-
