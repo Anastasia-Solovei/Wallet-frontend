@@ -14,7 +14,7 @@ const sessionSlice = createSlice({
   extraReducers: {
     [sessionOperations.register.pending](state) {},
     [sessionOperations.register.fulfilled](state, action) {
-      state.token = action.payload.emailVerificationToken;
+      //state.token = action.payload.emailVerificationToken;
       state.user = action.payload.user;
     },
     [sessionOperations.register.rejected](state, action) {

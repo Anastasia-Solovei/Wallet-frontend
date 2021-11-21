@@ -27,7 +27,7 @@ export const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/users/signup`, credentials);
-      token.set(data.emailVerificationToken);
+      //  token.set(data.emailVerificationToken);
 
       // toast(
       //   'Registration was successful. Go to your email to confirm registration!',
