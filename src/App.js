@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { fetchCurrentUser } from './redux/session/sessionOperations';
 import { getIsLoading } from './redux/global/globalSelectors';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -27,16 +27,16 @@ function App() {
     <>
       {isLoading && <Loader />}
       <Switch>
-        <Route exact path="/" redirectTo={path.dashboardPage} />
+        <Route exact path="/">
+          <Redirect to={path.dashboardPage} />
+        </Route>
 
         <Route path={path.registrationPage}>
           <RegistrationPage />
         </Route>
-
         <Route path={path.logInPage}>
           <LogInPage />
         </Route>
-
         <ProtectedRoute
           path={[path.dashboardPage, path.statistic, path.currency]}
           exact
