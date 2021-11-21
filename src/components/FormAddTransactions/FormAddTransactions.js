@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Formik } from 'formik';
-import * as yup from 'yup';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-datetime/css/react-datetime.css';
 import Datetime from 'react-datetime';
-import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import { transactionsOperations } from '../../redux/transactions';
 import sprite from '../../images/svg_sprite.svg';
 import s from './FormAddTransactions.module.css';
@@ -14,109 +14,104 @@ const monthValue = new Date().getMonth() + 1;
 const yearValue = new Date().getYear() + 1900;
 const dateValue = dayValue + '.' + monthValue + '.' + yearValue;
 
+const DatetimeField = ({ name, onChange }) => {
+  return (
+    <Datetime
+      dateFormat="DD.MM.YYYY"
+      timeFormat={false}
+      closeOnSelect={true}
+      isValidDate={current => {
+        let today = new Date();
+        return current.isBefore(today);
+      }}
+      initialValue={dateValue}
+      onChange={value => {
+        onChange(
+          name,
+          value._d.getDate() +
+            '.' +
+            (value._d.getMonth() + 1) +
+            '.' +
+            (value._d.getYear() + 1900),
+        );
+      }}
+    />
+  );
+};
+
 export default function FormAddTransactions({ onClose }) {
   const dispatch = useDispatch();
-  const [type, setType] = useState('expenses');
-  const [category, setCategory] = useState('main');
-  const [amount, setAmount] = useState('');
-  const [date, setDate] = useState(dateValue);
-  const [day, setDay] = useState(dayValue);
-  const [month, setMonth] = useState(monthValue);
-  const [year, setYear] = useState(yearValue);
-  const [comment, setComment] = useState('');
 
-  const handleChange = event => {
-    const { name, value } = event.target;
+  const formik = useFormik({
+    initialValues: {
+      type: 'expenses',
+      category: 'main',
+      amount: '',
+      date: dateValue,
+      day: dayValue,
+      month: monthValue,
+      year: yearValue,
+      comment: '',
+    },
 
-    switch (name) {
-      case 'transaction':
-        setType(value);
-        break;
-      case 'category':
-        setCategory(value);
-        break;
-      case 'amount':
-        setAmount(Number(value));
-        break;
-      case 'comment':
-        setComment(value);
-        break;
+    validationSchema: yup.object().shape({
+      amount: yup
+        .number()
+        .typeError('Enter the number')
+        .min(0)
+        .required('Required field'),
+      comment: yup.string().max(15, 'No more than 15 characters allowed '),
+    }),
 
-      default:
-        return;
-    }
-  };
+    onSubmit: values => {
+      const type = values.type;
+      const category = values.category;
+      const amount = Number(values.amount);
+      const date = values.date;
+      const arrayDate = date.split('.');
+      const day = Number(arrayDate[0]);
+      const month = Number(arrayDate[1]);
+      const year = Number(arrayDate[2]);
+      const comment = values.comment;
 
-  const handleDateChange = date => {
-    const chooseDate =
-      date._d.getDate() +
-      '.' +
-      (date._d.getMonth() + 1) +
-      '.' +
-      date._d.getFullYear();
-    setDate(chooseDate);
-    const day = date._d.getDate();
-    setDay(day);
-    const month = date._d.getMonth() + 1;
-    setMonth(month);
-    const year = date._d.getYear() + 1900;
-    setYear(year);
-  };
+      dispatch(
+        transactionsOperations.addTransactions({
+          type,
+          category,
+          amount,
+          date,
+          day,
+          month,
+          year,
+          comment,
+        }),
+      );
+      onClose();
+    },
+  });
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    if (amount === '') {
-      return toast.info('Enter the transaction amount!');
-    }
-
-    dispatch(
-      transactionsOperations.addTransactions({
-        type,
-        category,
-        amount,
-        date,
-        day,
-        month,
-        year,
-        comment,
-      }),
-    );
-    reset();
-    onClose();
-  };
-
-  const reset = () => {
-    setType('expenses');
-    setCategory('main');
-    setAmount('');
-    setDate(dateValue);
-    setDay(dayValue);
-    setMonth(monthValue);
-    setYear(yearValue);
-    setComment('');
-  };
+  console.log(formik.values.date);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <div className={s.unionRadio}>
         <label>
           <input
-            type="radio"
-            name="transaction"
-            value="income"
-            checked={type === 'income'}
-            onChange={handleChange}
+            type={'radio'}
+            name={'type'}
+            value={'income'}
+            checked={formik.values.type === 'income'}
+            onChange={formik.handleChange}
           />
           Income
         </label>
         <label>
           <input
-            type="radio"
-            name="transaction"
-            value="expenses"
-            checked={type === 'expenses'}
-            onChange={handleChange}
+            type={'radio'}
+            name={'type'}
+            value={'expenses'}
+            checked={formik.values.type === 'expenses'}
+            onChange={formik.handleChange}
           />
           Expenses
         </label>
@@ -124,9 +119,9 @@ export default function FormAddTransactions({ onClose }) {
       <div>
         <select
           className={s.input}
-          name="category"
-          value={category}
-          onChange={handleChange}
+          name={'category'}
+          value={formik.values.category}
+          onChange={formik.handleChange}
         >
           <option value="main">Main</option>
           <option value="food">Food</option>
@@ -138,45 +133,44 @@ export default function FormAddTransactions({ onClose }) {
           <option value="leisure">Leisure</option>
           <option value="other">Other</option>
         </select>
+        {formik.touched.amount && formik.errors.amount && (
+          <p>{formik.errors.amount}</p>
+        )}
         <div className={s.unionInput}>
           <input
-            type="text"
-            name="amount"
-            placeholder="0.00"
-            value={amount}
-            onChange={handleChange}
-          ></input>
+            type={'text'}
+            name={'amount'}
+            placeholder={'0.00'}
+            value={formik.values.amount}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+
           <div className={s.date}>
-            <Datetime
-              dateFormat="DD.MM.YYYY"
-              timeFormat={false}
-              closeOnSelect={true}
-              value={date}
+            <DatetimeField
               name="date"
-              onChange={handleDateChange}
-              isValidDate={current => {
-                let today = new Date();
-                return current.isBefore(today);
-              }}
-              inputProps={{
-                style: {},
-              }}
+              value={formik.values.date}
+              onChange={formik.setFieldValue}
             />
             <svg className={s.img}>
               <use href={sprite + '#icon-calendar'}></use>
             </svg>
           </div>
         </div>
+        {formik.touched.comment && formik.errors.comment && (
+          <p>{formik.errors.comment}</p>
+        )}
         <input
           className={s.input}
           type="text"
           name="comment"
           placeholder="Comment"
-          value={comment}
-          onChange={handleChange}
-        ></input>
+          value={formik.values.comment}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
       </div>
-      <button className={s.add} type="submit" name="add">
+      <button className={s.add} type="submit">
         Add
       </button>
       <button

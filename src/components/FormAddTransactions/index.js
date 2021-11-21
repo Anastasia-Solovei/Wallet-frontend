@@ -1,1 +1,1 @@
-export { default } from './FormAddTransactionsFormik2';
+export { default } from './FormAddTransactions';
