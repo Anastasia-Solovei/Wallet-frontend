@@ -40,3 +40,12 @@
   color: #4a56e2;
   border: 1px solid #4a56e2;
 }
+.img {
+  height: 18px;
+  width: 18px;
+  margin-right: 23px;
+  fill: #6e78e8;
+}
+.date {
+  display: flex;
+}
