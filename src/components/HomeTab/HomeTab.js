@@ -39,12 +39,11 @@ const HomeTab = () => {
     {
       columns,
       data,
+      initialState: { pageSize: 8 },
     },
     useSortBy,
     usePagination,
   );
-  console.log('page', page);
-  console.log('pageOptions', pageOptions);
 
   return (
     <div className={styles.wrapTable}>
@@ -98,13 +97,13 @@ const HomeTab = () => {
         </button>
         <button
           className={styles.paginationBtn}
-          onClick={() => {
-            console.log(pageIndex);
-            return previousPage();
-          }}
+          onClick={() => previousPage()}
           disabled={!canPreviousPage}
         >
           {'<'}
+        </button>
+        <button className={styles.paginationCurrentPage}>
+          {pageIndex + 1}
         </button>
         <button
           className={styles.paginationBtn}

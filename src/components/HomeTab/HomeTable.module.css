@@ -21,6 +21,7 @@
   line-height: 1.5;
   border-collapse: collapse;
   background-color: transparent;
+  margin-bottom: 10px;
 }
 
 .table th {
@@ -104,5 +105,39 @@
 
 .paginationWrap{
   margin: 0 auto;
-    
+  text-align: center;
+}
+.paginationCurrentPage,
+.paginationBtn{
+  width: 30px;
+  height: 30px;
+  padding-top: 3px;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--main__font-family);
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: solid 1px #4A56E2;
+  background-color: #4A56E2;
+  cursor: pointer;
+  
+}
+
+.paginationBtn:disabled {
+  cursor: not-allowed;
+  color: rgb(134, 132, 132);
+  background-color: #6E78E8;
+  border: solid 1px #6E78E8;
+
+}
+
+.paginationCurrentPage{
+  font-family: var(--main__font-family);
+  font-size: 18px;
+  font-weight: 500;
+  border: solid 1px #4a56e2;
+  background-color: #4a56e2;
 }
