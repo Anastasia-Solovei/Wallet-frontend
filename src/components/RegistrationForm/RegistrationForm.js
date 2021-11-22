@@ -7,11 +7,11 @@ import * as sessionOperations from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
 import s from './RegistrationForm.module.css';
 import Button from '../Button/Button';
-import Container from '../Container/Container';
 
 const RegistrationForm = () => {
   const button = {
     marginBottom: 20,
+    height: 50,
   };
   const dispatch = useDispatch();
 
@@ -152,7 +152,7 @@ const RegistrationForm = () => {
                 : s.inputName
             }
             value={formik.values.name}
-            placeholder="name"
+            placeholder="Name"
           />
           <svg className={s.iconForm} width="24px" height="24px">
             <use className={s.iconUse} href={sprite + '#icon-name'}></use>

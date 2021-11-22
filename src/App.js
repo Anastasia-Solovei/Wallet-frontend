@@ -43,7 +43,7 @@ function App() {
           <DashboardPage />
         </ProtectedRoute>
       </Switch>
-      <ToastContainer position="top-right" autoClose={4000} closeOnClick />
+      <ToastContainer position="top-right" autoClose={10000} closeOnClick />
     </>
   );
 }
