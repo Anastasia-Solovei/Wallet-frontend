@@ -15,7 +15,7 @@
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
     padding: 60px 114px 196px 114px;
-    height: 100vh;
+    min-height: 1024px;
   }
 }
 
@@ -26,6 +26,7 @@
     background-image: url('../../images/LogInPage/ellipse_purple.png'),
       url('../../images/LogInPage/ellipse_pink.png');
     padding: 136px 76px 0px;
+    min-height: 720px;
   }
 }
 
@@ -81,7 +82,7 @@
 
 @media screen and (min-width: 768px) {
   .img {
-    display: inline-block;
+    display: block;
     margin-right: 0;
     width: 260px;
     height: 250px;
