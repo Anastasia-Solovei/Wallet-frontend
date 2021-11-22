@@ -5,15 +5,12 @@
 .header__container {
   display: flex;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 
   width: 320px;
 
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 15px;
-  padding-top: 15px;
 }
 
 @media (max-width: 480px) {
@@ -34,7 +31,7 @@
 
 @media (min-width: 1280px) {
   .header__container {
-    width: 1288px;
+    width: 1280px;
     padding-left: 85px;
     padding-right: 85px;
     margin-right: auto;
@@ -54,11 +51,12 @@
 }
 
 .logoName {
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   font-style: normal;
   color: #000000;
   font-weight: 700;
   font-size: 30px;
+  line-height: 1.33;
 }
 
 .userName {
@@ -66,7 +64,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 27px;
+  line-height: 1.5;
   color: #bdbdbd;
 }
 
@@ -91,7 +89,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  line-height: 27px;
+  line-height: 1.5;
   color: #bdbdbd;
   margin-left: 10px;
 }
