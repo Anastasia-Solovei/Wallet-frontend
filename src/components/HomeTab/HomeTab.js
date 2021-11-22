@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { COLUMNS } from './columns';
+import ButtonAddTransactions from '../../components/ButtonAddTransactions';
+import ModalAddTransaction from '../../components/ModalAddTransaction';
 import styles from './HomeTable.module.css';
 import MOCK_DATA from './MOCK_DATA.json'; // temporarily for test
 
@@ -120,6 +122,8 @@ const HomeTab = () => {
           {'>>'}
         </button>
       </div>
+      <ButtonAddTransactions />
+      <ModalAddTransaction />
     </div>
   );
 };

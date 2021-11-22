@@ -1,11 +1,12 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-datetime/css/react-datetime.css';
 import Datetime from 'react-datetime';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { transactionsOperations } from '../../redux/transactions';
+import { getCategories } from '../../redux/categories/categoriesOperations';
 import sprite from '../../images/svg_sprite.svg';
 import s from './FormAddTransactions.module.css';
 
@@ -39,13 +40,22 @@ const DatetimeField = ({ name, onChange }) => {
   );
 };
 
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.substring(1);
+}
+
 export default function FormAddTransactions({ onClose }) {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+  const expensesСategories = useSelector(state => state.categories.all);
 
   const formik = useFormik({
     initialValues: {
       type: 'expenses',
-      category: 'main',
+      category: '',
       amount: '',
       date: dateValue,
       day: dayValue,
@@ -55,11 +65,14 @@ export default function FormAddTransactions({ onClose }) {
     },
 
     validationSchema: yup.object().shape({
+      type: yup.string().required('Required field'),
+      category: yup.string().strict().required('Сhoose a category'),
       amount: yup
         .number()
         .typeError('Enter the number')
         .min(0)
         .required('Required field'),
+      date: yup.string().required('Required field'),
       comment: yup.string().max(15, 'No more than 15 characters allowed '),
     }),
 
@@ -115,22 +128,29 @@ export default function FormAddTransactions({ onClose }) {
         </label>
       </div>
       <div>
-        <select
-          className={s.input}
-          name={'category'}
-          value={formik.values.category}
-          onChange={formik.handleChange}
-        >
-          <option value="main">Main</option>
-          <option value="food">Food</option>
-          <option value="car">Car</option>
-          <option value="me">Me</option>
-          <option value="children">Children</option>
-          <option value="house">House</option>
-          <option value="education">Education</option>
-          <option value="leisure">Leisure</option>
-          <option value="other">Other</option>
-        </select>
+        {formik.touched.category && formik.errors.category && (
+          <p>{formik.errors.category}</p>
+        )}
+        {formik.values.type === 'expenses' && (
+          <select
+            className={s.input}
+            name={'category'}
+            placeholder={'Type to search'}
+            value={formik.values.category}
+            onChange={formik.handleChange}
+          >
+            <option value="" disabled hidden>
+              Сhoose a category
+            </option>
+            {expensesСategories.map((category, i) => {
+              return (
+                <option value={category} key={i}>
+                  {capitalizeFirstLetter(category)}
+                </option>
+              );
+            })}
+          </select>
+        )}
         {formik.touched.amount && formik.errors.amount && (
           <p>{formik.errors.amount}</p>
         )}
