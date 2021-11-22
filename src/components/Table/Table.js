@@ -1,13 +1,15 @@
 import React from 'react';
 
-import {
-  expensesСategories,
-  expensesСategoryColors,
-} from '../../assets/constants';
+import { expensesСategoryColors } from '../../assets/constants';
 
 import styles from './Table.module.css';
 
-const Table = ({ expenses, totalIncomes, totalExpenses }) => {
+const Table = ({
+  expenses,
+  totalIncomes,
+  totalExpenses,
+  expensesСategories,
+}) => {
   return (
     <div className={styles.container}>
       <ul className={styles.titles}>

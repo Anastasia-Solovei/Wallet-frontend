@@ -15,6 +15,7 @@ import { sessionReducer } from './session';
 import financeReducer from './finance/financeReducer';
 import transactionsReducer from './transactions/transactionsReducer';
 import globalReducer from './global/globalReducer';
+import categoriesReducer from './categories/categoriesReducer';
 
 // const middleware = getDefaultMiddleware =>
 //   getDefaultMiddleware({
@@ -43,6 +44,7 @@ export const store = configureStore({
     finance: financeReducer,
     transactions: transactionsReducer,
     global: globalReducer,
+    categories: categoriesReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
