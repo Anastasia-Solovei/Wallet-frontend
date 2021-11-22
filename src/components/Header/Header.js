@@ -6,6 +6,8 @@ import { fetchCurrentUser } from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
 import style from './Header.module.css';
 import ModalLogout from '../ModalLogout/ModalLogout';
+import { NavLink } from 'react-router-dom';
+import path from '../../routes_path';
 
 function useTableScreen() {
   const [tableScreen, setTabletScreen] = useState(window.innerWidth);
@@ -31,12 +33,12 @@ const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.header__container}>
-        <div className={style.headerLogo}>
+        <NavLink className={style.logoName} exact to={path.dashboardPage}>
           <svg className={style.headerIconLogo} width="40px" height="40px">
             <use href={sprite + '#icon-wallet'}></use>
           </svg>
-          <span className={style.logoName}>Wallet</span>
-        </div>
+          Wallet
+        </NavLink>
         <div className={style.headerExit}>
           <span className={style.userName}>{name}</span>
           {Number(tableScreen) >= 768 && <span>|</span>}
