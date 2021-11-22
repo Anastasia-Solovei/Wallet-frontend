@@ -7,13 +7,8 @@ import {
   closeModalLogOut,
 } from './globalActions';
 
-import {
-  fetchBalanceRequest,
-  fetchBalanceSuccess,
-  fetchBalanceError,
-} from '../finance/financeActions';
-
-import * as sessionOperations from '../session/sessionOperations'
+import * as sessionOperations from '../session/sessionOperations';
+import { fabClasses } from '@mui/material';
 
 const isTransactionModalOpen = createReducer(false, {
   [openModalAddTransaction]: () => true,
@@ -26,10 +21,22 @@ const isExitModalOpen = createReducer(false, {
   [sessionOperations.logOut.rejected]: () => false,
 });
 
-const isLoading = createReducer(false, {
-  [fetchBalanceRequest]: () => true,
-  [fetchBalanceSuccess]: () => false,
-  [fetchBalanceError]: () => false,
+const isLoading = createReducer(true, {
+  [sessionOperations.register.pending]: () => true,
+  [sessionOperations.register.fulfilled]: () => false,
+  [sessionOperations.register.rejected]: () => false,
+
+  [sessionOperations.logIn.pending]: () => true,
+  [sessionOperations.logIn.fulfilled]: () => true,
+  [sessionOperations.logIn.rejected]: () => false,
+
+  [sessionOperations.logOut.pending]: () => true,
+  [sessionOperations.logOut.fulfilled]: () => false,
+  [sessionOperations.logOut.rejected]: () => false,
+
+  [sessionOperations.fetchCurrentUser.pending]: () => true,
+  [sessionOperations.fetchCurrentUser.fulfilled]: () => false,
+  [sessionOperations.fetchCurrentUser.rejected]: () => false,
 });
 
 export default combineReducers({
