@@ -42,8 +42,6 @@ const LogInForm = () => {
         handleReset,
         touched,
         errors,
-        isValid,
-        dirty,
         values,
         /* and other goodies */
       }) => (
@@ -86,9 +84,7 @@ const LogInForm = () => {
             </svg>
           </div>
 
-          <Button type="submit" disabled={!(dirty && isValid)}>
-            Log in
-          </Button>
+          <Button type="submit">Log in</Button>
           <Link to="/register" className={s.link}>
             Registration
           </Link>
