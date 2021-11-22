@@ -22,7 +22,7 @@ axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
 export const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());
   try {
-    const { data } = await axios.get('/transactions');
+    const { data } = await axios.get('/transactions/all');
     dispatch(fetchTransSuccess(data));
   } catch (error) {
     dispatch(fetchTransError(error.message));
