@@ -41,7 +41,7 @@ const sessionSlice = createSlice({
     },
     [sessionOperations.fetchCurrentUser.pending](state) {},
     [sessionOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = action.payload.user;
       state.isAuth = true;
     },
   },

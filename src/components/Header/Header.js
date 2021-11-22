@@ -22,7 +22,7 @@ function useTableScreen() {
 }
 
 const Header = () => {
-  // const name = useSelector(sessionSelectors.getUsername);
+  const name = useSelector(sessionSelectors.getUsername);
   const dispatch = useDispatch();
   const tableScreen = useTableScreen();
 
@@ -36,7 +36,7 @@ const Header = () => {
           <span className={style.logoName}>Wallet</span>
         </div>
         <div className={style.headerExit}>
-          <span className={style.userName}>name</span>
+          <span className={style.userName}>{name}</span>
           {Number(tableScreen) >= 768 && <span>|</span>}
           <button
             className={style.headerLogout}
