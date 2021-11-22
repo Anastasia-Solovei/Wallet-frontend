@@ -97,11 +97,11 @@ export default function FormAddTransactions({ onClose }) {
           <input
             type={'radio'}
             name={'type'}
-            value={'income'}
-            checked={formik.values.type === 'income'}
+            value={'incomes'}
+            checked={formik.values.type === 'incomes'}
             onChange={formik.handleChange}
           />
-          Income
+          Incomes
         </label>
         <label>
           <input
