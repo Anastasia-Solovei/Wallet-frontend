@@ -53,10 +53,11 @@ export const getTransactionsByDate = (month, year) => async dispatch => {
   dispatch(getTransByDateRequest());
   try {
     const data = await dataFromBackend;
-    console.log(data);
+
     // const { data } = await axios.get(
     //   `/transactions/statistics?month=${month}&year=${year}`,
     // );
+    console.log(data);
     dispatch(getTransByDateSuccess(data));
   } catch (error) {
     dispatch(getTransByDateError(error.message));

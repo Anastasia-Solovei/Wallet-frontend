@@ -13,16 +13,31 @@ const DiagramTab = () => {
   const totalExpensesArray = Object.values(transactionsByCategories);
   const totalIncomes = totalExpensesArray.pop();
   console.log(totalExpensesArray, totalIncomes);
+
+  let totalExpenses;
+  if (totalExpensesArray.length) {
+    totalExpenses = totalExpensesArray.reduce(function (a, b) {
+      return a + b;
+    });
+  }
+  const balance = totalIncomes - totalExpenses;
   return (
     <div className={styles.container}>
       <div className={styles.chart}>
         <p className={styles.title}>Statistics</p>
 
-        <Chart expenses={totalExpensesArray} />
+        <Chart expenses={totalExpensesArray} balance={balance} />
       </div>
       <div className={styles.table}>
         <InputDate />
-        <Table expenses={totalExpensesArray} totalIncomes={totalIncomes} />
+
+        {totalExpensesArray.length && (
+          <Table
+            expenses={totalExpensesArray}
+            totalIncomes={totalIncomes}
+            totalExpenses={totalExpenses}
+          />
+        )}
       </div>
     </div>
   );

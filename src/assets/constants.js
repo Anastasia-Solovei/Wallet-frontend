@@ -60,12 +60,12 @@ export const expenses = [
 export const dataFromBackend = {
   main: 1500,
   food: 350,
-  car: 2000,
-  me: 888,
-  children: 4000,
+  car: 200,
+  me: 889,
+  children: 350,
   house: 0,
   education: 2000,
-  leisure: 3000,
+  leisure: 1000,
   other: 50,
   incomes: 13500,
 };
