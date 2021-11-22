@@ -33,7 +33,7 @@ const Header = () => {
   return (
     <header className={style.header}>
       <div className={style.header__container}>
-        <NavLink className={style.logoName} exact to={path.dashboardPage}>
+        <NavLink className={style.logoName} to={path.dashboardPage}>
           <svg className={style.headerIconLogo} width="40px" height="40px">
             <use href={sprite + '#icon-wallet'}></use>
           </svg>
