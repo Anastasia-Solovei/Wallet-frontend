@@ -57,9 +57,12 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post(`/users/login`, credentials);
       token.set(data.token);
-
+      toast.success(`Hello, ${data.user.name}!`);
       return data;
     } catch (error) {
+      toast.error(
+        `Login failed. Check the correctness of the entered data. Or register.`,
+      );
       return rejectWithValue(error.message);
     }
   },

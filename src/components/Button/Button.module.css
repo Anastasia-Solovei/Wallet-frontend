@@ -1,18 +1,20 @@
+@import '../../stylesheet/vars.css';
+
 .button {
   display: block;
   margin: 0 auto;
   padding: 13px 58px;
   min-width: 280px;
-  background-color: #24cca7;
-  color: #ffffff;
+  background-color: var(--accent-btn-color);
+  color: var(--light-text-color);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--font-size__btn);
   letter-spacing: 0.1em;
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
   border-radius: 20px;
-  border: 1px solid #24cca7;
+  border: 1px solid var(--accent-btn-color);
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -30,4 +32,9 @@
     min-width: 300px;
     padding: 11px 68px;
   }
+}
+
+.button:disabled,
+.button[disabled] {
+  cursor: not-allowed;
 }
