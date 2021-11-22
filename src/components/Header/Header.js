@@ -32,7 +32,7 @@ const Header = () => {
     <header className={style.header}>
       <div className={style.header__container}>
         <div className={style.headerLogo}>
-          <svg className={style.headerIconLogo} width="30px" height="30px">
+          <svg className={style.headerIconLogo} width="40px" height="40px">
             <use href={sprite + '#icon-wallet'}></use>
           </svg>
           <span className={style.logoName}>Wallet</span>
