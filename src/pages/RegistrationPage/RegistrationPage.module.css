@@ -88,7 +88,7 @@
   .title {
     display: inline-block;
     margin-right: auto;
-    font-family: var(--logo__font-family);
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: var(--font-size__logo);
     line-height: 45px;
