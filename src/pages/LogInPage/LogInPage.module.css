@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 768px) {
   .logInPage {
-    background-color: #e7eaf2;
+    background-color: var(--main-bcg-color);
     background-image: url('../../images/LogInPage/ellipse_purple.png'),
       url('../../images/LogInPage/ellipse_pink_tablet.png');
     background-repeat: no-repeat, no-repeat;
@@ -104,7 +104,7 @@
 
 .logInFormUnderlay {
   display: inline-block;
-  background-color: #ffffff;
+  background-color: var(--light-bcg-color);
   margin-left: auto;
   margin-right: auto;
 }
