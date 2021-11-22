@@ -26,11 +26,10 @@ function App() {
 
   return (
     <>
-      {/* {isLoading && */}
+      {isLoading && <LoaderSpinner />}
+      {/* <LoaderSpinner /> */}
 
-      <LoaderSpinner />
-
-      {/* } */}
+      {/* {!isLoading && ( */}
       <Switch>
         <Route exact path="/">
           <Redirect to={path.dashboardPage} />
@@ -51,6 +50,7 @@ function App() {
           <DashboardPage />
         </ProtectedRoute>
       </Switch>
+      {/* )} */}
       <ToastContainer position="top-right" autoClose={4000} closeOnClick />
     </>
   );

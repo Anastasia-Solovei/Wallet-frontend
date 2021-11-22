@@ -21,13 +21,13 @@ const isExitModalOpen = createReducer(false, {
   [sessionOperations.logOut.rejected]: () => false,
 });
 
-const isLoading = createReducer(true, {
+const isLoading = createReducer(false, {
   [sessionOperations.register.pending]: () => true,
   [sessionOperations.register.fulfilled]: () => false,
   [sessionOperations.register.rejected]: () => false,
 
   [sessionOperations.logIn.pending]: () => true,
-  [sessionOperations.logIn.fulfilled]: () => true,
+  [sessionOperations.logIn.fulfilled]: () => false,
   [sessionOperations.logIn.rejected]: () => false,
 
   [sessionOperations.logOut.pending]: () => true,
