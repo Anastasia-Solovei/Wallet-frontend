@@ -44,6 +44,12 @@ const sessionSlice = createSlice({
       state.user = action.payload.user;
       state.isAuth = true;
     },
+    [sessionOperations.fetchCurrentUser.rejected](state) {
+      state.user = { name: null, email: null };
+      state.token = null;
+      state.isAuth = false;
+      state.error = null;
+    },
   },
 });
 
