@@ -29,23 +29,20 @@ export const register = createAsyncThunk(
       const { data } = await axios.post(`/users/signup`, credentials);
       //  token.set(data.emailVerificationToken);
 
-      // toast(
-      //   'Registration was successful. Go to your email to confirm registration!',
-      //   { theme: 'colored', type: 'success' },
-      // );
+      toast('Registration successful.', { theme: 'colored', type: 'success' });
       return data;
     } catch (error) {
-      // console.log('error', error.message);
+      console.log('error', error.message);
 
-      // if (error.message === 'Request failed with status code 409') {
-      //   toast.error('Email is already in use. Login please!', {
-      //     theme: 'colored',
-      //   });
-      // } else {
-      //   toast.error('Something is wrong. Try again later', {
-      //     theme: 'colored',
-      //   });
-      // }
+      if (error.message === 'Request failed with status code 409') {
+        toast.error('Email is already in use. Login please!', {
+          theme: 'colored',
+        });
+      } else {
+        toast.error('Something is wrong. Try again later', {
+          theme: 'colored',
+        });
+      }
       return rejectWithValue(error.message);
     }
   },
@@ -57,11 +54,14 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post(`/users/login`, credentials);
       token.set(data.token);
-      toast.success(`Hello, ${data.user.name}!`);
+      toast(`Hello, ${data.user.name}!`, { theme: 'colored', type: 'success' });
       return data;
     } catch (error) {
       toast.error(
         `Login failed. Check the correctness of the entered data. Or register.`,
+        {
+          theme: 'colored',
+        },
       );
       return rejectWithValue(error.message);
     }
