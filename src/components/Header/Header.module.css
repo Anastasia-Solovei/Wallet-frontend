@@ -1,5 +1,5 @@
 .header {
-  background: #ffffff;
+  background: var(--light-bcg-color);
 }
 
 .header__container {
@@ -53,19 +53,19 @@
 .logoName {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
-  color: #000000;
+  color: var(--main-text-color);
   font-weight: 700;
-  font-size: 30px;
+  font-size: var(--font-size__logo);
   line-height: 1.33;
 }
 
 .userName {
-  font-family: 'Circe';
+  font-family: 'Circe', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: var(--font-size__accent);
   line-height: 1.5;
-  color: #bdbdbd;
+  color: var(--secondary-text-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -85,11 +85,11 @@
 }
 
 .headerExit {
-  font-family: 'Circe';
+  font-family: 'Circe', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: var(--font-size__accent);
   line-height: 1.5;
-  color: #bdbdbd;
+  color: var(--secondary-text-color);
   margin-left: 10px;
 }

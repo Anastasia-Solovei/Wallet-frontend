@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   color: var(--main-text-color);
   background-color: var(--main-bcg-color);
-  font-family: -apple-system, BlinkMacSystemFont, var(--main__font-family),
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif,
     sans-serif;
   font-style: normal;
 }
