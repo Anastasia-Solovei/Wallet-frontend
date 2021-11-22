@@ -7,15 +7,7 @@ import {
 
 import styles from './Table.module.css';
 
-const Table = ({ expenses, totalIncomes }) => {
-  console.log(expenses);
-  let totalExpenses;
-  if (expenses.length) {
-    totalExpenses = expenses.reduce(function (a, b) {
-      return a + b;
-    });
-  }
-
+const Table = ({ expenses, totalIncomes, totalExpenses }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.titles}>
