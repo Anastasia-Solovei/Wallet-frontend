@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-//import { useState } from 'react';
 import { logIn } from '../../redux/session/sessionOperations';
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
@@ -14,13 +13,9 @@ import Button from '../Button/Button';
 
 const LogInForm = () => {
   const dispatch = useDispatch();
-  //const [email, setEmail] = useState('');
-  //const [password, setPassword] = useState('');
 
   const handleSubmit = ({ email, password }) => {
     dispatch(logIn({ email, password }));
-    //setEmail('');
-    //setPassword('');
   };
 
   const validationSchema = Yup.object().shape({
@@ -28,8 +23,8 @@ const LogInForm = () => {
       .email('Enter a valid email')
       .required('Email is a required'),
     password: Yup.string('Enter your password')
-      .min(6, 'Password should be  minimum 6 characters')
-      .max(12, 'Password should be  maximum 12 characters')
+      .min(6, 'Minimum 6 characters')
+      .max(12, 'Maximum 12 characters')
       .required('Password is a required'),
   });
 
@@ -41,18 +36,15 @@ const LogInForm = () => {
       onSubmit={handleSubmit}
     >
       {({
-        isSubmitting,
         handleChange,
         handleBlur,
         handleSubmit,
         handleReset,
-        formSubmit,
         touched,
         errors,
         isValid,
         dirty,
         values,
-
         /* and other goodies */
       }) => (
         <Form className={s.form} onReset={handleReset}>
@@ -94,7 +86,9 @@ const LogInForm = () => {
             </svg>
           </div>
 
-          <Button type="submit">Log in</Button>
+          <Button type="submit" disabled={!(dirty && isValid)}>
+            Log in
+          </Button>
           <Link to="/register" className={s.link}>
             Registration
           </Link>

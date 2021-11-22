@@ -33,3 +33,8 @@
     padding: 11px 68px;
   }
 }
+
+.button:disabled,
+.button[disabled] {
+  cursor: not-allowed;
+}
