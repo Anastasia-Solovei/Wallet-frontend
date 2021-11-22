@@ -5,7 +5,7 @@ import { fetchCurrentUser } from './redux/session/sessionOperations';
 import { getIsLoading } from './redux/global/globalSelectors';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
-import Loader from './components/Loader';
+import LoaderSpinner from './components/Loader';
 
 import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
@@ -26,7 +26,11 @@ function App() {
 
   return (
     <>
-      {isLoading && <Loader />}
+      {/* {isLoading && */}
+
+      <LoaderSpinner />
+
+      {/* } */}
       <Switch>
         <Route exact path="/">
           <Redirect to={path.dashboardPage} />
