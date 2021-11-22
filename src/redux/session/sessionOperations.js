@@ -81,8 +81,8 @@ export const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.session.token;
 
+    const persistedToken = state.session.token;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('there is no token');
     }

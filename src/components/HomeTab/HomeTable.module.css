@@ -100,3 +100,9 @@
   color: var(--amount-incomes-text-color);
   font-weight: 700;
 }
+
+
+.paginationWrap{
+  margin: 0 auto;
+    
+}
