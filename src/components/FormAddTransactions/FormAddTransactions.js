@@ -21,6 +21,7 @@ const DatetimeField = ({ name, onChange }) => {
       className={s.datetime}
       inputProps={{
         style: {
+          width: '100%',
           height: '33px',
           border: 'none',
           outline: 'none',
@@ -63,7 +64,7 @@ export default function FormAddTransactions({ onClose }) {
   const formik = useFormik({
     initialValues: {
       type: 'expenses',
-      category: 'main',
+      category: '',
       amount: '',
       date: dateValue,
       day: dayValue,
@@ -74,7 +75,6 @@ export default function FormAddTransactions({ onClose }) {
 
     validationSchema: yup.object().shape({
       type: yup.string().required('Required field'),
-      category: yup.string().strict().required('Сhoose a category'),
       amount: yup
         .number()
         .typeError('Enter the number')
@@ -86,7 +86,7 @@ export default function FormAddTransactions({ onClose }) {
 
     onSubmit: values => {
       const type = values.type;
-      const category = values.category;
+      const category = values.category || expensesСategories[0];
       const amount = Number(values.amount);
       const date = values.date;
       const arrayDate = date.split('.');
@@ -141,9 +141,6 @@ export default function FormAddTransactions({ onClose }) {
         </label>
       </div>
       <div className={s.inputs}>
-        {formik.touched.category && formik.errors.category && (
-          <p>{formik.errors.category}</p>
-        )}
         {formik.values.type === 'expenses' && (
           <select
             className={s.category}
@@ -152,7 +149,7 @@ export default function FormAddTransactions({ onClose }) {
             value={formik.values.category}
             onChange={formik.handleChange}
           >
-            <option value="main" disabled hidden>
+            <option value="" disabled hidden>
               Сhoose a category
             </option>
             {expensesСategories.map((category, i) => {
@@ -164,9 +161,7 @@ export default function FormAddTransactions({ onClose }) {
             })}
           </select>
         )}
-        {formik.touched.amount && formik.errors.amount && (
-          <p>{formik.errors.amount}</p>
-        )}
+
         <div className={s.unionInput}>
           <input
             className={s.input}
@@ -177,11 +172,12 @@ export default function FormAddTransactions({ onClose }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-
+          {formik.touched.amount && formik.errors.amount && (
+            <p className={s.validationAmount}>{formik.errors.amount}</p>
+          )}
           <div className={s.date}>
             <label>
               <DatetimeField
-                //   className={s.inputDate}
                 name="date"
                 value={formik.values.date}
                 onChange={formik.setFieldValue}
@@ -192,18 +188,20 @@ export default function FormAddTransactions({ onClose }) {
             </label>
           </div>
         </div>
-        {formik.touched.comment && formik.errors.comment && (
-          <p>{formik.errors.comment}</p>
-        )}
-        <input
-          className={s.input}
-          type="text"
-          name="comment"
-          placeholder="Comment"
-          value={formik.values.comment}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
+        <div className={s.unionInput}>
+          <input
+            className={s.input}
+            type="text"
+            name="comment"
+            placeholder="Comment"
+            value={formik.values.comment}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.comment && formik.errors.comment && (
+            <p className={s.validationComment}>{formik.errors.comment}</p>
+          )}
+        </div>
       </div>
       <button className={s.add} type="submit">
         Add

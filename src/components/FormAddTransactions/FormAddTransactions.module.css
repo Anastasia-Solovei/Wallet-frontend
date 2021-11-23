@@ -29,19 +29,32 @@
   color: var(--secondary-text-color);
 }
 .inputs {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   flex-direction: column;
-  /* cursor: pointer; */
 }
-
+.validation {
+  color: red;
+  position: absolute;
+}
+.validationAmount {
+  composes: validation;
+  top: -20px;
+  left: 0;
+}
+.validationComment {
+  composes: validation;
+  top: -20px;
+  left: 0;
+}
 .unionInput {
+  position: relative;
   width: 100%;
   max-width: 300px;
 }
-
 .button {
   display: block;
   max-width: 300px;
@@ -95,15 +108,9 @@
   font-weight: normal;
   line-height: 1.5;
 }
-
 .unionRadio {
   margin-bottom: 40px;
   text-align: center;
-}
-
-.mailing {
-  margin-bottom: 30px;
-  margin-left: 23px;
 }
 .incomes {
   position: relative;
@@ -113,7 +120,6 @@
   font-weight: 700;
   line-height: 1.5px;
   color: var(--accent-btn-color);
-
   cursor: pointer;
 }
 .incomes::after {
@@ -145,13 +151,11 @@
 }
 .expenses {
   position: relative;
-  /* margin-right: 120px; */
   font-family: var(--main__font-family);
   font-size: var(--font-size__main);
   font-weight: 700;
   line-height: 1.5px;
   color: var(--amount-expenses-text-color);
-
   cursor: pointer;
 }
 .expenses::after {
@@ -174,21 +178,6 @@
   background-position: center;
   box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
 }
-/* 
-      <div className={s.mailing}>
-        <input
-          className={s.checkbox}
-          type="checkbox"
-          name="checkbox"
-          id="checkbox"
-        />
-        <label className={s.consent} for="checkbox">
-          Соглашаюсь с рассылкой и принимаю
-          <a className="contract" href="">
-            Условия договора
-          </a>
-        </label>
-      </div> */
 
 @media screen and (min-width: 768px) {
   .input {

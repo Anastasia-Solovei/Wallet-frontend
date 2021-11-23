@@ -1,5 +1,6 @@
 .header {
   background: var(--light-bcg-color);
+  z-index: 999;
 }
 
 .header__container {
