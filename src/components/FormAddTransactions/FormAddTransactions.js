@@ -18,6 +18,18 @@ const dateValue = dayValue + '.' + monthValue + '.' + yearValue;
 const DatetimeField = ({ name, onChange }) => {
   return (
     <Datetime
+      // className={s.inputDate}
+      inputProps={{
+        style: {
+          width: '100%',
+          maxWidth: '300px',
+          marginBottom: '40px',
+          fontSize: '18px',
+          border: 'none',
+          outline: 'none',
+          borderBottom: '1px solid #bdbdbd',
+        },
+      }}
       dateFormat="DD.MM.YYYY"
       timeFormat={false}
       closeOnSelect={true}
@@ -55,7 +67,7 @@ export default function FormAddTransactions({ onClose }) {
   const formik = useFormik({
     initialValues: {
       type: 'expenses',
-      category: '',
+      category: 'Incomes',
       amount: '',
       date: dateValue,
       day: dayValue,
@@ -127,7 +139,7 @@ export default function FormAddTransactions({ onClose }) {
           Expenses
         </label>
       </div>
-      <div>
+      <div className={s.inputs}>
         {formik.touched.category && formik.errors.category && (
           <p>{formik.errors.category}</p>
         )}
@@ -139,7 +151,7 @@ export default function FormAddTransactions({ onClose }) {
             value={formik.values.category}
             onChange={formik.handleChange}
           >
-            <option value="" disabled hidden>
+            <option value="Incomes" disabled hidden>
               Сhoose a category
             </option>
             {expensesСategories.map((category, i) => {
@@ -156,6 +168,7 @@ export default function FormAddTransactions({ onClose }) {
         )}
         <div className={s.unionInput}>
           <input
+            className={s.input}
             type={'text'}
             name={'amount'}
             placeholder={'0.00'}

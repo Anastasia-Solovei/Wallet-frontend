@@ -5,28 +5,32 @@ import s from './Modal.module.css';
 
 const modalRoot = document.getElementById('modal-root');
 
-export default function Modal({ children, closeModal }) {
+export default function Modal({ children, onClose }) {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        closeModal();
+        onClose();
+        document.body.style.overflow = 'unset';
       }
     };
+
+    document.body.style.overflow = 'hidden';
 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [closeModal]);
+  }, [onClose]);
 
   const handleBackdropClick = useCallback(
     e => {
       if (e.currentTarget === e.target) {
-        closeModal();
+        onClose();
+        document.body.style.overflow = 'unset';
       }
     },
-    [closeModal],
+    [onClose],
   );
 
   return createPortal(

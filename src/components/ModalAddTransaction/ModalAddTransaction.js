@@ -13,13 +13,19 @@ export default function ModalAddTransaction() {
   return (
     <>
       {isTransactionModalOpen && (
-        <Modal closeModal={() => dispatch(closeModalAddTransaction())}>
+        <Modal onClose={() => dispatch(closeModalAddTransaction())}>
           <ButtonModalClose
-            onClose={() => dispatch(closeModalAddTransaction())}
+            onClose={() => (
+              dispatch(closeModalAddTransaction()),
+              (document.body.style.overflow = 'unset')
+            )}
           />
           <p className={s.title}>Add a transaction</p>
           <FormAddTransactions
-            onClose={() => dispatch(closeModalAddTransaction())}
+            onClose={() => (
+              dispatch(closeModalAddTransaction()),
+              (document.body.style.overflow = 'unset')
+            )}
           />
         </Modal>
       )}
