@@ -1,9 +1,11 @@
 import React from 'react';
+import AuthContainer from '../../components/AuthContainer/AuthContainer';
+import FormContainer from '../../components/FormContainer/FormContainer';
+import ImgContainer from '../../components/ImgContainer/ImgContainer';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import sessionSelectors from '../../redux/session/sessionSelectors';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import Container from '../../components/Container/Container';
 import s from './RegistrationPage.module.css';
 import path from '../../routes_path';
 
@@ -15,20 +17,15 @@ const RegistrationPage = () => {
   }
 
   return (
-    <>
-      <div className={s.rightContainer}></div>
-      <div className={s.registrationPage}>
-        <div className={s.img}>
-          <div className={s.frameimg}></div>
-
-          <h1 className={s.title}>Finance App</h1>
-        </div>
-
-        <div className={s.formBlock}>
-          <RegistrationForm />
-        </div>
-      </div>
-    </>
+    <AuthContainer>
+      <ImgContainer>
+        <div className={s.frameimg}></div>
+        <h1 className={s.title}>Finance App</h1>
+      </ImgContainer>
+      <FormContainer>
+        <RegistrationForm />
+      </FormContainer>
+    </AuthContainer>
   );
 };
 

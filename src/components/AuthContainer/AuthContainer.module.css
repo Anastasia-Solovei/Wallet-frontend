@@ -1,0 +1,31 @@
+@media screen and (min-width: 768px) {
+  .container {
+    background-image: url('../../images/RegistrationPage/ellipse1.png'),
+      url('../../images/RegistrationPage/ellipse2.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right -185px top;
+    padding: 60px 114px 48px 114px;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    background-position: left bottom, right top;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 1920px;
+    height: 100%;
+    padding: 0;
+  }
+}
+.authSection {
+  display: block;
+  max-width: 1920px;
+  height: 100vh;
+  display: block;
+  padding: 0;
+}
