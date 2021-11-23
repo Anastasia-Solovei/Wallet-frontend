@@ -1,5 +1,7 @@
 import axios from 'axios';
+
 import { dataFromBackend } from '../../assets/constants';
+import { toast } from 'react-toastify';
 
 import {
   fetchTransRequest,
@@ -17,7 +19,6 @@ import {
 } from './transactionsActions';
 
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
-// axios.defaults.baseURL = 'http://localhost:3002';
 
 export const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());
@@ -35,6 +36,9 @@ export const addTransactions = transaction => async dispatch => {
     const { data } = await axios.post('/transactions/new', transaction);
     dispatch(addTransSuccess(data));
   } catch (error) {
+    toast.error('Something is wrong. Try again later', {
+      theme: 'colored',
+    });
     dispatch(addTransError(error.message));
   }
 };
@@ -52,13 +56,11 @@ export const deleteTransaction = transactionId => async dispatch => {
 export const getTransactionsByDate = (month, year) => async dispatch => {
   dispatch(getTransByDateRequest());
   try {
-    const data = await dataFromBackend;
+    const { data } = await axios.get(
+      `/transactions/statistics?month=${month}&year=${year}`,
+    );
 
-    // const { data } = await axios.get(
-    //   `/transactions/statistics?month=${month}&year=${year}`,
-    // );
-    console.log(data);
-    dispatch(getTransByDateSuccess(data));
+    dispatch(getTransByDateSuccess(data.statistics));
   } catch (error) {
     dispatch(getTransByDateError(error.message));
   }

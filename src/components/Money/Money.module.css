@@ -1,0 +1,140 @@
+@keyframes sway {
+  0% {
+    transform: rotateZ(-15deg) rotateX(55deg);
+  }
+  30% {
+    transform: rotateZ(20deg) rotateX(60deg);
+    animation-timing-function: ease-in-out;
+  }
+  60% {
+    transform: rotateZ(-20deg) rotateX(55deg);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: rotateZ(0deg) rotateX(58deg);
+    animation-timing-function: cubic-bezier(0.99, 0, 0.89, 0.435);
+  }
+}
+@keyframes fall {
+  60% {
+    filter: drop-shadow(0px 60px 40px rgba(0, 0, 0, 0));
+  }
+  100% {
+    margin-top: 620px;
+  }
+}
+.moneyContainer {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  .moneyContainer {
+    display: block;
+    position: relative;
+    perspective-origin: center;
+    perspective: 1800px;
+  }
+}
+
+.money1 {
+  position: absolute;
+  transform-origin: 0px -400px 0px;
+  animation-name: fall, sway;
+  animation-duration: 3s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+}
+
+.money2 {
+  position: absolute;
+  transform-origin: 0px -340px 0px;
+  animation-name: fall, sway;
+  animation-duration: 3s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+  animation-delay: 1s;
+  transform: rotateX(58deg);
+}
+.money3 {
+  position: absolute;
+  transform-origin: 0px -440px 10px;
+  animation-name: fall, sway;
+  animation-duration: 3s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+  animation-delay: 0.2s;
+}
+.money4 {
+  position: absolute;
+  transform-origin: 50px -400px 50px;
+  animation-name: fall, sway;
+  animation-duration: 3s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+  animation-delay: 0.4s;
+}
+.money5 {
+  position: absolute;
+  transform-origin: 0px -880px 200px;
+  animation-name: fall, sway;
+  animation-duration: 3s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in;
+}
+.money6 {
+  position: absolute;
+  transform-origin: 100px -580px 50px;
+  animation-name: sway, fall;
+  animation-duration: 4s, 5s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+  animation-delay: 0.25s;
+}
+.money7 {
+  transform-origin: 0px -450px 50px;
+  animation-name: fall, sway;
+  animation-duration: 4s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+}
+.money8 {
+  position: absolute;
+  transform-origin: 100px -350px 50px;
+  animation-name: fall, sway;
+  animation-duration: 4s, 5s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+}
+.money9 {
+  position: absolute;
+  transform-origin: 100px -550px 50px;
+  animation-name: sway, fall;
+  animation-duration: 4s, 5s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+}
+.money10 {
+  position: absolute;
+  transform-origin: 30px -450px 50px;
+  animation-name: sway, fall;
+  animation-duration: 4s, 5s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+}
+.money11 {
+  position: absolute;
+  transform-origin: 250px -482px 50px;
+  animation-name: sway, fall;
+  animation-duration: 3s, 4s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+}
+
+.money12 {
+  position: absolute;
+  transform-origin: -100px -280px 0px;
+  animation-name: sway, fall;
+  animation-duration: 4s, 5s;
+  animation-fill-mode: both;
+  animation-timing-function: linear, ease-in-out;
+  animation-delay: 0.25s;
+}

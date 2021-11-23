@@ -1,11 +1,11 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import Picture from './Picture/Picture';
 import styles from './Chart.module.css';
 import { expensesСategoryColors } from '../../assets/constants';
 import StatsBalance from '../StatsBalance';
 
 const Chart = ({ expenses, balance }) => {
-  console.log(expenses, balance);
   const data = {
     datasets: [
       {
@@ -18,9 +18,15 @@ const Chart = ({ expenses, balance }) => {
   return (
     <>
       <div className={styles.doughnut}>
-        <div className={styles.balance}>
-          ₴ <StatsBalance balance={balance} />
-        </div>
+        {balance ? (
+          <div className={styles.balance}>
+            ₴ <StatsBalance balance={balance} />
+          </div>
+        ) : (
+          <div>
+            <Picture />
+          </div>
+        )}
         <Doughnut data={data} />
       </div>
     </>

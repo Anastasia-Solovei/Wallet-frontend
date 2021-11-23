@@ -18,11 +18,8 @@ const DiagramTab = () => {
     state => state.transactions.categories,
   );
   const expensesСategories = useSelector(state => state.categories.all);
-  console.log(expensesСategories);
-
   const totalExpensesArray = Object.values(transactionsByCategories);
   const totalIncomes = totalExpensesArray.pop();
-  console.log(totalExpensesArray, totalIncomes);
 
   let totalExpenses;
   if (totalExpensesArray.length) {
@@ -41,14 +38,12 @@ const DiagramTab = () => {
       <div className={styles.table}>
         <InputDate />
 
-        {totalExpensesArray.length && (
-          <Table
-            expenses={totalExpensesArray}
-            totalIncomes={totalIncomes}
-            totalExpenses={totalExpenses}
-            expensesСategories={expensesСategories}
-          />
-        )}
+        <Table
+          expenses={totalExpensesArray}
+          totalIncomes={totalIncomes}
+          totalExpenses={totalExpenses}
+          expensesСategories={expensesСategories}
+        />
       </div>
     </div>
   );

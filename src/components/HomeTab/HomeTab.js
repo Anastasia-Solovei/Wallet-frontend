@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { COLUMNS } from './columns';
 import ButtonAddTransactions from '../../components/ButtonAddTransactions';
 import ModalAddTransaction from '../../components/ModalAddTransaction';
 import styles from './HomeTable.module.css';
-import MOCK_DATA from './MOCK_DATA.json'; // temporarily for test
+import { getTransactions } from '../../redux/transactions/transactionsSelectors';
+import { fetchTransactions } from '../../redux/transactions/transactionsOperations';
 
 // function resolve class for td 'amount'
-
 const resolveClass = cell => {
   if (cell.row.values.type === 'incomes' && cell.column.id === 'amount') {
     return 'tdIncomes';
@@ -20,8 +21,16 @@ const resolveClass = cell => {
 };
 
 const HomeTab = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch]);
+
+  const transactions = useSelector(getTransactions);
+
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => transactions, [transactions]);
   const {
     getTableProps,
     getTableBodyProps,
