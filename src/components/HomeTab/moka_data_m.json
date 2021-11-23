@@ -1,9 +1,0 @@
-[
-    {"id":"54646512","date":"04.01.21","type":"-","category":"Food","amount":5500,"balance":1500},
-    {"id":"54646778","date":"05.01.21","type":"-", "category":	"Car","amount":4500,"balance":2000},
-    {"id":"54778512","date":"05.01.21","type":"-", "category":	"Me","amount":5500,"balance":2000},
-    {"id":"78246512","date":"05.01.21","type":"-", "category":	"Children","amount":2500,"balance":2000},
-    {"id":"79846512","date":"05.01.21","type":"-", "category":	"House","amount":1500,"balance":2000},
-    {"id":"54646512","date":"05.01.21","type":"-", "category":	"Education","amount":5500,"balance":2000}
-
-]
