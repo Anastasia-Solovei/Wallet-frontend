@@ -52,13 +52,13 @@ export const deleteTransaction = transactionId => async dispatch => {
 export const getTransactionsByDate = (month, year) => async dispatch => {
   dispatch(getTransByDateRequest());
   try {
-    const data = await dataFromBackend;
+    // const data = await dataFromBackend;
 
-    // const { data } = await axios.get(
-    //   `/transactions/statistics?month=${month}&year=${year}`,
-    // );
+    const { data } = await axios.get(
+      `/transactions/statistics?month=${month}&year=${year}`,
+    );
     console.log(data);
-    dispatch(getTransByDateSuccess(data));
+    dispatch(getTransByDateSuccess(data.statistics));
   } catch (error) {
     dispatch(getTransByDateError(error.message));
   }
