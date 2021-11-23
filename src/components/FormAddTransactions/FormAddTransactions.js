@@ -64,7 +64,7 @@ export default function FormAddTransactions({ onClose }) {
   const formik = useFormik({
     initialValues: {
       type: 'expenses',
-      category: 'incomes',
+      category: '',
       amount: '',
       date: dateValue,
       day: dayValue,
