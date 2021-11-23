@@ -37,10 +37,6 @@
     margin-right: auto;
   }
 }
-.headerLogo {
-  display: flex;
-  align-items: center;
-}
 
 .headerExit {
   display: flex;
@@ -57,6 +53,8 @@
   font-weight: 700;
   font-size: var(--font-size__logo);
   line-height: 1.33;
+  display: flex;
+  align-items: center;
 }
 
 .userName {
