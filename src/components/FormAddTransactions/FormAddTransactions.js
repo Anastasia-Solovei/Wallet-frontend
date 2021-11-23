@@ -166,6 +166,7 @@ export default function FormAddTransactions({ onClose }) {
 
           <div className={s.date}>
             <DatetimeField
+              //   className={s.inputDate}
               name="date"
               value={formik.values.date}
               onChange={formik.setFieldValue}

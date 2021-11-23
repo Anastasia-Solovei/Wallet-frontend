@@ -1,3 +1,5 @@
+@import '../../stylesheet/vars.css';
+
 .button {
   position: sticky;
   display: inline-flex;
@@ -6,7 +8,7 @@
   bottom: 30px;
   width: 44px;
   height: 44px;
-  background-color: #24cca7;
+  background-color: var(--accent-btn-color);
   border-radius: 50%;
   border-style: none;
   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);

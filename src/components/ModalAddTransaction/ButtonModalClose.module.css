@@ -1,3 +1,5 @@
+@import '../../stylesheet/vars.css';
+
 .button {
   position: absolute;
   display: none;
@@ -8,7 +10,7 @@
   width: 16px;
   height: 16px;
   padding: 0;
-  background-color: #ffffff;
+  background-color: var(--btn-color);
   border-style: none;
   cursor: pointer;
 }
