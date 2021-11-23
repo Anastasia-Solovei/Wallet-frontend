@@ -18,16 +18,12 @@ const dateValue = dayValue + '.' + monthValue + '.' + yearValue;
 const DatetimeField = ({ name, onChange }) => {
   return (
     <Datetime
-      // className={s.inputDate}
+      className={s.datetime}
       inputProps={{
         style: {
-          width: '100%',
-          maxWidth: '300px',
-          marginBottom: '40px',
-          fontSize: '18px',
+          height: '33px',
           border: 'none',
           outline: 'none',
-          borderBottom: '1px solid #bdbdbd',
         },
       }}
       dateFormat="DD.MM.YYYY"
@@ -67,7 +63,7 @@ export default function FormAddTransactions({ onClose }) {
   const formik = useFormik({
     initialValues: {
       type: 'expenses',
-      category: 'Incomes',
+      category: 'main',
       amount: '',
       date: dateValue,
       day: dayValue,
@@ -118,24 +114,29 @@ export default function FormAddTransactions({ onClose }) {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className={s.unionRadio}>
-        <label>
-          <input
-            type={'radio'}
-            name={'type'}
-            value={'incomes'}
-            checked={formik.values.type === 'incomes'}
-            onChange={formik.handleChange}
-          />
+        <input
+          className={s.radio}
+          id={'incomes'}
+          type={'radio'}
+          name={'type'}
+          value={'incomes'}
+          checked={formik.values.type === 'incomes'}
+          onChange={formik.handleChange}
+        />
+        <label className={s.incomes} for="incomes">
           Incomes
         </label>
-        <label>
-          <input
-            type={'radio'}
-            name={'type'}
-            value={'expenses'}
-            checked={formik.values.type === 'expenses'}
-            onChange={formik.handleChange}
-          />
+
+        <input
+          className={s.radio}
+          id={'expenses'}
+          type={'radio'}
+          name={'type'}
+          value={'expenses'}
+          checked={formik.values.type === 'expenses'}
+          onChange={formik.handleChange}
+        />
+        <label className={s.expenses} for="expenses">
           Expenses
         </label>
       </div>
@@ -145,13 +146,13 @@ export default function FormAddTransactions({ onClose }) {
         )}
         {formik.values.type === 'expenses' && (
           <select
-            className={s.input}
+            className={s.category}
             name={'category'}
             placeholder={'Type to search'}
             value={formik.values.category}
             onChange={formik.handleChange}
           >
-            <option value="Incomes" disabled hidden>
+            <option value="main" disabled hidden>
               Сhoose a category
             </option>
             {expensesСategories.map((category, i) => {
@@ -178,15 +179,17 @@ export default function FormAddTransactions({ onClose }) {
           />
 
           <div className={s.date}>
-            <DatetimeField
-              //   className={s.inputDate}
-              name="date"
-              value={formik.values.date}
-              onChange={formik.setFieldValue}
-            />
-            <svg className={s.img}>
-              <use href={sprite + '#icon-calendar'}></use>
-            </svg>
+            <label>
+              <DatetimeField
+                //   className={s.inputDate}
+                name="date"
+                value={formik.values.date}
+                onChange={formik.setFieldValue}
+              />
+              <svg className={s.img}>
+                <use href={sprite + '#icon-calendar'}></use>
+              </svg>
+            </label>
           </div>
         </div>
         {formik.touched.comment && formik.errors.comment && (
