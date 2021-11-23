@@ -29,7 +29,7 @@ export const register = createAsyncThunk(
       const { data } = await axios.post(`/users/signup`, credentials);
       //  token.set(data.emailVerificationToken);
 
-      toast('Registration successful.', { theme: 'colored', type: 'success' });
+      toast('Registration successful.', { theme: 'colored', type: 'Success' });
       return data;
     } catch (error) {
       console.log('error', error.message);

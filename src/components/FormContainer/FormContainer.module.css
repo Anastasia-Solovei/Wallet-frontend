@@ -1,7 +1,8 @@
 @media screen and (min-width: 1279px) {
   .container {
     width: 56.25%;
-    height: 100vh;
+    min-height: 100vh;
+    /* height: 100vh; */
     padding: 52px 85px 52px 95px;
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(50px);
