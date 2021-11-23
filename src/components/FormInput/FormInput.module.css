@@ -1,0 +1,10 @@
+.message {
+  color: #ff6596;
+  position: absolute;
+  display: block;
+  align-items: center;
+
+  top: -30%;
+  left: 30%;
+  text-align: center;
+}
