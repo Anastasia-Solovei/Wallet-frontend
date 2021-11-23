@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getCategories } from '../../redux/categories/categoriesOperations';
-// import { getTransactionsByCategories } from '../../redux/transactions/transactionsSelectors';
+import { getTransactionsByCategories } from '../../redux/transactions/transactionsSelectors';
+import { getCategoriesAll } from '../../redux/categories/categoriesSelector';
 import Chart from '../Chart';
 import Table from '../Table';
 import InputDate from '../InputDate';
@@ -14,10 +15,9 @@ const DiagramTab = () => {
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
-  const transactionsByCategories = useSelector(
-    state => state.transactions.categories,
-  );
-  const expensesСategories = useSelector(state => state.categories.all);
+  const transactionsByCategories = useSelector(getTransactionsByCategories);
+
+  const expensesСategories = useSelector(getCategoriesAll);
   const totalExpensesArray = Object.values(transactionsByCategories);
   const totalIncomes = totalExpensesArray.pop();
 
@@ -37,15 +37,12 @@ const DiagramTab = () => {
       </div>
       <div className={styles.table}>
         <InputDate />
-
-        {totalExpensesArray.length && (
-          <Table
-            expenses={totalExpensesArray}
-            totalIncomes={totalIncomes}
-            totalExpenses={totalExpenses}
-            expensesСategories={expensesСategories}
-          />
-        )}
+        <Table
+          expenses={totalExpensesArray}
+          totalIncomes={totalIncomes}
+          totalExpenses={totalExpenses}
+          expensesСategories={expensesСategories}
+        />
       </div>
     </div>
   );

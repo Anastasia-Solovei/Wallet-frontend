@@ -18,9 +18,13 @@ const Chart = ({ expenses, balance }) => {
     <>
       <div className={styles.doughnut}>
         <div className={styles.balance}>
-          ₴ <StatsBalance balance={balance} />
+          {balance ? <StatsBalance balance={balance} /> : ''}
         </div>
-        <Doughnut data={data} />
+        {balance ? (
+          <Doughnut data={data} />
+        ) : (
+          <div className={styles.balance}>You had no expenses</div>
+        )}
       </div>
     </>
   );
