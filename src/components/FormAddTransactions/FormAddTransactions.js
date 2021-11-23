@@ -25,6 +25,11 @@ const DatetimeField = ({ name, onChange }) => {
           height: '33px',
           border: 'none',
           outline: 'none',
+          fontFamily: 'Circe, sans-serif',
+          fontStyle: 'normal',
+          fontWeight: 'normal',
+          fontSize: '18px',
+          lineHeight: '1.5',
         },
       }}
       dateFormat="DD.MM.YYYY"
@@ -64,7 +69,7 @@ export default function FormAddTransactions({ onClose }) {
   const formik = useFormik({
     initialValues: {
       type: 'expenses',
-      category: 'incomes',
+      category: '',
       amount: '',
       date: dateValue,
       day: dayValue,
@@ -123,10 +128,16 @@ export default function FormAddTransactions({ onClose }) {
           checked={formik.values.type === 'incomes'}
           onChange={formik.handleChange}
         />
-        <label className={s.incomes} for="incomes">
+        <label
+          className={s.incomes}
+          style={{
+            color: formik.values.type === 'incomes' ? '#24CCA7' : '#e0e0e0',
+          }}
+          for="incomes"
+        >
           Incomes
         </label>
-
+        <div className={s.rectangle}></div>
         <input
           className={s.radio}
           id={'expenses'}
@@ -136,7 +147,13 @@ export default function FormAddTransactions({ onClose }) {
           checked={formik.values.type === 'expenses'}
           onChange={formik.handleChange}
         />
-        <label className={s.expenses} for="expenses">
+        <label
+          className={s.expenses}
+          style={{
+            color: formik.values.type === 'expenses' ? '#ff6596' : '#e0e0e0',
+          }}
+          for="expenses"
+        >
           Expenses
         </label>
       </div>
