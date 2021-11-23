@@ -25,7 +25,7 @@
     justify-content: flex-end;
     background-image: url('../../images/LogInPage/ellipse_purple.png'),
       url('../../images/LogInPage/ellipse_pink.png');
-    padding: 136px 76px 0px;
+    padding: 136px 85px 0px 76px;
     min-height: 720px;
   }
 }
