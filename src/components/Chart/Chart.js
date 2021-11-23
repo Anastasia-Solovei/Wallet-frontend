@@ -5,7 +5,6 @@ import { expensesСategoryColors } from '../../assets/constants';
 import StatsBalance from '../StatsBalance';
 
 const Chart = ({ expenses, balance }) => {
-  console.log(expenses, balance);
   const data = {
     datasets: [
       {

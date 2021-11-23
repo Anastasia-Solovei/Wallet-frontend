@@ -3,20 +3,33 @@
 .input {
   display: block;
   width: 100%;
+  max-width: 300px;
   margin-bottom: 40px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--secondary-text-color);
+  background-color: var(--light-bcg-color);
+}
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
 .unionRadio {
   margin-bottom: 40px;
   text-align: center;
 }
 .unionInput {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
+  width: 100%;
+  max-width: 300px;
 }
+
 .button {
   display: block;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-top: 10.5px;
@@ -45,18 +58,31 @@
   border: 1px solid var(--accent-text-color);
 }
 .img {
+  position: absolute;
+  right: 0;
+  top: 0;
   height: 18px;
   width: 18px;
-  margin-right: 23px;
+  margin-right: 20px;
   fill: #6e78e8;
 }
 .date {
-  display: flex;
+  position: relative;
+  width: 100%;
 }
 .inputDate {
+  width: 100%;
   font-family: var(--main__font-family);
   font-size: var(--font-size__btn);
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .unionInput {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
 }
