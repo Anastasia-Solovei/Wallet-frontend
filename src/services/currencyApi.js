@@ -1,9 +1,9 @@
-import axios from 'axios';
-
 async function fetchCurrency() {
-  const { data } = await axios.get(
-    'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5',
+  const response = await fetch(
+    'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11',
   );
+  const data = await response.json();
+
   return data;
 }
 

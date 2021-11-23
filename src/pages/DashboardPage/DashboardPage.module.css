@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-position: left bottom, right top;
   /* max-width: 1280px; */
+  max-height: 100vh;
 }
 
 .bcg_tablet {
@@ -12,17 +13,18 @@
   background-repeat: no-repeat;
   background-position: left bottom, right top;
   /* max-width: 1280px; */
+  min-height: calc(100vh);
 }
 
 .blur {
   backdrop-filter: blur(50px);
+  height: 100vh;
 }
 
 .dashboard {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-  min-height: calc(100vh - 104.5px);
 }
 
 .dashboard_tablet {
