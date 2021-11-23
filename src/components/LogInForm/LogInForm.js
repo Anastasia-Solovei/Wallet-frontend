@@ -45,50 +45,55 @@ const LogInForm = () => {
         values,
         /* and other goodies */
       }) => (
-        <Form className={s.form} onReset={handleReset}>
-          <div className={s.titleArea}>
-            <h2 className={s.title}>Wallet</h2>
+        <>
+          <div className={s.formContainer}>
+            <div className={s.titleArea}>
+              <svg className={s.walletIcon} width="30px" height="30px">
+                <use href={sprite + '#icon-wallet'}></use>
+              </svg>
+              <h2 className={s.title}>Wallet</h2>
+            </div>
+            <Form onReset={handleReset}>
+              <div className={s.inputArea}>
+                <FormInput
+                  name="email"
+                  type="email"
+                  placeholder="E-mail"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    touched.email && errors.email ? s.inputError : s.input
+                  }
+                />
+                <svg className={s.icon} width="24px" height="24px">
+                  <use href={sprite + '#icon-email'}></use>
+                </svg>
+              </div>
+              <div className={s.inputArea}>
+                <FormInput
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={
+                    touched.password && errors.password ? s.inputError : s.input
+                  }
+                />
+                <svg className={s.icon} width="24px" height="24px">
+                  <use href={sprite + '#icon-password'}></use>
+                </svg>
+              </div>
 
-            <svg className={s.walletIcon} width="30px" height="30px">
-              <use href={sprite + '#icon-wallet'}></use>
-            </svg>
+              <Button type="submit">Log in</Button>
+              <Link to="/register" className={s.link}>
+                Registration
+              </Link>
+            </Form>
           </div>
-          <div className={s.inputArea}>
-            <FormInput
-              name="email"
-              type="email"
-              placeholder="E-mail"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={touched.email && errors.email ? s.inputError : s.input}
-            />
-            <svg className={s.icon} width="24px" height="24px">
-              <use href={sprite + '#icon-email'}></use>
-            </svg>
-          </div>
-          <div className={s.inputArea}>
-            <FormInput
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className={
-                touched.password && errors.password ? s.inputError : s.input
-              }
-            />
-            <svg className={s.icon} width="24px" height="24px">
-              <use href={sprite + '#icon-password'}></use>
-            </svg>
-          </div>
-
-          <Button type="submit">Log in</Button>
-          <Link to="/register" className={s.link}>
-            Registration
-          </Link>
-        </Form>
+        </>
       )}
     </Formik>
   );
