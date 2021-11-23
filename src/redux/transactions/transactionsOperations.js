@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { dataFromBackend } from '../../assets/constants';
 
 import {
   fetchTransRequest,
@@ -52,12 +51,10 @@ export const deleteTransaction = transactionId => async dispatch => {
 export const getTransactionsByDate = (month, year) => async dispatch => {
   dispatch(getTransByDateRequest());
   try {
-    // const data = await dataFromBackend;
-
     const { data } = await axios.get(
       `/transactions/statistics?month=${month}&year=${year}`,
     );
-    console.log(data);
+
     dispatch(getTransByDateSuccess(data.statistics));
   } catch (error) {
     dispatch(getTransByDateError(error.message));

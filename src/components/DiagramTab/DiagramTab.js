@@ -18,11 +18,8 @@ const DiagramTab = () => {
     state => state.transactions.categories,
   );
   const expensesСategories = useSelector(state => state.categories.all);
-  console.log(expensesСategories);
-
   const totalExpensesArray = Object.values(transactionsByCategories);
-  const totalIncomes = totalExpensesArray.pop();
-  console.log(totalExpensesArray, totalIncomes);
+  const totalIncomes = totalExpensesArray.pop() / 9;
 
   let totalExpenses;
   if (totalExpensesArray.length) {
