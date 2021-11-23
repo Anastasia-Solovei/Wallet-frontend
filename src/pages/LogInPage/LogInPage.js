@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import sessionSelectors from '../../redux/session/sessionSelectors';
@@ -14,23 +15,53 @@ import ImgContainer from '../../components/ImgContainer/ImgContainer';
 const LogInPage = () => {
   const isAuth = useSelector(sessionSelectors.getIsAuth);
 
+  const [Loaded, setLoaded] = useState();
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
   if (isAuth) {
     return <Redirect to={path.dashboardPage} />;
   }
 
   return (
-    <>
-      <AuthContainer>
-        <Money />
-        <ImgContainer>
-          <div className={s.frameimg}></div>
-          <h1 className={s.title}>Finance App</h1>
-        </ImgContainer>
-        <div className={s.formContainer}>
+    <AuthContainer>
+      <Money />
+      <CSSTransition
+        in={Loaded}
+        timeout={500}
+        classNames={{
+          enterActive: `${s.loginPageImgShow}`,
+        }}
+        mountOnEnter
+      >
+        <div className={s.imgContent}>
+          <div className={s.img}></div>
+          <h1 className={s.pageHeading}>Finance App</h1>
+        </div>
+      </CSSTransition>
+      <CSSTransition
+        in={Loaded}
+        timeout={500}
+        classNames={{
+          enterActive: `${s.loginPageShow}`,
+        }}
+        mountOnEnter
+      >
+        <div className={s.logInFormUnderlay}>
           <LogInForm />
         </div>
-      </AuthContainer>
-    </>
+      </CSSTransition>
+
+      <ImgContainer>
+        <div className={s.frameimg}></div>
+        <h1 className={s.title}>Finance App</h1>
+      </ImgContainer>
+      <div className={s.formContainer}>
+        <LogInForm />
+      </div>
+    </AuthContainer>
   );
 };
 

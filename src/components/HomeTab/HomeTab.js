@@ -1,4 +1,5 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { COLUMNS } from './columns';
@@ -21,11 +22,17 @@ const resolveClass = cell => {
 };
 
 const HomeTab = () => {
+  const [Loaded, setLoaded] = useState();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   const transactions = useSelector(getTransactions);
 
@@ -57,83 +64,92 @@ const HomeTab = () => {
   );
 
   return (
-    <div className={styles.wrapTable}>
-      <table className={styles.table} {...getTableProps()}>
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr
-              className={styles.tHeadRow}
-              {...headerGroup.getHeaderGroupProps()}
-            >
-              {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render('Header')}
-                  {/* element for sort data in columns */}
-                  <span>
-                    {column.isSorted ? (column.isSortedDesc ? ' ' : ' ') : ''}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
-            prepareRow(row);
-
-            return (
-              <tr className={styles.tr} {...row.getRowProps()}>
-                {row.cells.map(cell => {
-                  return (
-                    <td
-                      className={styles[resolveClass(cell)]}
-                      {...cell.getCellProps()}
-                    >
-                      {cell.render('Cell')}
-                    </td>
-                  );
-                })}
+    <CSSTransition
+      in={Loaded}
+      timeout={500}
+      classNames={{
+        enterActive: `${styles.tableShow}`,
+      }}
+      mountOnEnter
+    >
+      <div className={styles.wrapTable}>
+        <table className={styles.table} {...getTableProps()}>
+          <thead>
+            {headerGroups.map(headerGroup => (
+              <tr
+                className={styles.tHeadRow}
+                {...headerGroup.getHeaderGroupProps()}
+              >
+                {headerGroup.headers.map(column => (
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    {column.render('Header')}
+                    {/* element for sort data in columns */}
+                    <span>
+                      {column.isSorted ? (column.isSortedDesc ? ' ' : ' ') : ''}
+                    </span>
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className={styles.paginationWrap}>
-        <button
-          className={styles.paginationBtn}
-          onClick={() => gotoPage(0)}
-          disabled={!canPreviousPage}
-        >
-          {'<<'}
-        </button>
-        <button
-          className={styles.paginationBtn}
-          onClick={() => previousPage()}
-          disabled={!canPreviousPage}
-        >
-          {'<'}
-        </button>
-        <button className={styles.paginationCurrentPage}>
-          {pageIndex + 1}
-        </button>
-        <button
-          className={styles.paginationBtn}
-          onClick={() => nextPage()}
-          disabled={!canNextPage}
-        >
-          {'>'}
-        </button>
-        <button
-          className={styles.paginationBtn}
-          onClick={() => gotoPage(pageCount - 1)}
-          disabled={!canNextPage}
-        >
-          {'>>'}
-        </button>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {page.map((row, i) => {
+              prepareRow(row);
+
+              return (
+                <tr className={styles.tr} {...row.getRowProps()}>
+                  {row.cells.map(cell => {
+                    return (
+                      <td
+                        className={styles[resolveClass(cell)]}
+                        {...cell.getCellProps()}
+                      >
+                        {cell.render('Cell')}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className={styles.paginationWrap}>
+          <button
+            className={styles.paginationBtn}
+            onClick={() => gotoPage(0)}
+            disabled={!canPreviousPage}
+          >
+            {'<<'}
+          </button>
+          <button
+            className={styles.paginationBtn}
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            {'<'}
+          </button>
+          <button className={styles.paginationCurrentPage}>
+            {pageIndex + 1}
+          </button>
+          <button
+            className={styles.paginationBtn}
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            {'>'}
+          </button>
+          <button
+            className={styles.paginationBtn}
+            onClick={() => gotoPage(pageCount - 1)}
+            disabled={!canNextPage}
+          >
+            {'>>'}
+          </button>
+        </div>
+        <ButtonAddTransactions />
+        <ModalAddTransaction />
       </div>
-      <ButtonAddTransactions />
-      <ModalAddTransaction />
-    </div>
+    </CSSTransition>
   );
 };
 

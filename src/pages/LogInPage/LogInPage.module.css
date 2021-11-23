@@ -1,14 +1,51 @@
 @import '../../stylesheet/vars.css';
 
-@media screen and (min-width: 1279px) {
-  .formContainer {
-    width: 56.25%;
-    min-height: 720px;
-    padding: 136px 85px 166px 95px;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(50px);
+.logInPage {
+  padding: 110px 20px;
+  background-color: var(--light-bcg-color);
+  height: 100vh;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .logInPage {
+    background-color: var(--main-bcg-color);
+    background-image: url('../../images/LogInPage/ellipse_purple.png'),
+      url('../../images/LogInPage/ellipse_pink_tablet.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right top;
+    padding: 60px 114px 196px 114px;
+    min-height: 1024px;
+  }
+
+  .loginPageShow {
+    animation: loginPageForm-show 0.5s forwards;
+  }
+
+  .loginPageImgShow {
+    animation: loginPageImg-show 0.5s forwards;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .logInPage {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    background-image: url('../../images/LogInPage/ellipse_purple.png'),
+      url('../../images/LogInPage/ellipse_pink.png');
+    padding: 136px 85px 0px 76px;
+  }
+
+  @media screen and (min-width: 1279px) {
+    .formContainer {
+      width: 56.25%;
+      min-height: 720px;
+      padding: 136px 85px 166px 95px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(50px);
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -60,5 +97,35 @@
     text-align: center;
     margin-left: auto;
     width: 187px;
+  }
+}
+
+@keyframes loginPageForm-show {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes loginPageImg-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
