@@ -16,7 +16,6 @@ import {
 } from './transactionsActions';
 
 axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
-// axios.defaults.baseURL = 'http://localhost:3002';
 
 export const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());
