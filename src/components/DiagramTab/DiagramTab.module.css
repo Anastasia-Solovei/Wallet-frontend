@@ -19,10 +19,29 @@
     align-items: flex-start;
     max-width: 700px;
   }
+  .diagramTabShow {
+    animation: diagramTab-show 0.5s forwards;
+  }
 }
+
 .chart {
   width: calc(280px + (320 - 280) * ((100vw - 320px) / (480 - 320)));
   align-items: center;
 }
 .table {
+}
+
+@keyframes diagramTab-show {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }

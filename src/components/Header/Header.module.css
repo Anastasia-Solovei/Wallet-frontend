@@ -28,6 +28,10 @@
     padding-right: 40px;
     margin-right: auto;
   }
+
+  .headerShow {
+    animation: header-show 0.5s forwards;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -91,4 +95,19 @@
   line-height: 27px;
   color: var(--secondary-text-color);
   margin-left: 10px;
+}
+
+@keyframes header-show {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

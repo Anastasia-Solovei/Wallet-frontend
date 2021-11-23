@@ -17,7 +17,6 @@
   margin-bottom: 10px;
   line-height: 1.5em;
   color: #000000;
-  
 }
 
 .link:hover {
@@ -40,4 +39,23 @@
 .activelink .img {
   filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
   fill: #4a56e2;
+}
+
+.navigationShow {
+  animation: navigation-show 0.5s forwards;
+}
+
+@keyframes navigation-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }

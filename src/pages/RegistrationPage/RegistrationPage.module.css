@@ -14,6 +14,14 @@
     background-repeat: no-repeat;
     background-position: left top;
   }
+
+  .registrationPageShow {
+    animation: registrationPageForm-show 0.5s forwards;
+  }
+
+  .registrationPageImgShow {
+    animation: registrationPageImg-show 0.5s forwards;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -48,5 +56,35 @@
     text-align: center;
     margin-left: auto;
     width: 187px;
+  }
+}
+
+@keyframes registrationPageForm-show {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes registrationPageImg-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }

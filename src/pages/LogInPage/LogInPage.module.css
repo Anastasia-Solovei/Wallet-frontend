@@ -17,6 +17,14 @@
     padding: 60px 114px 196px 114px;
     min-height: 1024px;
   }
+
+  .loginPageShow {
+    animation: loginPageForm-show 0.5s forwards;
+  }
+
+  .loginPageImgShow {
+    animation: loginPageImg-show 0.5s forwards;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -141,5 +149,35 @@
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(50px);
+  }
+}
+
+@keyframes loginPageForm-show {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes loginPageImg-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
