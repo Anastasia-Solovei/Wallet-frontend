@@ -38,14 +38,12 @@ const DiagramTab = () => {
       <div className={styles.table}>
         <InputDate />
 
-        {totalExpensesArray.length && (
-          <Table
-            expenses={totalExpensesArray}
-            totalIncomes={totalIncomes}
-            totalExpenses={totalExpenses}
-            expensesСategories={expensesСategories}
-          />
-        )}
+        <Table
+          expenses={totalExpensesArray}
+          totalIncomes={totalIncomes}
+          totalExpenses={totalExpenses}
+          expensesСategories={expensesСategories}
+        />
       </div>
     </div>
   );
