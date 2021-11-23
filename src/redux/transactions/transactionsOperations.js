@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { dataFromBackend } from '../../assets/constants';
-
+import { toast } from 'react-toastify';
 import {
   fetchTransRequest,
   fetchTransSuccess,
@@ -35,6 +35,9 @@ export const addTransactions = transaction => async dispatch => {
     const { data } = await axios.post('/transactions/new', transaction);
     dispatch(addTransSuccess(data));
   } catch (error) {
+    toast.error('Something is wrong. Try again later', {
+      theme: 'colored',
+    });
     dispatch(addTransError(error.message));
   }
 };

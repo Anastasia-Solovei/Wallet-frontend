@@ -6,7 +6,7 @@
     background-position: left bottom, right -185px top;
     padding: 60px 114px 48px 114px;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     text-align: center;
     flex-grow: 1;
   }
@@ -17,15 +17,15 @@
     background-position: left bottom, right top;
     align-items: center;
     justify-content: flex-end;
-    max-width: 1920px;
+    /* max-width: 1920px; */
     height: 100%;
+
     padding: 0;
   }
 }
 .authSection {
   display: block;
-  max-width: 1920px;
-  height: 100vh;
-  display: block;
+  /* max-width: 1920px; */
+  height: 100%;
   padding: 0;
 }

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionOperations from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
+import ValidationBar from './ValidationBar';
 import s from './RegistrationForm.module.css';
 import Button from '../Button/Button';
 
@@ -132,6 +133,10 @@ const RegistrationForm = () => {
           <svg className={s.iconForm} width="24px" height="24px">
             <use className={s.iconUse} href={sprite + '#icon-password'}></use>
           </svg>
+          <ValidationBar
+            style={s.passwordBarProgress}
+            password={formik.values.password}
+          />
         </div>
 
         <div className={s.inputBase}>
