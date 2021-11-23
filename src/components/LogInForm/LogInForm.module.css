@@ -1,3 +1,5 @@
+@import '../../stylesheet/vars.css';
+
 .form {
   display: flex;
   justify-content: center;
@@ -19,12 +21,14 @@
 .title {
   font-weight: bold;
   font-size: 26px;
+  font-family: 'Poppins', sans-serif;
+   
 }
 
 @media screen and (min-width: 768px) {
   .title {
     font-style: normal;
-    font-size: 30px;
+    font-size: var(--font-size__logo);
     line-height: 45px;
   }
 }
@@ -55,12 +59,12 @@
 .input {
   width: 280px;
   height: 50px;
-  font-size: 18px;
+  font-size: var(--font-size__btn);
   padding: 10px 20px 10px 60px;
   border: none;
   outline: none;
-  border-bottom: 1px solid #bdbdbd;
-  background-color: #ffffff;
+  border-bottom: 1px solid var(--secondary-text-color);
+  background-color: var(--light-bcg-color);
 
   margin-bottom: 40px;
 }
@@ -74,7 +78,7 @@
 .inputError {
   width: 280px;
   height: 32px;
-  font-size: 18px;
+  font-size: var(--font-size__btn);
   padding: 10px 20px 10px 60px;
   border: none;
   outline: none;
@@ -89,14 +93,14 @@
 }
 .input::placeholder {
   color: #bdbdbd;
-  font-size: 18px;
+  font-size: var(--font-size__btn);
   font-family: 'Circe', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   margin-left: 60px;
 }
 .inputError::placeholder {
-  color: #bdbdbd;
+  color: var(--secondary-text-color);
   cursor: pointer;
 }
 .input:hover,
@@ -128,15 +132,15 @@
   margin-right: auto;
   padding: 13px 58px;
   width: 280px;
-  color: #4a56e2;
+  color: var(--accent-text-color);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--font-size__form);
   letter-spacing: 0.1em;
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
   border-radius: 20px;
-  border: 1px solid #4a56e2;
+  border: 1px solid var(--accent-text-color);
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

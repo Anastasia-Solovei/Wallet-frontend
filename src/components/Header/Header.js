@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { sessionSelectors } from '../../redux/session';
 import { openModalLogOut } from '../../redux/global/globalActions';
+import { fetchCurrentUser } from '../../redux/session/sessionOperations';
 import sprite from '../../images/svg_sprite.svg';
 import style from './Header.module.css';
 import ModalLogout from '../ModalLogout/ModalLogout';
@@ -24,13 +25,14 @@ function useTableScreen() {
 const Header = () => {
   const name = useSelector(sessionSelectors.getUsername);
   const dispatch = useDispatch();
+
   const tableScreen = useTableScreen();
 
   return (
     <header className={style.header}>
       <div className={style.header__container}>
         <div className={style.headerLogo}>
-          <svg className={style.headerIconLogo} width="30px" height="30px">
+          <svg className={style.headerIconLogo} width="40px" height="40px">
             <use href={sprite + '#icon-wallet'}></use>
           </svg>
           <span className={style.logoName}>Wallet</span>

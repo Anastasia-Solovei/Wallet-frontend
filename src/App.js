@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { fetchCurrentUser } from './redux/session/sessionOperations';
 import { getIsLoading } from './redux/global/globalSelectors';
 import ProtectedRoute from './components/ProtectedRoute';
 import path from './routes_path';
-import Loader from './components/Loader';
+import LoaderSpinner from './components/Loader';
 
 import LogInPage from './pages/LogInPage/LogInPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
@@ -17,6 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
+
   // console.log(isLoading);
 
   useEffect(() => {
@@ -25,8 +26,15 @@ function App() {
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading && <LoaderSpinner />}
+      {/* <LoaderSpinner /> */}
+
+      {/* {!isLoading && ( */}
       <Switch>
+        <Route exact path="/">
+          <Redirect to={path.dashboardPage} />
+        </Route>
+
         <Route path={path.registrationPage}>
           <RegistrationPage />
         </Route>
@@ -34,7 +42,6 @@ function App() {
         <Route path={path.logInPage}>
           <LogInPage />
         </Route>
-
         <ProtectedRoute
           path={[path.dashboardPage, path.statistic, path.currency]}
           exact

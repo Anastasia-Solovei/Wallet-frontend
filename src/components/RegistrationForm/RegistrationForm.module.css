@@ -26,6 +26,8 @@
 }
 
 .titleWallet {
+  font-family: 'Poppins', sans-serif;
+    
   display: flex;
   align-items: center;
   text-align: center;

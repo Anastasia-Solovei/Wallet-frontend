@@ -14,7 +14,7 @@ const sessionSlice = createSlice({
   extraReducers: {
     [sessionOperations.register.pending](state) {},
     [sessionOperations.register.fulfilled](state, action) {
-      state.token = action.payload.emailVerificationToken;
+      //state.token = action.payload.emailVerificationToken;
       state.user = action.payload.user;
     },
     [sessionOperations.register.rejected](state, action) {
@@ -41,8 +41,14 @@ const sessionSlice = createSlice({
     },
     [sessionOperations.fetchCurrentUser.pending](state) {},
     [sessionOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = action.payload.user;
       state.isAuth = true;
+    },
+    [sessionOperations.fetchCurrentUser.rejected](state) {
+      state.user = { name: null, email: null };
+      state.token = null;
+      state.isAuth = false;
+      state.error = null;
     },
   },
 });

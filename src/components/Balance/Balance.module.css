@@ -18,7 +18,7 @@
   padding: 10px 0 0 40px;
   color: var(--main-text-color);
   font-size: var(--font-size__balance_amount);
-  font-family: var(--logo__font-family);
+  font-family:'Poppins', sans-serif;
   font-weight: bold;
 }
 

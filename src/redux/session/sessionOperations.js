@@ -27,12 +27,9 @@ export const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/users/signup`, credentials);
-      token.set(data.emailVerificationToken);
+      //  token.set(data.emailVerificationToken);
 
-      toast(
-        'Registration was successful. Go to your email to confirm registration!',
-        { theme: 'colored', type: 'success' },
-      );
+      toast('Registration successful.', { theme: 'colored', type: 'success' });
       return data;
     } catch (error) {
       console.log('error', error.message);
@@ -57,9 +54,15 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post(`/users/login`, credentials);
       token.set(data.token);
-
+      toast(`Hello, ${data.user.name}!`, { theme: 'colored', type: 'success' });
       return data;
     } catch (error) {
+      toast.error(
+        `Login failed. Check the correctness of the entered data. Or register.`,
+        {
+          theme: 'colored',
+        },
+      );
       return rejectWithValue(error.message);
     }
   },
@@ -81,8 +84,8 @@ export const fetchCurrentUser = createAsyncThunk(
   usersFetchCurrentUserAction,
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.session.token;
 
+    const persistedToken = state.session.token;
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('there is no token');
     }
@@ -91,7 +94,8 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       const { data } = await axios.get(`/users/current`);
       return data;
-    } catch (error) {}
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   },
 );
-

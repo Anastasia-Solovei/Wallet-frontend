@@ -1,3 +1,5 @@
+import ButtonAddTransactions from '../../components/ButtonAddTransactions';
+import ModalAddTransaction from '../../components/ModalAddTransaction';
 import styles from './HomeTabMobile.module.css';
 
 const transactions = [
@@ -122,6 +124,8 @@ const HomeTabMobile = () => {
           </div>
         );
       })}
+      <ButtonAddTransactions />
+      <ModalAddTransaction />
     </div>
   );
 };

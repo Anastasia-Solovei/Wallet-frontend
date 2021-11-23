@@ -1,34 +1,30 @@
+@import '../../stylesheet/vars.css';
+
 .button {
-  position: fixed;
+  position: sticky;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   bottom: 30px;
-  right: 20px;
   width: 44px;
   height: 44px;
-  background-color: #24cca7;
+  background-color: var(--accent-btn-color);
   border-radius: 50%;
   border-style: none;
   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+  margin-left: 100%;
+  transform: translate(-100%);
+  opacity: 0.8;
 }
 
 .button:hover {
   cursor: pointer;
-  background-color: #0fbc96;
+  opacity: 1;
   box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.75);
 }
 
 @media screen and (min-width: 768px) {
   .button {
     bottom: 40px;
-    right: 40px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .button {
-    bottom: 40px;
-    right: 85px;
   }
 }

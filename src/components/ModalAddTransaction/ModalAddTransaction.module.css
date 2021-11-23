@@ -1,24 +1,12 @@
-.modalBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.25);
-}
+@import '../../stylesheet/vars.css';
 
-.modalContent {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-height: 540px;
-  max-width: 540px;
-  width: 100%;
-  padding: 40px 65px 60px 65px;
-  padding-top: 40px;
-  padding-bottom: 60px;
-  background-color: #ffffff;
-  border-radius: 20px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+.title {
+  margin-top: 0;
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: var(--logo__font-family);
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5;
+  font-size: 30px;
 }

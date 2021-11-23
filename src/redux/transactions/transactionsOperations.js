@@ -16,13 +16,13 @@ import {
   getTransByDateError,
 } from './transactionsActions';
 
-// axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
-axios.defaults.baseURL = 'http://localhost:3002';
+axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
+// axios.defaults.baseURL = 'http://localhost:3002';
 
 export const fetchTransactions = () => async dispatch => {
   dispatch(fetchTransRequest());
   try {
-    const { data } = await axios.get('/transactions');
+    const { data } = await axios.get('/transactions/all');
     dispatch(fetchTransSuccess(data));
   } catch (error) {
     dispatch(fetchTransError(error.message));
@@ -53,10 +53,11 @@ export const getTransactionsByDate = (month, year) => async dispatch => {
   dispatch(getTransByDateRequest());
   try {
     const data = await dataFromBackend;
-    console.log(data);
+
     // const { data } = await axios.get(
     //   `/transactions/statistics?month=${month}&year=${year}`,
     // );
+    console.log(data);
     dispatch(getTransByDateSuccess(data));
   } catch (error) {
     dispatch(getTransByDateError(error.message));

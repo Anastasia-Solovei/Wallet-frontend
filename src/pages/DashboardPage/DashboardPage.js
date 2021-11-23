@@ -41,9 +41,7 @@ const Dashboard = () => {
                         <div className={styles.balance}>
                           <Balance />
                         </div>
-                        <div>
-                          <CurrencyTable />
-                        </div>
+                        <div>{/* <CurrencyTable /> */}</div>
                       </div>
 
                       <Switch>
@@ -56,8 +54,6 @@ const Dashboard = () => {
                         </Route>
                       </Switch>
                     </div>
-                    <ButtonAddTransactions />
-                    <ModalAddTransaction />
                   </Container>
                 </div>
               </div>
@@ -74,7 +70,7 @@ const Dashboard = () => {
                           <Navigation />
                           <Balance />
                         </div>
-                        <CurrencyTable />
+                        {/* <CurrencyTable /> */}
                       </div>
 
                       <Switch>
@@ -88,8 +84,6 @@ const Dashboard = () => {
                       </Switch>
                     </div>
                   </Container>
-                  <ButtonAddTransactions />
-                  <ModalAddTransaction />
                 </div>
               </div>
             )}
@@ -105,8 +99,6 @@ const Dashboard = () => {
                     <Route path={path.dashboardPage}>
                       <div className={styles.balance_mobile}>
                         <Balance />
-                        <ButtonAddTransactions />
-                        <ModalAddTransaction />
                       </div>
                       <HomeTabMobile />
                     </Route>
@@ -115,7 +107,7 @@ const Dashboard = () => {
                     </Route>
                     <Route path={path.currency}>
                       <div className={styles.currency_mobile}>
-                        <CurrencyTable />
+                        {/* <CurrencyTable /> */}
                       </div>
                     </Route>
                   </Switch>
