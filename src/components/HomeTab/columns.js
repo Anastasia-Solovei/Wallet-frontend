@@ -5,7 +5,7 @@ export const COLUMNS = [
     Header: 'Date',
     accessor: 'date',
     Cell: ({ value }) => {
-      return format(new Date(value), 'dd.MM.yy');
+      return format(new Date().getTime(value), 'dd.MM.yy');
     },
   },
   {

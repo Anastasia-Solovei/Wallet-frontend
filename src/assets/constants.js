@@ -51,23 +51,5 @@ export const years = [
   '2021',
   '2022',
 ];
-// expensis - ВРЕМЕННЫЙ МАССИВ
-
-export const expenses = [
-  1250.0, 1900.0, 300.0, 555.0, 888.0, 350.0, 587.0, 599.0, 687.05,
-];
-
-export const dataFromBackend = {
-  main: 1500,
-  food: 350,
-  car: 200,
-  me: 889,
-  children: 350,
-  house: 0,
-  education: 2000,
-  leisure: 1000,
-  other: 50,
-  incomes: 13500,
-};
 
 export const currencies = ['USD', 'EUR', 'RUR'];

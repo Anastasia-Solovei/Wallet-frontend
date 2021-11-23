@@ -27,7 +27,7 @@
 
 .titleWallet {
   font-family: 'Poppins', sans-serif;
-    
+
   display: flex;
   align-items: center;
   text-align: center;
@@ -209,4 +209,14 @@
   top: -30%;
   left: 30%;
   text-align: center;
+}
+
+.passwordBarProgress {
+  display: block;
+  position: relative;
+  top: -33px;
+  width: 100%;
+  height: 5px;
+  background-color: #e5f1ef;
+  border-radius: 4px;
 }
