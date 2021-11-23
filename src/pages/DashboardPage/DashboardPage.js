@@ -41,7 +41,9 @@ const Dashboard = () => {
                         <div className={styles.balance}>
                           <Balance />
                         </div>
-                        <div>{/* <CurrencyTable /> */}</div>
+                        <div>
+                          <CurrencyTable />
+                        </div>
                       </div>
 
                       <Switch>
@@ -70,7 +72,7 @@ const Dashboard = () => {
                           <Navigation />
                           <Balance />
                         </div>
-                        {/* <CurrencyTable /> */}
+                        <CurrencyTable />
                       </div>
 
                       <Switch>
@@ -107,7 +109,7 @@ const Dashboard = () => {
                     </Route>
                     <Route path={path.currency}>
                       <div className={styles.currency_mobile}>
-                        {/* <CurrencyTable /> */}
+                        <CurrencyTable />
                       </div>
                     </Route>
                   </Switch>
