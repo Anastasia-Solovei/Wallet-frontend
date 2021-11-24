@@ -72,6 +72,7 @@ const HomeTab = () => {
       }}
       mountOnEnter
     >
+    <div className={styles.helpWrap}>
       <div className={styles.wrapTable}>
         <table className={styles.table} {...getTableProps()}>
           <thead>
@@ -113,42 +114,45 @@ const HomeTab = () => {
             })}
           </tbody>
         </table>
-        <div className={styles.paginationWrap}>
-          <button
-            className={styles.paginationBtn}
-            onClick={() => gotoPage(0)}
-            disabled={!canPreviousPage}
-          >
-            {'<<'}
-          </button>
-          <button
-            className={styles.paginationBtn}
-            onClick={() => previousPage()}
-            disabled={!canPreviousPage}
-          >
-            {'<'}
-          </button>
-          <button className={styles.paginationCurrentPage}>
-            {pageIndex + 1}
-          </button>
-          <button
-            className={styles.paginationBtn}
-            onClick={() => nextPage()}
-            disabled={!canNextPage}
-          >
-            {'>'}
-          </button>
-          <button
-            className={styles.paginationBtn}
-            onClick={() => gotoPage(pageCount - 1)}
-            disabled={!canNextPage}
-          >
-            {'>>'}
-          </button>
-        </div>
+        {pageCount > 1 && (
+          <div className={styles.paginationWrap}>
+            <button
+              className={styles.paginationBtn}
+              onClick={() => gotoPage(0)}
+              disabled={!canPreviousPage}
+            >
+              {'<<'}
+            </button>
+            <button
+              className={styles.paginationBtn}
+              onClick={() => previousPage()}
+              disabled={!canPreviousPage}
+            >
+              {'<'}
+            </button>
+            <button className={styles.paginationCurrentPage}>
+              {pageIndex + 1}
+            </button>
+            <button
+              className={styles.paginationBtn}
+              onClick={() => nextPage()}
+              disabled={!canNextPage}
+            >
+              {'>'}
+            </button>
+            <button
+              className={styles.paginationBtn}
+              onClick={() => gotoPage(pageCount - 1)}
+              disabled={!canNextPage}
+            >
+              {'>>'}
+            </button>
+          </div>
+        )}
         <ButtonAddTransactions />
         <ModalAddTransaction />
       </div>
+    </div>
     </CSSTransition>
   );
 };
