@@ -6,7 +6,7 @@ import {
   getCategoriesError,
 } from './categoriesActions';
 
-axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
+axios.defaults.baseURL = 'https://project-wallet-main.herokuapp.com';
 
 export const getCategories = () => async dispatch => {
   dispatch(getCategoriesRequest());

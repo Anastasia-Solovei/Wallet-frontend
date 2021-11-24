@@ -6,7 +6,7 @@ import {
   fetchBalanceError,
 } from './financeActions';
 
-axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
+axios.defaults.baseURL = 'https://project-wallet-main.herokuapp.com';
 
 export const getCurrentBalance = () => async (dispatch, getStore) => {
   dispatch(fetchBalanceRequest());

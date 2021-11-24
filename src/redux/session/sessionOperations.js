@@ -11,7 +11,7 @@ import {
 import { closeModalLogOut } from '../global/globalActions';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-axios.defaults.baseURL = 'https://project-wallet.herokuapp.com';
+axios.defaults.baseURL = 'https://project-wallet-main.herokuapp.com';
 
 const token = {
   set(token) {
