@@ -5,8 +5,6 @@ const ValidationBar = ({ style, password }) => {
   const passStength = zxcvbn(password);
   // entropy = lg(26 * 5);
   const width = (passStength.score * 100) / 4;
-  console.log('passStength', passStength);
-  console.log('width', width);
 
   const color = () => {
     switch (passStength.score) {
