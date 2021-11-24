@@ -19,7 +19,7 @@
 
 .blur {
   backdrop-filter: blur(50px);
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .dashboard {
