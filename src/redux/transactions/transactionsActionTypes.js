@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   TRANSACTIONS_FETCH_REQUEST: 'transactions/fetchTransactionsRequest',
   TRANSACTIONS_FETCH_SUCCESS: 'transactions/fetchTransactionsSuccess',

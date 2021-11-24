@@ -1,70 +1,26 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ButtonAddTransactions from '../../components/ButtonAddTransactions';
 import ModalAddTransaction from '../../components/ModalAddTransaction';
 import styles from './HomeTabMobile.module.css';
-
-const transactions = [
-  {
-    id: '5464635512',
-    date: '04.01.21',
-    type: 'incomes',
-    category: 'Food',
-    comment: 'arcu adipiscing',
-    amount: 5500,
-    balance: 1500,
-  },
-  {
-    id: '546465778',
-    date: '05.01.21',
-    type: 'incomes',
-    category: 'Car',
-    comment: 'arcu adipiscing',
-    amount: 4500,
-    balance: 2000,
-  },
-  {
-    id: '5477851752',
-    date: '05.01.21',
-    type: 'incomes',
-    category: 'Me',
-    comment: 'arcu adipiscing',
-    amount: 5500,
-    balance: 2000,
-  },
-  {
-    id: '782465512',
-    date: '05.01.21',
-    type: 'expenses',
-    category: 'Children',
-    comment: 'arcu adipiscin gfghgffdffdhgfhgj',
-    amount: 2500,
-    balance: 2000,
-  },
-  {
-    id: '798546512',
-    date: '05.01.21',
-    type: 'expenses',
-    category: 'House',
-    comment: 'arcu adipiscing',
-    amount: 1500,
-    balance: 2000,
-  },
-  {
-    id: '547746512',
-    date: '05.01.21',
-    type: 'expenses',
-    category: 'Education',
-    comment: 'arcu adipiscing',
-    amount: 5500,
-    balance: 2000,
-  },
-];
+import { getTransactions } from '../../redux/transactions/transactionsSelectors';
+import { fetchTransactions } from '../../redux/transactions/transactionsOperations';
 
 const HomeTabMobile = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch]);
+
+  const transactions = useSelector(getTransactions);
+
   return (
     <div className={styles.container}>
-      {transactions.map(item => {
+      {transactions?.map(item => {
         return (
           <div
+            key={item.id}
             className={
               styles[
                 item.type === 'incomes'
@@ -73,17 +29,7 @@ const HomeTabMobile = () => {
               ]
             }
           >
-            <table
-              key={item.id}
-              className={
-                styles.mobileTab
-                // styles[
-                //   item.type === 'incomes'
-                //     ? 'mobileTabIncomes'
-                //     : 'mobileTabExpenses'
-                // ]
-              }
-            >
+            <table className={styles.mobileTab}>
               <tbody>
                 <tr>
                   <th scope="row">Date</th>
