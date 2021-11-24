@@ -91,7 +91,10 @@ export default function FormAddTransactions({ onClose }) {
 
     onSubmit: values => {
       const type = values.type;
-      const category = values.category || expensesСategories[0];
+      const category =
+        values.type === 'incomes'
+          ? 'incomes'
+          : values.category || expensesСategories[0];
       const amount = Number(values.amount);
       const date = values.date;
       const arrayDate = date.split('.');
