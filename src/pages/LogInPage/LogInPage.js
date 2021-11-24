@@ -36,10 +36,10 @@ const LogInPage = () => {
         }}
         mountOnEnter
       >
-        <div className={s.imgContent}>
-          <div className={s.img}></div>
-          <h1 className={s.pageHeading}>Finance App</h1>
-        </div>
+        <ImgContainer>
+          <div className={s.frameimg}></div>
+          <h1 className={s.title}>Finance App</h1>
+        </ImgContainer>
       </CSSTransition>
       <CSSTransition
         in={Loaded}
@@ -49,18 +49,10 @@ const LogInPage = () => {
         }}
         mountOnEnter
       >
-        <div className={s.logInFormUnderlay}>
+        <div className={s.formContainer}>
           <LogInForm />
         </div>
       </CSSTransition>
-
-      <ImgContainer>
-        <div className={s.frameimg}></div>
-        <h1 className={s.title}>Finance App</h1>
-      </ImgContainer>
-      <div className={s.formContainer}>
-        <LogInForm />
-      </div>
     </AuthContainer>
   );
 };

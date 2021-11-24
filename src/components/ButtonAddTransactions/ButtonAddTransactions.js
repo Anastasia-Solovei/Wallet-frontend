@@ -11,15 +11,6 @@ const ButtonAddTransactions = () => {
     setLoaded(true);
   }, []);
 
-  const bounce = setInterval(() => {
-    setLoaded(false);
-    const bounced = setInterval(() => {
-      setLoaded(true);
-      clearInterval(bounce);
-    }, 3000);
-    clearInterval(bounced);
-  }, 500);
-
   const dispatch = useDispatch();
   return (
     <CSSTransition
