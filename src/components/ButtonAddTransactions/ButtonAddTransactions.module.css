@@ -34,15 +34,7 @@
   }
 
   .buttonBounce {
-    /* animation: button-bounce 1s infinite; */
     animation: button-bounce 1s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
-    /* animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-  animation: name duration timing-function delay iteration-count direction
-    fill-mode; */
-    /* animation-name: button-bounce;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-  animation-iteration-count: infinite; */
   }
 }
 
