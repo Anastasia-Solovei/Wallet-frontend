@@ -37,7 +37,10 @@ const Balance = () => {
     >
       <div className={styles.balance}>
         <h3 className={styles.title}>your balance</h3>
-        <p className={styles.totalBalance}> ₴ {totalBalance.toFixed(2)}</p>
+        <p className={styles.totalBalance}>
+          {' '}
+          ₴ {totalBalance && totalBalance.toFixed(2)}
+        </p>
       </div>
     </CSSTransition>
   );
