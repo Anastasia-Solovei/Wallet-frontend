@@ -39,7 +39,7 @@
   @media screen and (min-width: 1279px) {
     .formContainer {
       width: 56.25%;
-      min-height: 720px;
+      min-height: 100vh;
       padding: 136px 85px 166px 95px;
       background: rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(50px);
