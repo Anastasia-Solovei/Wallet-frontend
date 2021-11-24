@@ -91,6 +91,7 @@
 }
 .cancel {
   composes: button;
+  background-color: #fff;
   color: var(--accent-text-color);
   border: 1px solid var(--accent-text-color);
 }
