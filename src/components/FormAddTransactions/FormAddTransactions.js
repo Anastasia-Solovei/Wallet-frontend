@@ -133,7 +133,7 @@ export default function FormAddTransactions({ onClose }) {
           style={{
             color: formik.values.type === 'incomes' ? '#24CCA7' : '#e0e0e0',
           }}
-          for="incomes"
+          htmlFor="incomes"
         >
           Incomes
         </label>
@@ -152,7 +152,7 @@ export default function FormAddTransactions({ onClose }) {
           style={{
             color: formik.values.type === 'expenses' ? '#ff6596' : '#e0e0e0',
           }}
-          for="expenses"
+          htmlFor="expenses"
         >
           Expenses
         </label>
