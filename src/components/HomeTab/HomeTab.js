@@ -64,7 +64,6 @@ const HomeTab = () => {
   );
 
   return (
-    <div className={styles.helpWrap}>
     <CSSTransition
       in={Loaded}
       timeout={500}
@@ -73,6 +72,7 @@ const HomeTab = () => {
       }}
       mountOnEnter
     >
+    <div className={styles.helpWrap}>
       <div className={styles.wrapTable}>
         <table className={styles.table} {...getTableProps()}>
           <thead>
