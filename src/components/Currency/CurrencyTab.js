@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import currencyApi from '../../services/currencyApi';
 import Loader from '../Loader';
 import { currencies } from '../../assets/constants';
@@ -6,6 +7,7 @@ import styles from './CurrencyTab.module.css';
 
 export default function CurrencyTable() {
   const [currency, setCurrency] = useState([]);
+  const [Loaded, setLoaded] = useState();
 
   // standart
   // useEffect(() => {
@@ -62,34 +64,47 @@ export default function CurrencyTable() {
     }
   }, []);
 
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
   return (
-    <div className={styles.currency}>
-      {currency.length === 0 ? (
-        <div className={styles.loader}>
-          <Loader color="#ffffff" />
-        </div>
-      ) : (
-        <table>
-          <thead>
-            <tr>
-              <td>Currency</td>
-              <td>Sell</td>
-              <td>Buy</td>
-            </tr>
-          </thead>
-          <tbody>
-            {currency.map(item => {
-              return (
-                <tr key={item.ccy}>
-                  <td>{item.ccy}</td>
-                  <td>{item.buy}</td>
-                  <td>{item.sale}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
-    </div>
+    <CSSTransition
+      in={Loaded}
+      timeout={500}
+      classNames={{
+        enterActive: `${styles.currencyShow}`,
+      }}
+      mountOnEnter
+    >
+      <div className={styles.currency}>
+        {currency.length === 0 ? (
+          <div className={styles.loader}>
+            <Loader color="#ffffff" />
+          </div>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <td>Currency</td>
+                <td>Sell</td>
+                <td>Buy</td>
+              </tr>
+            </thead>
+            <tbody>
+              {currency.map(item => {
+                return (
+                  <tr key={item.ccy}>
+                    <td>{item.ccy}</td>
+                    <td>{item.buy}</td>
+                    <td>{item.sale}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </CSSTransition>
   );
 }

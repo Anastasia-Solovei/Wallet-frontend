@@ -18,11 +18,14 @@
   padding: 10px 0 0 40px;
   color: var(--main-text-color);
   font-size: var(--font-size__balance_amount);
-  font-family:'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 
 @media (min-width: 768px) {
+  .balanceShow {
+    animation: balance-show 0.5s forwards;
+  }
   .balance {
     width: 334px;
   }
@@ -32,4 +35,19 @@
   .balance {
     width: 350px;
   }
-} ;
+}
+
+@keyframes balance-show {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

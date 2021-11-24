@@ -20,9 +20,10 @@
     filter: drop-shadow(0px 60px 40px rgba(0, 0, 0, 0));
   }
   100% {
-    margin-top: 620px;
+    margin-top: 500px;
   }
 }
+
 .moneyContainer {
   display: none;
 }
@@ -37,104 +38,115 @@
 
 .money1 {
   position: absolute;
-  transform-origin: 0px -400px 0px;
-  animation-name: fall, sway;
-  animation-duration: 3s, 4s;
+  left: 20px;
+  transform-origin: 0px -750px 0px;
+  animation-name: fall;
+  animation-duration: 3s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
+  transform: rotateX(58deg);
+  animation-delay: 1s;
 }
 
 .money2 {
   position: absolute;
-  transform-origin: 0px -340px 0px;
-  animation-name: fall, sway;
-  animation-duration: 3s, 4s;
+  right: 30px;
+  transform-origin: 0px -650px 0px;
+  animation-name: fall;
+  animation-duration: 1s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
-  animation-delay: 1s;
-  transform: rotateX(58deg);
+  transform: rotateX(68deg);
 }
 .money3 {
   position: absolute;
-  transform-origin: 0px -440px 10px;
+  right: 1px;
+  transform-origin: 0px -950px 0px;
   animation-name: fall, sway;
-  animation-duration: 3s, 4s;
+  animation-duration: 3s, 3s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
-  animation-delay: 0.2s;
 }
 .money4 {
   position: absolute;
-  transform-origin: 50px -400px 50px;
-  animation-name: fall, sway;
-  animation-duration: 3s, 4s;
+  right: 5px;
+  transform-origin: 0px -700px 0px;
+  animation-name: fall;
+  animation-duration: 2s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
-  animation-delay: 0.4s;
+  transform: rotateX(65deg);
 }
 .money5 {
   position: absolute;
-  transform-origin: 0px -880px 200px;
-  animation-name: fall, sway;
-  animation-duration: 3s, 4s;
+  right: 20px;
+  transform-origin: 0px -750px 0px;
+  animation-name: fall;
+  animation-duration: 4s, 4s;
   animation-fill-mode: both;
-  animation-timing-function: linear, ease-in;
+  animation-timing-function: linear, ease-in-out;
+  transform: rotateX(60deg);
 }
 .money6 {
   position: absolute;
-  transform-origin: 100px -580px 50px;
-  animation-name: sway, fall;
-  animation-duration: 4s, 5s;
+  right: 0.5px;
+  transform-origin: 0px -800px 0px;
+  animation-name: fall, sway;
+  animation-duration: 5s, 5s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
-  animation-delay: 0.25s;
 }
 .money7 {
-  transform-origin: 0px -450px 50px;
+  position: absolute;
+  transform-origin: 0px -850px 0px;
   animation-name: fall, sway;
-  animation-duration: 4s, 4s;
+  animation-duration: 3s, 3s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
 }
 .money8 {
   position: absolute;
-  transform-origin: 100px -350px 50px;
+  transform-origin: 0px -750px 0px;
   animation-name: fall, sway;
-  animation-duration: 4s, 5s;
+  animation-duration: 4s, 4s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
 }
 .money9 {
   position: absolute;
-  transform-origin: 100px -550px 50px;
-  animation-name: sway, fall;
-  animation-duration: 4s, 5s;
+  right: 20px;
+  transform-origin: 0px -850px 0px;
+  animation-name: fall, sway;
+  animation-duration: 4s, 4s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
 }
 .money10 {
   position: absolute;
-  transform-origin: 30px -450px 50px;
-  animation-name: sway, fall;
-  animation-duration: 4s, 5s;
+  transform-origin: 0px -800px 0px;
+  animation-name: fall;
+  animation-duration: 3s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
+  transform: rotateX(55deg);
 }
 .money11 {
   position: absolute;
-  transform-origin: 250px -482px 50px;
-  animation-name: sway, fall;
-  animation-duration: 3s, 4s;
+  right: 40px;
+  transform-origin: 0px -920px 0px;
+  animation-name: fall;
+  animation-duration: 2s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
+  transform: rotateX(53deg);
 }
 
 .money12 {
   position: absolute;
-  transform-origin: -100px -280px 0px;
-  animation-name: sway, fall;
-  animation-duration: 4s, 5s;
+  right: 3px;
+  transform-origin: 0px -720px 0px;
+  animation-name: fall, sway;
+  animation-duration: 4s, 4s;
   animation-fill-mode: both;
   animation-timing-function: linear, ease-in-out;
-  animation-delay: 0.25s;
 }

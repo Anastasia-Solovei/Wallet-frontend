@@ -1,4 +1,5 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { COLUMNS } from './columns';
@@ -21,11 +22,17 @@ const resolveClass = cell => {
 };
 
 const HomeTab = () => {
+  const [Loaded, setLoaded] = useState();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   const transactions = useSelector(getTransactions);
 
@@ -58,6 +65,14 @@ const HomeTab = () => {
 
   return (
     <div className={styles.helpWrap}>
+    <CSSTransition
+      in={Loaded}
+      timeout={500}
+      classNames={{
+        enterActive: `${styles.tableShow}`,
+      }}
+      mountOnEnter
+    >
       <div className={styles.wrapTable}>
         <table className={styles.table} {...getTableProps()}>
           <thead>
@@ -138,6 +153,7 @@ const HomeTab = () => {
         <ModalAddTransaction />
       </div>
     </div>
+    </CSSTransition>
   );
 };
 
