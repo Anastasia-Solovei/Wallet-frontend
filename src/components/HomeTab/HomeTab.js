@@ -26,6 +26,7 @@ const HomeTab = () => {
   const transactions = useSelector(getTransactions);
 
   const dispatch = useDispatch();
+  const transactions = useSelector(getTransactions);
 
   useEffect(() => {
     dispatch(fetchTransactions());
@@ -155,6 +156,7 @@ const HomeTab = () => {
             </div>
           )}
           {/* <ButtonAddTransactions /> */}
+
           <ModalAddTransaction />
         </div>
       </div>
