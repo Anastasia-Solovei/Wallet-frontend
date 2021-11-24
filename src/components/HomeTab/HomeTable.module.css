@@ -69,7 +69,7 @@
 }
 
 .table tr:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
 }
 
 .table .tr:not(:last-child) {
