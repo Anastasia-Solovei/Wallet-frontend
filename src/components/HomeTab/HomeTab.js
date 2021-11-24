@@ -23,6 +23,7 @@ const resolveClass = cell => {
 
 const HomeTab = () => {
   const [Loaded, setLoaded] = useState();
+  const transactions = useSelector(getTransactions);
 
   const dispatch = useDispatch();
   const transactions = useSelector(getTransactions);
@@ -154,7 +155,8 @@ const HomeTab = () => {
               </button>
             </div>
           )}
-          <ButtonAddTransactions />
+          {/* <ButtonAddTransactions /> */}
+
           <ModalAddTransaction />
         </div>
       </div>
