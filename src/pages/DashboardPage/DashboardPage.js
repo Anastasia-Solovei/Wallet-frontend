@@ -49,6 +49,7 @@ const Dashboard = () => {
                       <Switch>
                         <Route path={path.dashboardPage}>
                           <HomeTab />
+                          <ButtonAddTransactions />
                         </Route>
 
                         <Route path={path.statistic}>
@@ -56,7 +57,6 @@ const Dashboard = () => {
                         </Route>
                       </Switch>
                     </div>
-                    <ButtonAddTransactions />
                   </Container>
                 </div>
               </div>
@@ -79,6 +79,7 @@ const Dashboard = () => {
                       <Switch>
                         <Route path={path.dashboardPage}>
                           <HomeTab />
+                          <ButtonAddTransactions />
                         </Route>
 
                         <Route path={path.statistic}>
@@ -86,7 +87,6 @@ const Dashboard = () => {
                         </Route>
                       </Switch>
                     </div>
-                    <ButtonAddTransactions />
                   </Container>
                 </div>
               </div>
