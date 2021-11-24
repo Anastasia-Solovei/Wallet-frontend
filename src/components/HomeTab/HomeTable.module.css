@@ -7,48 +7,44 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .helpWrap{
+  .helpWrap {
     width: 700px;
-    height: 60vh;
+    /* height: 60vh; */
     /* position: relative; */
   }
-  
+
   .wrapTable {
     width: 100%;
     height: 100%;
+    height: calc(100vh - 120px);
     /* margin: 0; */
   }
 
   .table {
     width: 100%;
   }
-
-
-
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px){
-.helpWrap {
-  width: 688px;
-  height: 710px;
-  /* position: relative; */
-}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .helpWrap {
+    width: 688px;
+    height: 100%;
+    /* position: relative; */
+  }
 
-.wrapTable {
-  width: 100%;
-  height: 100%;
-  /* margin: 0; */
- }
- .table {
-  width: 100%; 
+  .wrapTable {
+    width: 100%;
+    height: calc(100vh - 320px);
+    /* margin: 0; */
+  }
+  .table {
+    width: 100%;
+  }
 }
-
-}
-
 
 .table {
   /* table-layout: fixed; */
-  
+
   font-family: var(--main__font-family);
   font-weight: 400;
   font-size: var(--font-size__main);
@@ -59,7 +55,6 @@
 }
 
 .table th {
-
   padding-top: 15px;
   padding-bottom: 16px;
   text-align: center;
@@ -124,21 +119,20 @@
 }
 
 .tdIncomes {
-  color:var(--amount-incomes-text-color) ;
+  color: var(--amount-incomes-text-color);
   font-weight: 700;
 }
 
 .tdExpenses {
-  color:var(--amount-expenses-text-color) ;
+  color: var(--amount-expenses-text-color);
   font-weight: 700;
 }
 
 @media screen and (min-width: 1280px) {
-  .paginationWrap{
+  .paginationWrap {
     position: fixed;
     right: 30%;
-    bottom: 40px;    
-    
+    bottom: 40px;
   }
 }
 
@@ -146,8 +140,7 @@
   .paginationWrap {
     position: fixed;
     right: 30%;
-    bottom: 40px
-    
+    bottom: 40px;
   }
 }
 
@@ -157,7 +150,7 @@
 }
 
 .paginationCurrentPage,
-.paginationBtn{
+.paginationBtn {
   width: 40px;
   height: 40px;
   padding-top: 3px;

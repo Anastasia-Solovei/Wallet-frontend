@@ -56,6 +56,7 @@ const Dashboard = () => {
                         </Route>
                       </Switch>
                     </div>
+                    <ButtonAddTransactions />
                   </Container>
                 </div>
               </div>
@@ -85,6 +86,7 @@ const Dashboard = () => {
                         </Route>
                       </Switch>
                     </div>
+                    <ButtonAddTransactions />
                   </Container>
                 </div>
               </div>
