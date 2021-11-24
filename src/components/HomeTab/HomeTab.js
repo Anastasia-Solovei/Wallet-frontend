@@ -26,7 +26,6 @@ const HomeTab = () => {
   const transactions = useSelector(getTransactions);
 
   const dispatch = useDispatch();
-  const transactions = useSelector(getTransactions);
 
   useEffect(() => {
     dispatch(fetchTransactions());
