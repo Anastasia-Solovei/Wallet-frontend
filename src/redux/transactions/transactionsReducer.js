@@ -20,7 +20,10 @@ import {
 
 const result = createReducer([], {
   [fetchTransSuccess]: (_, { payload }) => payload.data.transaction,
-  [addTransSuccess]: (state, { payload }) => [...state, payload.data],
+  [addTransSuccess]: (state, { payload }) => [
+    ...state,
+    payload.data.transaction,
+  ],
   [deleteTransSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
