@@ -27,9 +27,9 @@ const HomeTab = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchTransactions());
-  }, [dispatch, transactions]);
+  // useEffect(() => {
+  //   dispatch(fetchTransactions());
+  // }, [dispatch, transactions]);
 
   useEffect(() => {
     setLoaded(true);
